@@ -850,6 +850,17 @@
     });
   }
 
+  // KNOWN ISSUES – flag for developer before production
+  // 1. MUTED ON MOBILE: iOS Safari and Android Chrome mute video in iframes when playback
+  //    is triggered by a button click rather than a direct tap on the video element itself.
+  //    This is a browser security policy and cannot be overridden via embed parameters.
+  //    Fix: Implement the Vimeo Player JS API to control playback directly.
+  //
+  // 2. VIDEO HANGS ON MOBILE: Setting iframe src dynamically on click initializes the Vimeo
+  //    player from scratch each time, which can cause a buffering state the player doesn't
+  //    always recover from automatically on mobile connections.
+  //    Fix: Use the Vimeo Player JS API to load and trigger playback rather than swapping src.
+
   // Lightbox
   const overlay = document.getElementById('video-lightbox');
   const iframe = document.getElementById('vimeo-iframe');
