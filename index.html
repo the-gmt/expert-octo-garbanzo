@@ -212,14 +212,27 @@
     letter-spacing: 0.5px; margin-bottom: 6px;
   }
   .intercept-card p { font-size: 16px; color: #4B3F34; margin: 0; line-height: 1.6; }
-  .breach-dots {
-    display: flex; justify-content: center; gap: 8px; margin: 16px 0 0;
+  /* BREACH NAV – desktop arrows */
+  .breach-nav {
+    display: flex; align-items: center; justify-content: center;
+    gap: 20px; margin-top: 24px;
   }
-  .breach-dots span {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: #d0d0d0; display: block; cursor: pointer;
+  .breach-arrow {
+    background: #fff; border: 2px solid #FAAF42; color: #212529;
+    width: 44px; height: 44px; border-radius: 50%; font-size: 20px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, transform 0.15s;
+    flex-shrink: 0;
   }
-  .breach-dots span.active { background: #FAAF42; }
+  .breach-arrow:hover { background: #FAAF42; transform: scale(1.05); }
+  .breach-arrow:disabled { opacity: 0.3; cursor: default; transform: none; }
+
+  /* Hide dots on desktop, hide arrows on mobile */
+  .breach-dots { display: none; }
+  @media (max-width: 900px) {
+    .breach-nav { display: none; }
+    .breach-dots { display: flex; justify-content: center; gap: 8px; margin: 16px 0 0; }
+  }
 
   /* DIFFERENTIATORS */
   .diff-section {
@@ -378,7 +391,7 @@
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    nav { padding: 12px 20px; position: relative; }
+    nav { padding: 12px 20px; position: sticky; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
     .hero { grid-template-columns: 1fr; padding: 48px 24px; text-align: center; }
@@ -485,8 +498,8 @@
 
   <div class="autoscan-banner">
     <div>
-      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/All_your_email_image_-_cropped.png" alt="Hands-free-protection-for-all-your-email" style="width:150px; margin-bottom:10px;">
-      <h2 style="color: #fff;">Hands-free protection for all your email</h2>
+      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/All_your_email_image_-_cropped.png" alt="Hands-free protection for all your email" style="width:150px; margin-bottom:10px;">
+      <h2 style="color: #fff;">All your email – hands-free protection</h2>
       <p>Connect your Gmail or Outlook account and AutoScan monitors your inbox around the clock – alerting you to threats before you even open them.</p>
     </div>
     <a class="btn-light" href="#" id="open-autoscan-video" style="display:inline-flex; align-items:center; gap:10px; white-space:nowrap;">Learn&nbsp;more <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/Play_button_v2.gif" alt="play" width="28" height="28" style="display:inline-block; vertical-align:middle;"></a>
@@ -550,6 +563,10 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="breach-nav" id="breach-nav">
+      <button class="breach-arrow" id="breach-prev" aria-label="Previous" disabled>&#8592;</button>
+      <button class="breach-arrow" id="breach-next" aria-label="Next">&#8594;</button>
     </div>
     <div class="breach-dots" id="breach-dots">
       <span class="active"></span><span></span><span></span><span></span><span></span>
@@ -756,11 +773,41 @@
 
   const breachCarousel = document.getElementById('breach-carousel');
   const breachDots = document.querySelectorAll('#breach-dots span');
-  if (breachCarousel && breachDots.length) {
+  const breachPrev = document.getElementById('breach-prev');
+  const breachNext = document.getElementById('breach-next');
+  const breachCounter = document.getElementById('breach-counter');
+  const totalCards = breachDots.length;
+
+  function getBreachCardWidth() {
+    const card = breachCarousel.querySelector('.breach-card');
+    return card ? card.offsetWidth + 24 : 0;
+  }
+
+  function updateBreachState(idx) {
+    breachDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    if (breachCounter) breachCounter.textContent = (idx + 1) + ' / ' + totalCards;
+    if (breachPrev) breachPrev.disabled = idx === 0;
+    if (breachNext) breachNext.disabled = idx === totalCards - 1;
+  }
+
+  if (breachCarousel) {
     breachCarousel.addEventListener('scroll', () => {
-      const w = breachCarousel.querySelector('.breach-card').offsetWidth + 24;
-      const idx = Math.min(Math.round(breachCarousel.scrollLeft / w), breachDots.length - 1);
-      breachDots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      const w = getBreachCardWidth();
+      if (!w) return;
+      const idx = Math.min(Math.round(breachCarousel.scrollLeft / w), totalCards - 1);
+      updateBreachState(idx);
+    });
+
+    if (breachPrev) breachPrev.addEventListener('click', () => {
+      const w = getBreachCardWidth();
+      const idx = Math.max(0, Math.round(breachCarousel.scrollLeft / w) - 1);
+      breachCarousel.scrollTo({ left: idx * w, behavior: 'smooth' });
+    });
+
+    if (breachNext) breachNext.addEventListener('click', () => {
+      const w = getBreachCardWidth();
+      const idx = Math.min(totalCards - 1, Math.round(breachCarousel.scrollLeft / w) + 1);
+      breachCarousel.scrollTo({ left: idx * w, behavior: 'smooth' });
     });
   }
 
