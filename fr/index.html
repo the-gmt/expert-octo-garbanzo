@@ -135,6 +135,10 @@
     font-size: 18px; color: rgba(255,255,255,0.75); line-height: 1.65;
   }
 
+  /* SCAN & SCORE LOGO */
+  .scanscore-logo { height: 60px; width: auto; }
+  @media (max-width: 900px) { .scanscore-logo { height: 40px; } }
+
   /* SCAN & SCORE */
   .scan-section {
     padding: 80px 48px;
@@ -418,13 +422,20 @@
     nav { padding: 12px 20px; position: sticky; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
+
+    /* 1. Center hero buttons on mobile */
     .hero { grid-template-columns: 1fr; padding: 48px 24px; text-align: center; }
     .hero h1 { font-size: 28px; line-height: 36px; }
-    .hero-ctas { justify-content: center; flex-wrap: wrap; }
+    .hero-ctas { align-items: center; justify-content: center; flex-wrap: wrap; }
     .hero-visual { display: none; }
+
+    /* 2. Center-align trust bar items on mobile */
     .trust-bar { padding: 36px 24px; }
+    .trust-item { display: block; text-align: center; width: 100%; }
+
     .scan-section, .diff-section, .start-section { padding: 56px 24px; }
     .breach-section { padding: 56px 24px; }
+
     .scan-steps-grid {
       display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch; gap: 18px; padding-bottom: 18px; scrollbar-width: none;
@@ -495,7 +506,7 @@
 
 <!-- SCAN & SCORE -->
 <section class="scan-section">
-  <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/scanscore-logo-fr.png" alt="Analyse & Évaluation" style="height:60px; width:auto; margin-bottom:18px; display:block;">
+  <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/1b39e25b35127406ae3ce8e27ba8022c83557c4c/scanscore-logo-fr-svg.svg" alt="Analyse & Évaluation" class="scanscore-logo" style="margin-bottom:18px; display:block;">
   <h2>Vous avez reçu un message suspect? Obtenez votre réponse en quelques secondes.</h2>
   <p>Les Canadiens reçoivent des millions de messages frauduleux chaque jour. Assist Identité Analyse & Évaluation utilise l'IA avancée pour analyser instantanément les courriels, textos, images et liens suspects – en vous indiquant s'ils sont sécuritaires ou s'ils représentent une menace.</p>
 
