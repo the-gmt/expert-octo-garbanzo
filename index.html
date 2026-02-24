@@ -836,12 +836,18 @@
     breachCarousel.scrollTo({ left: idx * w, behavior: 'smooth' });
   });
 
-  // Scan & Score carousel dots
+  
+// Scan & Score carousel dots
   const scanCarousel = document.getElementById('scan-carousel');
   const scanDots = document.querySelectorAll('#carousel-dots span');
   if (scanCarousel && scanDots.length) {
     scanCarousel.addEventListener('scroll', () => {
-      const idx = Math.round(scanCarousel.scrollLeft / scanCarousel.offsetWidth);
+      const card = scanCarousel.querySelector('.scan-step-card');
+      const cardWidth = card ? card.offsetWidth + 16 : scanCarousel.offsetWidth;
+      const idx = Math.min(
+        Math.round(scanCarousel.scrollLeft / cardWidth),
+        scanDots.length - 1
+      );
       scanDots.forEach((d, i) => d.classList.toggle('active', i === idx));
     });
   }
