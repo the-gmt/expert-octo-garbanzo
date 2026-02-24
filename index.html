@@ -24,22 +24,22 @@
   /* NAV */
   nav {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 48px;
+    padding: 16px 48px;
     background: #fff;
     border-bottom: 1px solid #eee;
     position: sticky; top: 0; z-index: 100;
   }
   .nav-links { display: flex; gap: 32px; align-items: center; }
-  .nav-links a { text-decoration: none; color: #4B3F34; font-size: 18px; font-weight: 600; }
+  .nav-links a { text-decoration: none; color: #4B3F34; font-size: 16px; font-weight: 600; }
   .nav-links a:hover { color: #E8292F; }
   .nav-cta {
     background: #FAAF42; color: #212529; padding: 10px 22px; border-radius: 6px;
-    font-size: 18px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
+    font-size: 16px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
   }
   .nav-cta:hover { background: #e89e2e; }
   .nav-login {
     background: none; border: 2px solid #FAAF42; color: #212529; padding: 8px 20px;
-    border-radius: 6px; font-size: 18px; font-weight: 600; text-decoration: none; cursor: pointer;
+    border-radius: 6px; font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer;
   }
   .nav-login:hover { background: #fef8eb; }
 
@@ -57,7 +57,7 @@
   .hero p {
     font-size: 20px; color: #4B3F34; margin-bottom: 32px; line-height: 26px;
   }
-  .hero-ctas { display: flex; gap: 18px; align-items: center; }
+  .hero-ctas { display: flex; gap: 16px; align-items: center; }
   .btn-primary {
     background: #FAAF42; color: #212529; padding: 14px 32px; border-radius: 8px;
     font-size: 18px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
@@ -90,7 +90,7 @@
     gap: 0; margin-bottom: 40px; flex-wrap: wrap;
   }
   .proof-top-item {
-    display: flex; align-items: center; gap: 18px;
+    display: flex; align-items: center; gap: 16px;
     padding: 0 48px; flex: 1; min-width: 220px;
     justify-content: center;
   }
@@ -141,7 +141,7 @@
     max-width: 1200px; margin: 0 auto;
   }
   .scan-section h2 {
-    font-size: 30px; font-weight: 700; margin-bottom: 18px; color: #212529; line-height: 40.8px;
+    font-size: 30px; font-weight: 700; margin-bottom: 16px; color: #212529; line-height: 40.8px;
   }
   .scan-section > p {
     font-size: 20px; color: #4B3F34; margin-bottom: 48px; line-height: 26px;
@@ -166,7 +166,7 @@
   .autoscan-banner p { font-size: 18px; color: #d0d0d0; line-height: 1.6; }
   .btn-light {
     background: #FAAF42; color: #212529; padding: 12px 28px; border-radius: 8px;
-    font-size: 18px; font-weight: 700; text-decoration: none; border: none;
+    font-size: 16px; font-weight: 700; text-decoration: none; border: none;
     cursor: pointer; white-space: nowrap; transition: background 0.2s;
   }
   .btn-light:hover { background: #e89e2e; }
@@ -187,7 +187,6 @@
     margin: 0 auto 40px; line-height: 26px;
   }
 
-  /* Carousel wrapper – relative so arrows can be positioned over it */
   .breach-carousel-wrap {
     position: relative;
   }
@@ -198,31 +197,29 @@
     -webkit-overflow-scrolling: touch;
     display: flex; gap: 24px;
     padding-bottom: 8px; scrollbar-width: none;
-    /* Side padding gives the arrows room without clipping cards */
     padding-left: 52px; padding-right: 52px;
   }
   .breach-carousel::-webkit-scrollbar { display: none; }
 
   .breach-card {
     flex: 0 0 340px; scroll-snap-align: start;
-    background: #fff; border-radius: 18px; overflow: hidden;
+    background: #fff; border-radius: 16px; overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   }
   .breach-card img.card-image { width: 100%; height: 220px; object-fit: cover; display: block; }
   .breach-card-body { padding: 24px 28px 28px; }
   .breach-card-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #212529; line-height: 1.3; }
-  .breach-card-body > p { font-size: 18px; color: #4B3F34; line-height: 1.6; margin-bottom: 18px; }
+  .breach-card-body > p { font-size: 16px; color: #4B3F34; line-height: 1.6; margin-bottom: 16px; }
   .intercept-card {
-    background: #F2F2F2; border-radius: 10px; padding: 18px 20px;
+    background: #F2F2F2; border-radius: 10px; padding: 16px 20px;
     border-left: 4px solid #287292;
   }
   .intercept-card .tag {
-    font-size: 18px; font-weight: 700; color: #287292; text-transform: uppercase;
+    font-size: 16px; font-weight: 700; color: #287292; text-transform: uppercase;
     letter-spacing: 0.5px; margin-bottom: 6px;
   }
-  .intercept-card p { font-size: 18px; color: #4B3F34; margin: 0; line-height: 1.6; }
+  .intercept-card p { font-size: 16px; color: #4B3F34; margin: 0; line-height: 1.6; }
 
-  /* Overlaid arrows – desktop only */
   .breach-arrow {
     position: absolute;
     top: 50%;
@@ -246,10 +243,9 @@
   #breach-prev { left: 0; }
   #breach-next { right: 0; }
 
-  /* Dots – mobile only */
   .breach-dots {
     display: none;
-    justify-content: center; gap: 8px; margin-top: 18px;
+    justify-content: center; gap: 8px; margin-top: 16px;
   }
   .breach-dots span {
     width: 8px; height: 8px; border-radius: 50%; background: #d0d0d0; display: block;
@@ -302,7 +298,7 @@
   .start-num {
     width: 40px; height: 40px; border-radius: 50%; background: #FAAF42;
     color: #212529; font-weight: 800; font-size: 18px;
-    display: flex; align-items: center; justify-content: center; margin: 0 auto 18px;
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
   }
   .start-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #212529; line-height: 26px; }
   .start-step p { font-size: 18px; color: #4B3F34; line-height: 1.6; }
@@ -312,16 +308,16 @@
     padding: 80px 48px; background: #495057; color: #fff; text-align: center;
   }
   .final-inner { max-width: 700px; margin: 0 auto; }
-  .final-inner h2 { font-size: 30px; font-weight: 700; margin-bottom: 18px; line-height: 40.8px; }
+  .final-inner h2 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 40.8px; }
   .final-inner p { font-size: 20px; color: rgba(255,255,255,0.85); margin-bottom: 32px; line-height: 26px; }
   .btn-white {
-    background: #FAAF42; color: #212529; padding: 18px 40px; border-radius: 8px;
+    background: #FAAF42; color: #212529; padding: 16px 40px; border-radius: 8px;
     font-size: 18px; font-weight: 700; border: none; cursor: pointer;
     display: inline-block; text-decoration: none; transition: transform 0.2s;
   }
   .btn-white:hover { transform: translateY(-1px); background: #e89e2e; }
-  .app-badges { margin-top: 32px; display: flex; gap: 18px; justify-content: center; }
-  .cancel-note { font-size: 18px; color: rgba(255,255,255,0.55); margin-top: 18px; }
+  .app-badges { margin-top: 32px; display: flex; gap: 16px; justify-content: center; }
+  .cancel-note { font-size: 18px; color: rgba(255,255,255,0.55); margin-top: 16px; }
 
   /* LIGHTBOX */
   .lightbox-overlay {
@@ -363,7 +359,7 @@
   .footer-contact a:hover { color: #FAAF42; }
   .footer-maple {
     display: flex; align-items: flex-start; gap: 10px;
-    margin: 18px 0 20px;
+    margin: 16px 0 20px;
   }
   .footer-maple p { font-size: 15px; color: #ccc; margin: 0; line-height: 1.5; }
   .footer-maple strong { color: #fff; }
@@ -372,7 +368,7 @@
   .footer-nav { padding-top: 4px; }
   .footer-nav ul { list-style: none; }
   .footer-nav ul li { margin-bottom: 14px; text-align: right; }
-  .footer-nav ul li a { color: #ccc; text-decoration: none; font-size: 18px; font-weight: 500; }
+  .footer-nav ul li a { color: #ccc; text-decoration: none; font-size: 16px; font-weight: 500; }
   .footer-nav ul li a:hover { color: #FAAF42; }
   .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.12);
@@ -404,9 +400,9 @@
     box-shadow: 0 8px 24px rgba(0,0,0,0.08); z-index: 99;
   }
   .mobile-menu.open { display: flex; }
-  .mobile-menu a { padding: 18px 24px; font-size: 18px; font-weight: 600; color: #4B3F34; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
+  .mobile-menu a { padding: 16px 24px; font-size: 16px; font-weight: 600; color: #4B3F34; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
   .mobile-menu a:hover { background: #fef8eb; color: #E8292F; }
-  .mobile-menu .mob-cta { margin: 18px 24px 20px; padding: 12px 24px; text-align: center; background: #FAAF42; border-radius: 8px; font-weight: 700; color: #212529; border-bottom: none; }
+  .mobile-menu .mob-cta { margin: 16px 24px 20px; padding: 12px 24px; text-align: center; background: #FAAF42; border-radius: 8px; font-weight: 700; color: #212529; border-bottom: none; }
   .mobile-menu .mob-cta:hover { background: #e89e2e; color: #212529; }
 
   /* SCAN CAROUSEL DOTS */
@@ -431,7 +427,7 @@
     .breach-section { padding: 56px 24px; }
     .scan-steps-grid {
       display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch; gap: 18px; padding-bottom: 18px; scrollbar-width: none;
+      -webkit-overflow-scrolling: touch; gap: 16px; padding-bottom: 16px; scrollbar-width: none;
     }
     .scan-steps-grid::-webkit-scrollbar { display: none; }
     .scan-step-card { flex: 0 0 80%; scroll-snap-align: center; }
@@ -442,10 +438,10 @@
     .final-section, .proof-section { padding: 56px 24px; }
     .breach-card { flex: 0 0 85%; }
     .proof-top { flex-direction: column; gap: 0; }
-    .proof-top-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.15); padding: 24px 0; width: 100%; flex: none; }
+    .proof-top-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.15); padding: 24px 0; width: 280px; flex: none; justify-content: flex-start; }
+    .proof-label { text-align: left; }
     .proof-top-item:last-child { border-bottom: none; }
-    .proof-label { text-align: center; }
-    .proof-icon { display: none; }
+
     .proof-scenario-grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -454,7 +450,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo"><a href="https://the-gmt.github.io/expert-octo-garbanzo/"><img src="https://www.idassist.com/assets/images/id-assist-en.svg" alt="ID Assist" style="height: 50px;"></div>
+  <div class="nav-logo"><a href="https://the-gmt.github.io/expert-octo-garbanzo/">    <img src="https://www.idassist.com/assets/images/id-assist-en.svg" alt="ID&nbsp;Assist" style="height: 50px;"></div>
   <div class="nav-links">
     <a href="https://www.idassist.com/en/identity">Identity Theft & Recovery</a>
     <a href="https://www.idassist.com/en/plans">Plans & Pricing</a>
@@ -478,7 +474,7 @@
 <section class="hero">
   <div>
     <h1>Scammers are getting smarter.<br><span>Now you can be, too.</span></h1>
-    <p>ID Assist gives you the tools to detect scams instantly, monitor your identity around the clock, and take action with expert support – all in one place.</p>
+    <p>ID&nbsp;Assist gives you the tools to detect scams instantly, monitor your identity around the clock, and take action with expert support – all in one place.</p>
     <div class="hero-ctas">
       <a class="btn-primary" href="https://www.idassist.com/en/registration/account">Try&nbsp;ID&nbsp;Assist&nbsp;free&nbsp;for&nbsp;30&nbsp;days</a>
       <a class="btn-secondary" href="#" id="open-video" style="display:inline-flex; align-items:center; gap:10px; padding: 14px 28px; white-space:nowrap;">See&nbsp;how&nbsp;it&nbsp;works <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/Play_button_v2.gif" alt="play" width="28" height="28" style="display:inline-block; vertical-align:middle;"></a>
@@ -499,23 +495,23 @@
 
 <!-- SCAN & SCORE -->
 <section class="scan-section">
-  <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/ac5f8db692e42f5e72c163a94ef433be3e09c9d6/scanscore-logo.png" alt="Scan & Score" style="height:60px; width:auto; margin-bottom:18px; display:block;">
+  <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/ac5f8db692e42f5e72c163a94ef433be3e09c9d6/scanscore-logo.png" alt="Scan & Score" style="height:60px; width:auto; margin-bottom:16px; display:block;">
   <h2>Got a suspicious message? Get your answer in seconds.</h2>
-  <p>Canadians receive millions of scam messages every day. ID Assist Scan & Score uses advanced AI to instantly analyze suspicious emails, texts, images, and links – telling you whether they're safe or a threat.</p>
+  <p>Canadians receive millions of scam messages every day. ID&nbsp;Assist Scan &amp; Score uses advanced AI to instantly analyze suspicious emails, texts, images, and links – telling you whether they're safe or a threat.</p>
 
   <div class="scan-steps-grid" id="scan-carousel">
     <div class="scan-step-card">
-      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/fdd7c6e900b9b4bef9894483baf920eec67a2298/Submit%20scan.gif" alt="Scan it" style="width:100%; border-radius:8px; margin-bottom:18px;">
+      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/fdd7c6e900b9b4bef9894483baf920eec67a2298/Submit%20scan.gif" alt="Scan it" style="width:100%; border-radius:8px; margin-bottom:16px;">
       <h3>Scan it</h3>
       <p>Submit any suspicious email, text, image, or link – just copy, paste, or snap a photo.</p>
     </div>
     <div class="scan-step-card">
-      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/3.png" alt="Get your score" style="width:100%; border-radius:8px; margin-bottom:18px;">
+      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/3.png" alt="Get your score" style="width:100%; border-radius:8px; margin-bottom:16px;">
       <h3>Get your score</h3>
       <p>Our AI analyzes thousands of scam indicators and assigns a clear risk level in seconds.</p>
     </div>
     <div class="scan-step-card">
-      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/2.png" alt="Know what to do" style="width:100%; border-radius:8px; margin-bottom:18px;">
+      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/2.png" alt="Know what to do" style="width:100%; border-radius:8px; margin-bottom:16px;">
       <h3>Know what to do</h3>
       <p>Receive specific, actionable steps tailored to the threat level – so you can respond with confidence.</p>
     </div>
@@ -538,7 +534,7 @@
 <section class="breach-section">
   <div class="breach-inner">
     <h2>How a data breach becomes your problem</h2>
-    <p>Every breach follows the same pattern. Here's how ID Assist fights back when your information is at risk.</p>
+    <p>Every breach follows the same pattern. Here's how ID&nbsp;Assist fights back when your information is at risk.</p>
 
     <div class="breach-carousel-wrap">
       <button class="breach-arrow" id="breach-prev" aria-label="Previous" disabled>&#8592;</button>
@@ -558,7 +554,7 @@
             <h3>Your information hits the dark web</h3>
             <p>Stolen emails, passwords, credit card numbers, and SINs get traded on hidden criminal marketplaces – often within days.</p>
             <div class="intercept-card">
-              <div class="tag">→ How ID Assist helps</div>
+              <div class="tag">How ID&nbsp;Assist helps</div>
               <p><strong>Dark web monitoring</strong> – We watch for up to 50 pieces of your personal information across criminal marketplaces and quickly alert you when something is found so you can change passwords or cancel compromised bank cards to protect your accounts.</p>
             </div>
           </div>
@@ -569,7 +565,7 @@
             <h3>Scammers target you directly</h3>
             <p>Using your personal details, criminals send convincing emails and texts designed to trick you into giving up even more.</p>
             <div class="intercept-card">
-              <div class="tag">→ How ID Assist helps</div>
+              <div class="tag">How ID&nbsp;Assist helps</div>
               <p><strong>Scan & Score</strong> – AI-powered scam detection analyzes any suspicious message and tells you instantly whether it's a threat.</p>
             </div>
           </div>
@@ -580,7 +576,7 @@
             <h3>Someone applies for credit in your name</h3>
             <p>Identity thieves use stolen information to open accounts or take out loans – leaving you with the damage.</p>
             <div class="intercept-card">
-              <div class="tag">→ How ID Assist helps</div>
+              <div class="tag">How ID&nbsp;Assist helps</div>
               <p><strong>Dual-bureau credit monitoring</strong> – We monitor both Equifax and TransUnion daily. Most services only watch one – meaning they can miss the early signs of fraud.</p>
             </div>
           </div>
@@ -591,7 +587,7 @@
             <h3>Recovering your identity is complicated – but it doesn't have to be</h3>
             <p>Restoring your identity after theft can mean dealing with banks, credit bureaus, government agencies, and creditors – often all at once.</p>
             <div class="intercept-card">
-              <div class="tag">→ How ID Assist helps</div>
+              <div class="tag">How ID&nbsp;Assist helps</div>
               <p><strong>Full-service identity restoration</strong> – Our specialists guide you through every step of recovery, including Limited Power of Attorney support – so you can focus on your life, not the paperwork.</p>
             </div>
           </div>
@@ -607,7 +603,7 @@
 
 <!-- DIFFERENTIATORS -->
 <section class="diff-section">
-  <h2>What makes ID Assist different</h2>
+  <h2>What makes ID&nbsp;Assist different</h2>
   <div class="diff-grid">
     <div class="diff-card">
       <div class="diff-icon">⚡</div>
@@ -716,7 +712,7 @@
     <div class="start-step">
       <div class="start-num">1</div>
       <h3>Start your free trial</h3>
-      <p>Get full access to every ID Assist feature for 30 days – no commitment required.</p>
+      <p>Get full access to every ID&nbsp;Assist feature for 30 days – no commitment required.</p>
     </div>
     <div class="start-step">
       <div class="start-num">2</div>
@@ -736,7 +732,7 @@
 <section class="final-section">
   <div class="final-inner">
     <h2>Protection that goes where you go</h2>
-    <p>The ID Assist mobile app puts every feature in your pocket – scan suspicious messages on the spot, check your credit score, review alerts, and manage your account from anywhere.</p>
+    <p>The ID&nbsp;Assist mobile app puts every feature in your pocket – scan suspicious messages on the spot, check your credit score, review alerts, and manage your account from anywhere.</p>
     <a class="btn-white" href="https://www.idassist.com/en/registration/account">Try&nbsp;ID&nbsp;Assist&nbsp;free&nbsp;for&nbsp;30&nbsp;days</a>
     <div class="app-badges">
       <a href="https://apps.apple.com/ca/app/id-assist-mobile/id540563542" target="_blank"><img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store" style="height:44px; width:auto;"></a>
@@ -789,8 +785,8 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>ID Assist is an early warning system that helps you look after your identity.</p>
-    <p>© 2026 Sigma Loyalty Group Inc. All rights reserved. ID Assist®, Sigma Loyalty Group Inc. and all associated marks and logos are trademarks owned or used under license. ID Assist® is provided by Sigma Loyalty Group Inc.</p>
+    <p>ID&nbsp;Assist is an early warning system that helps you look after your identity.</p>
+    <p>© 2026 Sigma Loyalty Group Inc. All rights reserved. ID&nbsp;Assist®, Sigma Loyalty Group Inc. and all associated marks and logos are trademarks owned or used under license. ID&nbsp;Assist® is provided by Sigma Loyalty Group Inc.</p>
     <p>iPhone and App Store are trademarks of Apple Inc., registered in the U.S. and other countries. Android, Google Play and Play Store are trademarks of Google Inc., registered in the U.S. and other countries.</p>
     <p>All product names, logos, and brands are property of their respective owners. All company, product, and service names used on this website are for identification purposes only. Use of these names, logos, and brands does not imply endorsement.</p>
   </div>
@@ -849,17 +845,6 @@
       scanDots.forEach((d, i) => d.classList.toggle('active', i === idx));
     });
   }
-
-  // KNOWN ISSUES – flag for developer before production
-  // 1. MUTED ON MOBILE: iOS Safari and Android Chrome mute video in iframes when playback
-  //    is triggered by a button click rather than a direct tap on the video element itself.
-  //    This is a browser security policy and cannot be overridden via embed parameters.
-  //    Fix: Implement the Vimeo Player JS API to control playback directly.
-  //
-  // 2. VIDEO HANGS ON MOBILE: Setting iframe src dynamically on click initializes the Vimeo
-  //    player from scratch each time, which can cause a buffering state the player doesn't
-  //    always recover from automatically on mobile connections.
-  //    Fix: Use the Vimeo Player JS API to load and trigger playback rather than swapping src.
 
   // Lightbox
   const overlay = document.getElementById('video-lightbox');
