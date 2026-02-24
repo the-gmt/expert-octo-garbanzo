@@ -408,7 +408,7 @@
   /* SCAN CAROUSEL DOTS */
   .carousel-dots {
     display: none;
-    justify-content: center; gap: 8px; margin-top: 8px; margin-bottom: 40px;
+    justify-content: center; gap: 8px; margin-top: 16px; margin-bottom: 40px;
   }
   .carousel-dots span { width: 8px; height: 8px; border-radius: 50%; background: #d0d0d0; display: block; }
   .carousel-dots span.active { background: #FAAF42; }
@@ -428,6 +428,7 @@
     .scan-steps-grid {
       display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch; gap: 16px; padding-bottom: 16px; scrollbar-width: none;
+      margin-bottom: 0; /* FIX: remove gap between cards and dots */
     }
     .scan-steps-grid::-webkit-scrollbar { display: none; }
     .scan-step-card { flex: 0 0 80%; scroll-snap-align: center; }
@@ -836,8 +837,7 @@
     breachCarousel.scrollTo({ left: idx * w, behavior: 'smooth' });
   });
 
-  
-// Scan & Score carousel dots
+  // Scan & Score carousel dots — FIX: measure actual card width + gap
   const scanCarousel = document.getElementById('scan-carousel');
   const scanDots = document.querySelectorAll('#carousel-dots span');
   if (scanCarousel && scanDots.length) {
