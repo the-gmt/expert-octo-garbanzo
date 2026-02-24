@@ -24,22 +24,22 @@
   /* NAV */
   nav {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 48px;
+    padding: 16px 48px;
     background: #fff;
     border-bottom: 1px solid #eee;
     position: sticky; top: 0; z-index: 100;
   }
   .nav-links { display: flex; gap: 32px; align-items: center; }
-  .nav-links a { text-decoration: none; color: #4B3F34; font-size: 18px; font-weight: 600; }
+  .nav-links a { text-decoration: none; color: #4B3F34; font-size: 16px; font-weight: 600; }
   .nav-links a:hover { color: #E8292F; }
   .nav-cta {
     background: #FAAF42; color: #212529; padding: 10px 22px; border-radius: 6px;
-    font-size: 18px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
+    font-size: 16px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
   }
   .nav-cta:hover { background: #e89e2e; }
   .nav-login {
     background: none; border: 2px solid #FAAF42; color: #212529; padding: 8px 20px;
-    border-radius: 6px; font-size: 18px; font-weight: 600; text-decoration: none; cursor: pointer;
+    border-radius: 6px; font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer;
   }
   .nav-login:hover { background: #fef8eb; }
 
@@ -57,7 +57,7 @@
   .hero p {
     font-size: 20px; color: #4B3F34; margin-bottom: 32px; line-height: 26px;
   }
-  .hero-ctas { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+  .hero-ctas { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
   .btn-primary {
     background: #FAAF42; color: #212529; padding: 14px 32px; border-radius: 8px;
     font-size: 18px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
@@ -79,8 +79,8 @@
     flex-wrap: wrap;
   }
   .trust-item {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 18px; color: #4B3F34; font-weight: 600;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    font-size: 18px; color: #4B3F34; font-weight: 600; text-align: center;
   }
   .trust-item .num { font-size: 28px; font-weight: 800; color: #212529; }
 
@@ -90,7 +90,7 @@
     gap: 0; margin-bottom: 40px; flex-wrap: wrap;
   }
   .proof-top-item {
-    display: flex; align-items: center; gap: 18px;
+    display: flex; align-items: center; gap: 16px;
     padding: 0 48px; flex: 1; min-width: 220px;
     justify-content: center;
   }
@@ -135,17 +135,13 @@
     font-size: 18px; color: rgba(255,255,255,0.75); line-height: 1.65;
   }
 
-  /* SCAN & SCORE LOGO */
-  .scanscore-logo { height: 60px; width: auto; }
-  @media (max-width: 900px) { .scanscore-logo { height: 40px; } }
-
   /* SCAN & SCORE */
   .scan-section {
     padding: 80px 48px;
     max-width: 1200px; margin: 0 auto;
   }
   .scan-section h2 {
-    font-size: 30px; font-weight: 700; margin-bottom: 18px; color: #212529; line-height: 40.8px;
+    font-size: 30px; font-weight: 700; margin-bottom: 16px; color: #212529; line-height: 40.8px;
   }
   .scan-section > p {
     font-size: 20px; color: #4B3F34; margin-bottom: 48px; line-height: 26px;
@@ -170,7 +166,7 @@
   .autoscan-banner p { font-size: 18px; color: #d0d0d0; line-height: 1.6; }
   .btn-light {
     background: #FAAF42; color: #212529; padding: 12px 28px; border-radius: 8px;
-    font-size: 18px; font-weight: 700; text-decoration: none; border: none;
+    font-size: 16px; font-weight: 700; text-decoration: none; border: none;
     cursor: pointer; white-space: nowrap; transition: background 0.2s;
   }
   .btn-light:hover { background: #e89e2e; }
@@ -207,22 +203,22 @@
 
   .breach-card {
     flex: 0 0 340px; scroll-snap-align: start;
-    background: #fff; border-radius: 18px; overflow: hidden;
+    background: #fff; border-radius: 16px; overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
   }
   .breach-card img.card-image { width: 100%; height: 220px; object-fit: cover; display: block; }
   .breach-card-body { padding: 24px 28px 28px; }
   .breach-card-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #212529; line-height: 1.3; }
-  .breach-card-body > p { font-size: 18px; color: #4B3F34; line-height: 1.6; margin-bottom: 18px; }
+  .breach-card-body > p { font-size: 14px; color: #4B3F34; line-height: 1.6; margin-bottom: 16px; }
   .intercept-card {
-    background: #F2F2F2; border-radius: 10px; padding: 18px 20px;
+    background: #F2F2F2; border-radius: 10px; padding: 16px 20px;
     border-left: 4px solid #287292;
   }
   .intercept-card .tag {
-    font-size: 18px; font-weight: 700; color: #287292; text-transform: uppercase;
+    font-size: 14px; font-weight: 700; color: #287292; text-transform: uppercase;
     letter-spacing: 0.5px; margin-bottom: 6px;
   }
-  .intercept-card p { font-size: 18px; color: #4B3F34; margin: 0; line-height: 1.6; }
+  .intercept-card p { font-size: 14px; color: #4B3F34; margin: 0; line-height: 1.6; }
 
   .breach-arrow {
     position: absolute;
@@ -249,7 +245,7 @@
 
   .breach-dots {
     display: none;
-    justify-content: center; gap: 8px; margin-top: 18px;
+    justify-content: center; gap: 8px; margin-top: 16px;
   }
   .breach-dots span {
     width: 8px; height: 8px; border-radius: 50%; background: #d0d0d0; display: block;
@@ -302,7 +298,7 @@
   .start-num {
     width: 40px; height: 40px; border-radius: 50%; background: #FAAF42;
     color: #212529; font-weight: 800; font-size: 18px;
-    display: flex; align-items: center; justify-content: center; margin: 0 auto 18px;
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
   }
   .start-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #212529; line-height: 26px; }
   .start-step p { font-size: 18px; color: #4B3F34; line-height: 1.6; }
@@ -312,16 +308,16 @@
     padding: 80px 48px; background: #495057; color: #fff; text-align: center;
   }
   .final-inner { max-width: 700px; margin: 0 auto; }
-  .final-inner h2 { font-size: 30px; font-weight: 700; margin-bottom: 18px; line-height: 40.8px; }
+  .final-inner h2 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 40.8px; }
   .final-inner p { font-size: 20px; color: rgba(255,255,255,0.85); margin-bottom: 32px; line-height: 26px; }
   .btn-white {
-    background: #FAAF42; color: #212529; padding: 18px 40px; border-radius: 8px;
+    background: #FAAF42; color: #212529; padding: 16px 40px; border-radius: 8px;
     font-size: 18px; font-weight: 700; border: none; cursor: pointer;
     display: inline-block; text-decoration: none; transition: transform 0.2s;
   }
   .btn-white:hover { transform: translateY(-1px); background: #e89e2e; }
-  .app-badges { margin-top: 32px; display: flex; gap: 18px; justify-content: center; }
-  .cancel-note { font-size: 18px; color: rgba(255,255,255,0.55); margin-top: 18px; }
+  .app-badges { margin-top: 32px; display: flex; gap: 16px; justify-content: center; }
+  .cancel-note { font-size: 18px; color: rgba(255,255,255,0.55); margin-top: 16px; }
 
   /* LIGHTBOX */
   .lightbox-overlay {
@@ -363,7 +359,7 @@
   .footer-contact a:hover { color: #FAAF42; }
   .footer-maple {
     display: flex; align-items: flex-start; gap: 10px;
-    margin: 18px 0 20px;
+    margin: 16px 0 20px;
   }
   .footer-maple p { font-size: 15px; color: #ccc; margin: 0; line-height: 1.5; }
   .footer-maple strong { color: #fff; }
@@ -372,7 +368,7 @@
   .footer-nav { padding-top: 4px; }
   .footer-nav ul { list-style: none; }
   .footer-nav ul li { margin-bottom: 14px; text-align: right; }
-  .footer-nav ul li a { color: #ccc; text-decoration: none; font-size: 18px; font-weight: 500; }
+  .footer-nav ul li a { color: #ccc; text-decoration: none; font-size: 16px; font-weight: 500; }
   .footer-nav ul li a:hover { color: #FAAF42; }
   .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.12);
@@ -404,9 +400,9 @@
     box-shadow: 0 8px 24px rgba(0,0,0,0.08); z-index: 99;
   }
   .mobile-menu.open { display: flex; }
-  .mobile-menu a { padding: 18px 24px; font-size: 18px; font-weight: 600; color: #4B3F34; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
+  .mobile-menu a { padding: 16px 24px; font-size: 16px; font-weight: 600; color: #4B3F34; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
   .mobile-menu a:hover { background: #fef8eb; color: #E8292F; }
-  .mobile-menu .mob-cta { margin: 18px 24px 20px; padding: 12px 24px; text-align: center; background: #FAAF42; border-radius: 8px; font-weight: 700; color: #212529; border-bottom: none; }
+  .mobile-menu .mob-cta { margin: 16px 24px 20px; padding: 12px 24px; text-align: center; background: #FAAF42; border-radius: 8px; font-weight: 700; color: #212529; border-bottom: none; }
   .mobile-menu .mob-cta:hover { background: #e89e2e; color: #212529; }
 
   /* SCAN CAROUSEL DOTS */
@@ -422,23 +418,18 @@
     nav { padding: 12px 20px; position: sticky; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
-
-    /* 1. Center hero buttons on mobile */
     .hero { grid-template-columns: 1fr; padding: 48px 24px; text-align: center; }
     .hero h1 { font-size: 28px; line-height: 36px; }
-    .hero-ctas { align-items: center; justify-content: center; flex-wrap: wrap; }
+    .hero-ctas { justify-content: center; flex-wrap: wrap; }
     .hero-visual { display: none; }
-
-    /* 2. Center-align trust bar items on mobile */
     .trust-bar { padding: 36px 24px; }
-    .trust-item { display: block; text-align: center; width: 100%; }
-
+    /* FIX: Analyse & Évaluation logo – 40px on mobile */
+    #scanscore-logo { height: 40px !important; }
     .scan-section, .diff-section, .start-section { padding: 56px 24px; }
     .breach-section { padding: 56px 24px; }
-
     .scan-steps-grid {
       display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch; gap: 18px; padding-bottom: 18px; scrollbar-width: none;
+      -webkit-overflow-scrolling: touch; gap: 16px; padding-bottom: 16px; scrollbar-width: none;
     }
     .scan-steps-grid::-webkit-scrollbar { display: none; }
     .scan-step-card { flex: 0 0 80%; scroll-snap-align: center; }
@@ -449,10 +440,9 @@
     .final-section, .proof-section { padding: 56px 24px; }
     .breach-card { flex: 0 0 85%; }
     .proof-top { flex-direction: column; gap: 0; }
-    .proof-top-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.15); padding: 24px 0; width: 100%; flex: none; }
+    .proof-top-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.15); padding: 24px 0; width: 280px; flex: none; justify-content: flex-start; }
     .proof-top-item:last-child { border-bottom: none; }
-    .proof-label { text-align: center; }
-    .proof-icon { display: none; }
+    .proof-label { text-align: left; }
     .proof-scenario-grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -461,7 +451,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo"><img src="https://www.assistidentite.com/assets/images/id-assist-fr.svg" alt="Assist Identité" style="height: 50px;"></div>
+  <div class="nav-logo"><a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/">  <img src="https://www.assistidentite.com/assets/images/id-assist-fr.svg" alt="Assist&nbsp;Identité" style="height: 50px;"></div>
   <div class="nav-links">
     <a href="https://www.assistidentite.com/fr/identity">Vol d'identité et récupération</a>
     <a href="https://www.assistidentite.com/fr/plans">Plans et tarifs</a>
@@ -485,9 +475,9 @@
 <section class="hero">
   <div>
     <h1>Les fraudeurs sont de plus en plus sophistiqués.<br><span>Maintenant, vous l'êtes aussi.</span></h1>
-    <p>Assist Identité vous donne les outils pour détecter les arnaques instantanément, surveiller votre identité en tout temps et agir avec le soutien d'experts – le tout en un seul endroit.</p>
+    <p>Assist&nbsp;Identité vous donne les outils pour détecter les arnaques instantanément, surveiller votre identité en tout temps et agir avec le soutien d'experts – le tout en un seul endroit.</p>
     <div class="hero-ctas">
-      <a class="btn-primary" href="https://www.assistidentite.com/fr/registration/account">Essayez Assist Identité gratuitement pendant 30 jours</a>
+      <a class="btn-primary" href="https://www.assistidentite.com/fr/registration/account">Essayez Assist&nbsp;Identité gratuitement pendant 30 jours</a>
       <a class="btn-secondary" href="#" id="open-video" style="display:inline-flex; align-items:center; gap:10px; padding: 14px 28px; white-space:nowrap;">Voir&nbsp;comment&nbsp;ça&nbsp;fonctionne <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/Play_button_v2.gif" alt="lecture" width="28" height="28" style="display:inline-block; vertical-align:middle;"></a>
     </div>
   </div>
@@ -500,29 +490,29 @@
 <div class="trust-bar">
   <div class="trust-item"><span class="num">500K+</span> Canadiens protégés</div>
   <div class="trust-item"><span class="num">10+</span> ans avec les grandes banques</div>
-  <div class="trust-item"><span class="num">2</span> agences de crédit surveillées quotidiennement</div>
+  <div class="trust-item"><span><span class="num" style="display:inline; font-size:28px; font-weight:800; color:#212529;">2</span> agences de crédit surveillées quotidiennement</span></div>
   <div class="trust-item"><span class="num">24/7</span> surveillance de l'identité</div>
 </div>
 
 <!-- SCAN & SCORE -->
 <section class="scan-section">
-  <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/1b39e25b35127406ae3ce8e27ba8022c83557c4c/scanscore-logo-fr-svg.svg" alt="Analyse & Évaluation" class="scanscore-logo" style="margin-bottom:18px; display:block;">
+  <img id="scanscore-logo" src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/17f2e37e4b28ef8c69c6175fbe6aaac90d7511f0/scanscore-logo-fr-svg.svg" alt="Analyse &amp; Évaluation" style="height:60px; width:auto; margin-bottom:16px; display:block;">
   <h2>Vous avez reçu un message suspect? Obtenez votre réponse en quelques secondes.</h2>
-  <p>Les Canadiens reçoivent des millions de messages frauduleux chaque jour. Assist Identité Analyse & Évaluation utilise l'IA avancée pour analyser instantanément les courriels, textos, images et liens suspects – en vous indiquant s'ils sont sécuritaires ou s'ils représentent une menace.</p>
+  <p>Les Canadiens reçoivent des millions de messages frauduleux chaque jour. Assist&nbsp;Identité Analyse &amp; Évaluation utilise l'IA avancée pour analyser instantanément les courriels, textos, images et liens suspects – en vous indiquant s'ils sont sécuritaires ou s'ils représentent une menace.</p>
 
   <div class="scan-steps-grid" id="scan-carousel">
     <div class="scan-step-card">
-      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/Spotify_submission_fr.gif" alt="Analyser" style="width:100%; border-radius:8px; margin-bottom:18px;">
+      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/Spotify_submission_fr.gif" alt="Analyser" style="width:100%; border-radius:8px; margin-bottom:16px;">
       <h3>Analyser</h3>
       <p>Soumettez tout courriel, texto, image ou lien suspect – copiez-collez simplement ou prenez une photo.</p>
     </div>
     <div class="scan-step-card">
-      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/Score_fr.png" alt="Obtenez votre score" style="width:100%; border-radius:8px; margin-bottom:18px;">
+      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/Score_fr.png" alt="Obtenez votre score" style="width:100%; border-radius:8px; margin-bottom:16px;">
       <h3>Obtenez votre score</h3>
       <p>Notre IA analyse des milliers d'indicateurs d'arnaque et attribue un niveau de risque clair en quelques secondes.</p>
     </div>
     <div class="scan-step-card">
-      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/Next_steps_fr.png" alt="Savoir quoi faire" style="width:100%; border-radius:8px; margin-bottom:18px;">
+      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/Next_steps_fr.png" alt="Savoir quoi faire" style="width:100%; border-radius:8px; margin-bottom:16px;">
       <h3>Savoir quoi faire</h3>
       <p>Recevez des étapes concrètes et personnalisées selon le niveau de menace – pour agir en toute confiance.</p>
     </div>
@@ -545,7 +535,7 @@
 <section class="breach-section">
   <div class="breach-inner">
     <h2>Comment une atteinte aux données devient votre problème</h2>
-    <p>Chaque atteinte suit le même schéma. Voici comment Assist Identité intervient lorsque vos renseignements sont à risque.</p>
+    <p>Chaque atteinte suit le même schéma. Voici comment Assist&nbsp;Identité intervient lorsque vos renseignements sont à risque.</p>
 
     <div class="breach-carousel-wrap">
       <button class="breach-arrow" id="breach-prev" aria-label="Précédent" disabled>&#8592;</button>
@@ -565,7 +555,7 @@
             <h3>Vos renseignements se retrouvent sur le Web clandestin</h3>
             <p>Les courriels, mots de passe, numéros de carte de crédit et NAS volés sont échangés sur des marchés criminels cachés – souvent en quelques jours.</p>
             <div class="intercept-card">
-              <div class="tag">→ Comment Assist Identité vous protège</div>
+              <div class="tag">→ Comment Assist&nbsp;Identité vous protège</div>
               <p><strong>Surveillance du Web clandestin</strong> – Nous surveillons jusqu'à 50 éléments de vos renseignements personnels sur les marchés criminels et vous alertons rapidement lorsque quelque chose est détecté, afin que vous puissiez changer vos mots de passe ou annuler vos cartes bancaires compromises.</p>
             </div>
           </div>
@@ -576,8 +566,8 @@
             <h3>Les fraudeurs vous ciblent directement</h3>
             <p>En utilisant vos renseignements personnels, les criminels envoient des courriels et textos convaincants conçus pour vous soutirer encore plus d'informations.</p>
             <div class="intercept-card">
-              <div class="tag">→ Comment Assist Identité vous protège</div>
-              <p><strong>Analyse & Évaluation</strong> – La détection d'arnaques par IA analyse tout message suspect et vous indique instantanément s'il représente une menace.</p>
+              <div class="tag">→ Comment Assist&nbsp;Identité vous protège</div>
+              <p><strong>Analyse &amp; Évaluation</strong> – La détection d'arnaques par IA analyse tout message suspect et vous indique instantanément s'il représente une menace.</p>
             </div>
           </div>
         </div>
@@ -587,7 +577,7 @@
             <h3>Quelqu'un demande du crédit en votre nom</h3>
             <p>Les voleurs d'identité utilisent les renseignements volés pour ouvrir des comptes ou contracter des prêts – vous laissant avec les conséquences.</p>
             <div class="intercept-card">
-              <div class="tag">→ Comment Assist Identité vous protège</div>
+              <div class="tag">→ Comment Assist&nbsp;Identité vous protège</div>
               <p><strong>Surveillance de crédit à deux agences</strong> – Nous surveillons Equifax et TransUnion quotidiennement. La plupart des services n'en surveillent qu'une – ce qui signifie que les premiers signes de fraude peuvent passer inaperçus.</p>
             </div>
           </div>
@@ -598,7 +588,7 @@
             <h3>Restaurer votre identité est complexe – mais ça ne devrait pas l'être</h3>
             <p>Rétablir votre identité après un vol peut signifier traiter avec des banques, des agences de crédit, des organismes gouvernementaux et des créanciers – souvent tous en même temps.</p>
             <div class="intercept-card">
-              <div class="tag">→ Comment Assist Identité vous protège</div>
+              <div class="tag">→ Comment Assist&nbsp;Identité vous protège</div>
               <p><strong>Restauration complète de l'identité</strong> – Nos spécialistes vous guident à travers chaque étape du rétablissement, y compris le soutien par procuration limitée – pour que vous puissiez vous concentrer sur votre vie, pas sur la paperasse.</p>
             </div>
           </div>
@@ -614,13 +604,13 @@
 
 <!-- DIFFERENTIATORS -->
 <section class="diff-section">
-  <h2>Ce qui distingue Assist Identité</h2>
+  <h2>Ce qui distingue Assist&nbsp;Identité</h2>
   <div class="diff-grid">
     <div class="diff-card">
       <div class="diff-icon">⚡</div>
       <div class="diff-text">
         <h3>Détection d'arnaques par IA</h3>
-        <p>Analyse & Évaluation analyse les courriels, textos, images et liens suspects en quelques secondes – grâce à une technologie entraînée sur des milliers d'arnaques réelles.</p>
+        <p>Analyse &amp; Évaluation analyse les courriels, textos, images et liens suspects en quelques secondes – grâce à une technologie entraînée sur des milliers d'arnaques réelles.</p>
       </div>
     </div>
     <div class="diff-card">
@@ -723,7 +713,7 @@
     <div class="start-step">
       <div class="start-num">1</div>
       <h3>Commencez votre essai gratuit</h3>
-      <p>Accédez à toutes les fonctionnalités d'Assist Identité pendant 30 jours – sans engagement.</p>
+      <p>Accédez à toutes les fonctionnalités d'Assist&nbsp;Identité pendant 30 jours – sans engagement.</p>
     </div>
     <div class="start-step">
       <div class="start-num">2</div>
@@ -736,15 +726,15 @@
       <p>Nous surveillons en tout temps et vous alertons dès qu'une menace est détectée – pour que vous puissiez agir avant que des dommages ne surviennent.</p>
     </div>
   </div>
-  <a class="btn-primary" href="https://www.assistidentite.com/fr/registration/account">Essayez Assist Identité gratuitement pendant 30 jours</a>
+  <a class="btn-primary" href="https://www.assistidentite.com/fr/registration/account">Essayez Assist&nbsp;Identité gratuitement pendant 30 jours</a>
 </section>
 
 <!-- FINAL CTA -->
 <section class="final-section">
   <div class="final-inner">
     <h2>Une protection qui vous accompagne partout</h2>
-    <p>L'application mobile Assist Identité met toutes les fonctionnalités dans votre poche – analysez les messages suspects sur le champ, vérifiez votre cote de solvabilité, consultez vos alertes et gérez votre compte de n'importe où.</p>
-    <a class="btn-white" href="https://www.assistidentite.com/fr/registration/account">Essayez Assist Identité gratuitement pendant 30 jours</a>
+    <p>L'application mobile Assist&nbsp;Identité met toutes les fonctionnalités dans votre poche – analysez les messages suspects sur le champ, vérifiez votre cote de solvabilité, consultez vos alertes et gérez votre compte de n'importe où.</p>
+    <a class="btn-white" href="https://www.assistidentite.com/fr/registration/account">Essayez Assist&nbsp;Identité gratuitement pendant 30 jours</a>
     <div class="app-badges">
       <a href="https://apps.apple.com/ca/app/assist-identit%C3%A9-mobile/id540563542?l=fr-CA" target="_blank"><img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/8f4835de959e7d5569aa88dd021710ec04fff49b/Download_on_the_App_Store_Badge_FRCA_RGB_blk.svg" alt="Télécharger dans l'App Store" style="height:44px; width:auto;"></a>
       <a href="https://play.google.com/store/apps/details?id=com.finastra.myidentityassist&hl=fr_CA" target="_blank"><img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/google-play-badge-fr.png" alt="L'obtenir sur Google Play" style="height:44px; width:auto;"></a>
@@ -796,8 +786,8 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>Assist Identité est un système d'alerte précoce qui vous aide à protéger votre identité.</p>
-    <p>© 2026 Sigma Loyalty Group Inc. Tous droits réservés. Assist Identité®, Sigma Loyalty Group Inc. et toutes les marques et logos associés sont des marques de commerce appartenant à Sigma Loyalty Group Inc. ou utilisées sous licence. Assist Identité® est fourni par Sigma Loyalty Group Inc.</p>
+    <p>Assist&nbsp;Identité est un système d'alerte précoce qui vous aide à protéger votre identité.</p>
+    <p>© 2026 Sigma Loyalty Group Inc. Tous droits réservés. Assist&nbsp;Identité®, Sigma Loyalty Group Inc. et toutes les marques et logos associés sont des marques de commerce appartenant à Sigma Loyalty Group Inc. ou utilisées sous licence. Assist&nbsp;Identité® est fourni par Sigma Loyalty Group Inc.</p>
     <p>iPhone et App Store sont des marques de commerce d'Apple Inc., enregistrées aux États-Unis et dans d'autres pays. Android, Google Play et Play Store sont des marques de commerce de Google Inc., enregistrées aux États-Unis et dans d'autres pays.</p>
     <p>Tous les noms de produits, logos et marques sont la propriété de leurs détenteurs respectifs. Tous les noms d'entreprises, de produits et de services utilisés sur ce site Web le sont à des fins d'identification uniquement. L'utilisation de ces noms, logos et marques n'implique aucun cautionnement.</p>
   </div>
@@ -852,7 +842,9 @@
   const scanDots = document.querySelectorAll('#carousel-dots span');
   if (scanCarousel && scanDots.length) {
     scanCarousel.addEventListener('scroll', () => {
-      const idx = Math.round(scanCarousel.scrollLeft / scanCarousel.offsetWidth);
+      const card = scanCarousel.querySelector('.scan-step-card');
+      const cardWidth = card ? card.offsetWidth + 16 : scanCarousel.offsetWidth;
+      const idx = Math.min(Math.round(scanCarousel.scrollLeft / cardWidth), scanDots.length - 1);
       scanDots.forEach((d, i) => d.classList.toggle('active', i === idx));
     });
   }
