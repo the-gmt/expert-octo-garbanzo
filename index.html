@@ -866,48 +866,55 @@
   }
 
   // ─── Vimeo lightbox (Player API) ──────────────────────────────────────────
-  const VIDEO_IDS = {
-    main:     '461189123',
-    autoscan: '1114048941'
+  // Video config. Unlisted videos need their hash passed as an object.
+  const VIDEOS = {
+    main:     { id: 461189123 },
+    autoscan: { id: 1114048941, h: '11c65abbff' }
   };
 
-  const overlay   = document.getElementById('video-lightbox');
-  const iframeEl  = document.getElementById('vimeo-iframe');
+  const overlay  = document.getElementById('video-lightbox');
+  const iframeEl = document.getElementById('vimeo-iframe');
 
-  // Instantiate the player once against the already-rendered iframe.
-  // The SDK will manage the connection; we never touch iframe.src again.
   const player = new Vimeo.Player(iframeEl);
 
-  // Reveal the iframe once the player has loaded its first video,
-  // preventing a black flash on slower connections.
+  // Track which video is currently loaded so we don't reload unnecessarily.
+  let currentVideoId = VIDEOS.main.id;
+
   player.on('loaded', () => {
     iframeEl.style.visibility = 'visible';
   });
 
-  function openLightbox(videoId) {
+  function openLightbox(videoKey) {
+    const video = VIDEOS[videoKey];
     overlay.classList.add('active');
-    // loadVideo() swaps content inside the existing player – no cold start.
-    player.loadVideo(videoId).then(() => {
-      player.play().catch(() => {
-        // Autoplay may be blocked by the browser; the user can tap play.
+
+    if (video.id === currentVideoId) {
+      // Already loaded — just rewind and play, no loadVideo() needed.
+      player.setCurrentTime(0).then(() => {
+        player.play().catch(() => {});
       });
-    });
+    } else {
+      // Different video — loadVideo() handles the swap cleanly.
+      player.loadVideo(video).then(() => {
+        currentVideoId = video.id;
+        player.play().catch(() => {});
+      });
+    }
   }
 
   function closeLightbox() {
     player.pause();
     overlay.classList.remove('active');
-    // Seek back to the start so re-opening feels fresh.
     player.setCurrentTime(0).catch(() => {});
   }
 
   document.getElementById('open-video').addEventListener('click', e => {
     e.preventDefault();
-    openLightbox(VIDEO_IDS.main);
+    openLightbox('main');
   });
   document.getElementById('open-autoscan-video').addEventListener('click', e => {
     e.preventDefault();
-    openLightbox(VIDEO_IDS.autoscan);
+    openLightbox('autoscan');
   });
 
   document.getElementById('close-lightbox').addEventListener('click', closeLightbox);
