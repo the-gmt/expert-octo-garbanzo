@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,453 +8,448 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap');
 
-- { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-font-family: ‘Source Sans Pro’, ‘Trebuchet MS’, -apple-system, sans-serif;
-color: #4B3F34;
-line-height: 1.6;
-background: #fff;
--webkit-font-smoothing: antialiased;
-}
+  body {
+    font-family: 'Source Sans Pro', 'Trebuchet MS', -apple-system, sans-serif;
+    color: #4B3F34;
+    line-height: 1.6;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
 
-h1, h2, h6, p { font-family: ‘Source Sans Pro’, sans-serif; }
-h3, h4, h5 { font-family: ‘Trebuchet MS’, sans-serif; }
+  h1, h2, h6, p { font-family: 'Source Sans Pro', sans-serif; }
+  h3, h4, h5 { font-family: 'Trebuchet MS', sans-serif; }
 
-/* NAV */
-nav {
-display: flex; align-items: center; justify-content: space-between;
-padding: 16px 48px;
-background: #fff;
-border-bottom: 1px solid #eee;
-position: sticky; top: 0; z-index: 100;
-}
-.nav-links { display: flex; gap: 32px; align-items: center; }
-.nav-links a { text-decoration: none; color: #4B3F34; font-size: 16px; font-weight: 600; }
-.nav-links a:hover { color: #E8292F; }
-.nav-cta {
-background: #FAAF42; color: #212529; padding: 10px 22px; border-radius: 6px;
-font-size: 16px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
-}
-.nav-cta:hover { background: #e89e2e; }
-.nav-login {
-background: none; border: 2px solid #FAAF42; color: #212529; padding: 8px 20px;
-border-radius: 6px; font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer;
-}
-.nav-login:hover { background: #fef8eb; }
+  /* NAV */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 48px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a { text-decoration: none; color: #4B3F34; font-size: 16px; font-weight: 600; }
+  .nav-links a:hover { color: #E8292F; }
+  .nav-cta {
+    background: #FAAF42; color: #212529; padding: 10px 22px; border-radius: 6px;
+    font-size: 16px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
+  }
+  .nav-cta:hover { background: #e89e2e; }
+  .nav-login {
+    background: none; border: 2px solid #FAAF42; color: #212529; padding: 8px 20px;
+    border-radius: 6px; font-size: 16px; font-weight: 600; text-decoration: none; cursor: pointer;
+  }
+  .nav-login:hover { background: #fef8eb; }
 
-/* HERO */
-.hero {
-padding: 80px 48px 60px;
-max-width: 1200px; margin: 0 auto;
-display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-}
-.hero h1 {
-font-size: 36px; font-weight: 800; line-height: 46.8px;
-color: #212529; margin-bottom: 20px;
-}
-.hero h1 span { color: #E8292F; }
-.hero p {
-font-size: 20px; color: #4B3F34; margin-bottom: 32px; line-height: 26px;
-}
-.hero-ctas { display: flex; gap: 16px; align-items: center; }
-.btn-primary {
-background: #FAAF42; color: #212529; padding: 14px 32px; border-radius: 8px;
-font-size: 18px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
-display: inline-flex; align-items: center; gap: 8px;
-transition: background 0.2s;
-}
-.btn-primary:hover { background: #e89e2e; }
-.btn-secondary {
-background: #fff; color: #212529; padding: 14px 32px; border-radius: 8px;
-font-size: 18px; font-weight: 700; text-decoration: none; border: 2px solid #FAAF42;
-cursor: pointer; transition: all 0.2s;
-}
-.btn-secondary:hover { background: #fef8eb; }
+  /* HERO */
+  .hero {
+    padding: 80px 48px 60px;
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  .hero h1 {
+    font-size: 36px; font-weight: 800; line-height: 46.8px;
+    color: #212529; margin-bottom: 20px;
+  }
+  .hero h1 span { color: #E8292F; }
+  .hero p {
+    font-size: 20px; color: #4B3F34; margin-bottom: 32px; line-height: 26px;
+  }
+  .hero-ctas { display: flex; gap: 16px; align-items: center; }
+  .btn-primary {
+    background: #FAAF42; color: #212529; padding: 14px 32px; border-radius: 8px;
+    font-size: 18px; font-weight: 700; text-decoration: none; border: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #e89e2e; }
+  .btn-secondary {
+    background: #fff; color: #212529; padding: 14px 32px; border-radius: 8px;
+    font-size: 18px; font-weight: 700; text-decoration: none; border: 2px solid #FAAF42;
+    cursor: pointer; transition: all 0.2s;
+  }
+  .btn-secondary:hover { background: #fef8eb; }
 
-/* TRUST BAR */
-.trust-bar {
-background: #F2F2F2; padding: 28px 48px;
-display: flex; justify-content: center; gap: 48px; align-items: center;
-flex-wrap: wrap;
-}
-.trust-item {
-display: flex; align-items: center; gap: 10px;
-font-size: 18px; color: #4B3F34; font-weight: 600;
-}
-.trust-item .num { font-size: 28px; font-weight: 800; color: #212529; }
+  /* TRUST BAR */
+  .trust-bar {
+    background: #F2F2F2; padding: 28px 48px;
+    display: flex; justify-content: center; gap: 48px; align-items: center;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 18px; color: #4B3F34; font-weight: 600;
+  }
+  .trust-item .num { font-size: 28px; font-weight: 800; color: #212529; }
 
-/* PROOF – top row stats */
-.proof-top {
-display: flex; justify-content: center; align-items: center;
-gap: 0; margin-bottom: 40px; flex-wrap: wrap;
-}
-.proof-top-item {
-display: flex; align-items: center; gap: 16px;
-padding: 0 48px; flex: 1; min-width: 220px;
-justify-content: center;
-}
-.proof-top-item:not(:last-child) {
-border-right: 1px solid rgba(255,255,255,0.15);
-}
-.proof-icon {
-flex-shrink: 0; width: 64px; height: 64px;
-display: flex; align-items: center; justify-content: center;
-}
-.proof-top-item .proof-label {
-font-size: 22px; color: #fff; font-weight: 600; line-height: 1.4;
-}
-.proof-top-item .proof-label strong {
-font-size: 26px; font-weight: 800; color: #FAAF42; display: block;
-}
+  /* PROOF – top row stats */
+  .proof-top {
+    display: flex; justify-content: center; align-items: center;
+    gap: 0; margin-bottom: 40px; flex-wrap: wrap;
+  }
+  .proof-top-item {
+    display: flex; align-items: center; gap: 16px;
+    padding: 0 48px; flex: 1; min-width: 220px;
+    justify-content: center;
+  }
+  .proof-top-item:not(:last-child) {
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+  .proof-icon {
+    flex-shrink: 0; width: 64px; height: 64px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .proof-top-item .proof-label {
+    font-size: 22px; color: #fff; font-weight: 600; line-height: 1.4;
+  }
+  .proof-top-item .proof-label strong {
+    font-size: 26px; font-weight: 800; color: #FAAF42; display: block;
+  }
 
-/* PROOF – scenario cards */
-.proof-scenario-grid {
-display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-border-top: 1px solid rgba(255,255,255,0.12);
-padding-top: 36px;
-}
-.proof-scenario {
-background: rgba(255,255,255,0.06);
-border: 1px solid rgba(255,255,255,0.1);
-border-radius: 12px; padding: 24px;
-}
-.proof-scenario-head {
-display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
-}
-.proof-scenario-icon {
-width: 36px; height: 36px; flex-shrink: 0;
-display: flex; align-items: center; justify-content: center;
-}
-.proof-scenario-type {
-font-size: 18px; font-weight: 700; color: #FAAF42;
-text-transform: uppercase; letter-spacing: 0.5px;
-font-family: ‘Trebuchet MS’, sans-serif;
-}
-.proof-scenario p {
-font-size: 18px; color: rgba(255,255,255,0.75); line-height: 1.65;
-}
+  /* PROOF – scenario cards */
+  .proof-scenario-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 36px;
+  }
+  .proof-scenario {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 24px;
+  }
+  .proof-scenario-head {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 14px;
+  }
+  .proof-scenario-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .proof-scenario-type {
+    font-size: 18px; font-weight: 700; color: #FAAF42;
+    text-transform: uppercase; letter-spacing: 0.5px;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+  .proof-scenario p {
+    font-size: 18px; color: rgba(255,255,255,0.75); line-height: 1.65;
+  }
 
-/* SCAN & SCORE */
-.scan-section {
-padding: 80px 48px;
-max-width: 1200px; margin: 0 auto;
-}
-.scan-section h2 {
-font-size: 30px; font-weight: 700; margin-bottom: 16px; color: #212529; line-height: 40.8px;
-}
-.scan-section > p {
-font-size: 20px; color: #4B3F34; margin-bottom: 48px; line-height: 26px;
-}
-.scan-steps-grid {
-display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
-margin-bottom: 40px;
-}
-.scan-step-card {
-background: #F2F2F2; border-radius: 14px; padding: 32px;
-text-align: center;
-}
-.scan-step-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #212529; line-height: 26px; }
-.scan-step-card p { font-size: 18px; color: #4B3F34; line-height: 1.6; }
+  /* SCAN & SCORE */
+  .scan-section {
+    padding: 80px 48px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .scan-section h2 {
+    font-size: 30px; font-weight: 700; margin-bottom: 16px; color: #212529; line-height: 40.8px;
+  }
+  .scan-section > p {
+    font-size: 20px; color: #4B3F34; margin-bottom: 48px; line-height: 26px;
+  }
+  .scan-steps-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    margin-bottom: 40px;
+  }
+  .scan-step-card {
+    background: #F2F2F2; border-radius: 14px; padding: 32px;
+    text-align: center;
+  }
+  .scan-step-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #212529; line-height: 26px; }
+  .scan-step-card p { font-size: 18px; color: #4B3F34; line-height: 1.6; }
 
-.autoscan-banner {
-background: #495057;
-border-radius: 14px; padding: 32px 40px;
-display: flex; align-items: center; justify-content: space-between;
-gap: 32px; color: #fff;
-}
-.autoscan-banner p { font-size: 18px; color: #d0d0d0; line-height: 1.6; }
-.btn-light {
-background: #FAAF42; color: #212529; padding: 12px 28px; border-radius: 8px;
-font-size: 16px; font-weight: 700; text-decoration: none; border: none;
-cursor: pointer; white-space: nowrap; transition: background 0.2s;
-}
-.btn-light:hover { background: #e89e2e; }
+  .autoscan-banner {
+    background: #495057;
+    border-radius: 14px; padding: 32px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 32px; color: #fff;
+  }
+  .autoscan-banner p { font-size: 18px; color: #d0d0d0; line-height: 1.6; }
+  .btn-light {
+    background: #FAAF42; color: #212529; padding: 12px 28px; border-radius: 8px;
+    font-size: 16px; font-weight: 700; text-decoration: none; border: none;
+    cursor: pointer; white-space: nowrap; transition: background 0.2s;
+  }
+  .btn-light:hover { background: #e89e2e; }
 
-/* BREACH CAROUSEL */
-.breach-section {
-padding: 80px 48px;
-background: #F2F2F2;
-}
-.breach-inner {
-max-width: 1200px; margin: 0 auto;
-}
-.breach-inner h2 {
-font-size: 30px; font-weight: 700; margin-bottom: 12px; text-align: center; color: #212529; line-height: 40.8px;
-}
-.breach-inner > p {
-font-size: 20px; color: #4B3F34; text-align: center; max-width: 640px;
-margin: 0 auto 40px; line-height: 26px;
-}
+  /* BREACH CAROUSEL */
+  .breach-section {
+    padding: 80px 48px;
+    background: #F2F2F2;
+  }
+  .breach-inner {
+    max-width: 1200px; margin: 0 auto;
+  }
+  .breach-inner h2 {
+    font-size: 30px; font-weight: 700; margin-bottom: 12px; text-align: center; color: #212529; line-height: 40.8px;
+  }
+  .breach-inner > p {
+    font-size: 20px; color: #4B3F34; text-align: center; max-width: 640px;
+    margin: 0 auto 40px; line-height: 26px;
+  }
 
-.breach-carousel-wrap {
-position: relative;
-}
+  .breach-carousel-wrap {
+    position: relative;
+  }
 
-.breach-carousel {
-overflow-x: auto;
-scroll-snap-type: x mandatory;
--webkit-overflow-scrolling: touch;
-display: flex; gap: 24px;
-padding-bottom: 8px; scrollbar-width: none;
-padding-left: 52px; padding-right: 52px;
-}
-.breach-carousel::-webkit-scrollbar { display: none; }
+  .breach-carousel {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    display: flex; gap: 24px;
+    padding-bottom: 8px; scrollbar-width: none;
+    padding-left: 52px; padding-right: 52px;
+  }
+  .breach-carousel::-webkit-scrollbar { display: none; }
 
-.breach-card {
-flex: 0 0 340px; scroll-snap-align: start;
-background: #fff; border-radius: 16px; overflow: hidden;
-box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-}
-.breach-card img.card-image { width: 100%; height: 220px; object-fit: cover; display: block; }
-.breach-card-body { padding: 24px 28px 28px; }
-.breach-card-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #212529; line-height: 1.3; }
-.breach-card-body > p { font-size: 16px; color: #4B3F34; line-height: 1.6; margin-bottom: 16px; }
-.intercept-card {
-background: #F2F2F2; border-radius: 10px; padding: 16px 20px;
-border-left: 4px solid #287292;
-}
-.intercept-card .tag {
-font-size: 16px; font-weight: 700; color: #287292; text-transform: uppercase;
-letter-spacing: 0.5px; margin-bottom: 6px;
-}
-.intercept-card p { font-size: 16px; color: #4B3F34; margin: 0; line-height: 1.6; }
+  .breach-card {
+    flex: 0 0 340px; scroll-snap-align: start;
+    background: #fff; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .breach-card img.card-image { width: 100%; height: 220px; object-fit: cover; display: block; }
+  .breach-card-body { padding: 24px 28px 28px; }
+  .breach-card-body h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #212529; line-height: 1.3; }
+  .breach-card-body > p { font-size: 16px; color: #4B3F34; line-height: 1.6; margin-bottom: 16px; }
+  .intercept-card {
+    background: #F2F2F2; border-radius: 10px; padding: 16px 20px;
+    border-left: 4px solid #287292;
+  }
+  .intercept-card .tag {
+    font-size: 16px; font-weight: 700; color: #287292; text-transform: uppercase;
+    letter-spacing: 0.5px; margin-bottom: 6px;
+  }
+  .intercept-card p { font-size: 16px; color: #4B3F34; margin: 0; line-height: 1.6; }
 
-.breach-arrow {
-position: absolute;
-top: 50%;
-transform: translateY(-50%);
-background: #fff;
-border: 3px solid #FAAF42;
-color: #212529;
-width: 48px; height: 48px;
-border-radius: 50%;
-font-size: 22px;
-cursor: pointer;
-display: flex; align-items: center; justify-content: center;
-transition: background 0.2s, transform 0.15s;
-z-index: 10;
-box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-flex-shrink: 0;
-}
-.breach-arrow:hover { background: #FAAF42; }
-.breach-arrow:disabled { opacity: 0.3; cursor: default; }
-.breach-arrow:disabled:hover { background: #fff; transform: translateY(-50%); }
-#breach-prev { left: 0; }
-#breach-next { right: 0; }
+  .breach-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border: 3px solid #FAAF42;
+    color: #212529;
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, transform 0.15s;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+  }
+  .breach-arrow:hover { background: #FAAF42; }
+  .breach-arrow:disabled { opacity: 0.3; cursor: default; }
+  .breach-arrow:disabled:hover { background: #fff; transform: translateY(-50%); }
+  #breach-prev { left: 0; }
+  #breach-next { right: 0; }
 
-.breach-dots {
-display: none;
-justify-content: center; gap: 8px; margin-top: 16px;
-}
-.breach-dots span {
-width: 8px; height: 8px; border-radius: 50%; background: #d0d0d0; display: block;
-}
-.breach-dots span.active { background: #FAAF42; }
+  .breach-dots {
+    display: none;
+    justify-content: center; gap: 8px; margin-top: 16px;
+  }
+  .breach-dots span {
+    width: 8px; height: 8px; border-radius: 50%; background: #d0d0d0; display: block;
+  }
+  .breach-dots span.active { background: #FAAF42; }
 
-@media (max-width: 900px) {
-.breach-arrow { display: none; }
-.breach-dots { display: flex; }
-.breach-carousel { padding-left: 0; padding-right: 0; }
-}
+  @media (max-width: 900px) {
+    .breach-arrow { display: none; }
+    .breach-dots { display: flex; }
+    .breach-carousel { padding-left: 0; padding-right: 0; }
+  }
 
-/* DIFFERENTIATORS */
-.diff-section {
-padding: 80px 48px;
-max-width: 1200px; margin: 0 auto;
-}
-.diff-section h2 {
-font-size: 30px; font-weight: 700; margin-bottom: 48px; text-align: center; color: #212529; line-height: 40.8px;
-}
-.diff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-.diff-card {
-background: #F2F2F2; border-radius: 14px; padding: 32px;
-display: flex; gap: 20px; align-items: flex-start;
-}
-.diff-icon {
-width: 48px; height: 48px; border-radius: 12px;
-display: flex; align-items: center; justify-content: center;
-font-size: 22px; flex-shrink: 0; background: #fff;
-}
-.diff-text h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; color: #212529; line-height: 26px; }
-.diff-text p { font-size: 18px; color: #4B3F34; line-height: 1.6; }
+  /* DIFFERENTIATORS */
+  .diff-section {
+    padding: 80px 48px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .diff-section h2 {
+    font-size: 30px; font-weight: 700; margin-bottom: 48px; text-align: center; color: #212529; line-height: 40.8px;
+  }
+  .diff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .diff-card {
+    background: #F2F2F2; border-radius: 14px; padding: 32px;
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+  .diff-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; flex-shrink: 0; background: #fff;
+  }
+  .diff-text h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; color: #212529; line-height: 26px; }
+  .diff-text p { font-size: 18px; color: #4B3F34; line-height: 1.6; }
 
-/* SOCIAL PROOF */
-.proof-section {
-padding: 80px 48px;
-background: #495057; color: #fff;
-}
-.proof-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
-.proof-inner h2 { font-size: 30px; font-weight: 700; margin-bottom: 48px; line-height: 40.8px; }
+  /* SOCIAL PROOF */
+  .proof-section {
+    padding: 80px 48px;
+    background: #495057; color: #fff;
+  }
+  .proof-inner { max-width: 1200px; margin: 0 auto; text-align: center; }
+  .proof-inner h2 { font-size: 30px; font-weight: 700; margin-bottom: 48px; line-height: 40.8px; }
 
-/* GET STARTED */
-.start-section {
-padding: 80px 48px;
-max-width: 1200px; margin: 0 auto; text-align: center;
-}
-.start-section h2 { font-size: 30px; font-weight: 700; margin-bottom: 48px; color: #212529; line-height: 40.8px; }
-.start-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 48px; }
-.start-step { text-align: center; }
-.start-num {
-width: 40px; height: 40px; border-radius: 50%; background: #FAAF42;
-color: #212529; font-weight: 800; font-size: 18px;
-display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
-}
-.start-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #212529; line-height: 26px; }
-.start-step p { font-size: 18px; color: #4B3F34; line-height: 1.6; }
+  /* GET STARTED */
+  .start-section {
+    padding: 80px 48px;
+    max-width: 1200px; margin: 0 auto; text-align: center;
+  }
+  .start-section h2 { font-size: 30px; font-weight: 700; margin-bottom: 48px; color: #212529; line-height: 40.8px; }
+  .start-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 48px; }
+  .start-step { text-align: center; }
+  .start-num {
+    width: 40px; height: 40px; border-radius: 50%; background: #FAAF42;
+    color: #212529; font-weight: 800; font-size: 18px;
+    display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+  }
+  .start-step h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: #212529; line-height: 26px; }
+  .start-step p { font-size: 18px; color: #4B3F34; line-height: 1.6; }
 
-/* FINAL CTA */
-.final-section {
-padding: 80px 48px; background: #495057; color: #fff; text-align: center;
-}
-.final-inner { max-width: 700px; margin: 0 auto; }
-.final-inner h2 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 40.8px; }
-.final-inner p { font-size: 20px; color: rgba(255,255,255,0.85); margin-bottom: 32px; line-height: 26px; }
-.btn-white {
-background: #FAAF42; color: #212529; padding: 16px 40px; border-radius: 8px;
-font-size: 18px; font-weight: 700; border: none; cursor: pointer;
-display: inline-block; text-decoration: none; transition: transform 0.2s;
-}
-.btn-white:hover { transform: translateY(-1px); background: #e89e2e; }
-.app-badges { margin-top: 32px; display: flex; gap: 16px; justify-content: center; }
-.cancel-note { font-size: 18px; color: rgba(255,255,255,0.55); margin-top: 16px; }
+  /* FINAL CTA */
+  .final-section {
+    padding: 80px 48px; background: #495057; color: #fff; text-align: center;
+  }
+  .final-inner { max-width: 700px; margin: 0 auto; }
+  .final-inner h2 { font-size: 30px; font-weight: 700; margin-bottom: 16px; line-height: 40.8px; }
+  .final-inner p { font-size: 20px; color: rgba(255,255,255,0.85); margin-bottom: 32px; line-height: 26px; }
+  .btn-white {
+    background: #FAAF42; color: #212529; padding: 16px 40px; border-radius: 8px;
+    font-size: 18px; font-weight: 700; border: none; cursor: pointer;
+    display: inline-block; text-decoration: none; transition: transform 0.2s;
+  }
+  .btn-white:hover { transform: translateY(-1px); background: #e89e2e; }
+  .app-badges { margin-top: 32px; display: flex; gap: 16px; justify-content: center; }
+  .cancel-note { font-size: 18px; color: rgba(255,255,255,0.55); margin-top: 16px; }
 
-/* LIGHTBOX */
-.lightbox-overlay {
-display: none; position: fixed; inset: 0; z-index: 1000;
-background: rgba(0,0,0,0.85); align-items: center; justify-content: center;
-}
-.lightbox-overlay.active { display: flex; }
-.lightbox-container {
-position: relative; width: 90%; max-width: 900px;
-aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden;
-box-shadow: 0 40px 100px rgba(0,0,0,0.5);
-}
-/* ↓ iframe fills container; hidden until player is ready avoids flash */
-.lightbox-container iframe {
-width: 100%; height: 100%; border: none;
-visibility: hidden; /* revealed once player fires ‘loaded’ */
-}
-.lightbox-close {
-position: absolute; top: -44px; right: 0;
-background: none; border: none; color: #fff; font-size: 32px;
-cursor: pointer; line-height: 1; opacity: 0.8;
-}
-.lightbox-close:hover { opacity: 1; }
+  /* LIGHTBOX */
+  .lightbox-overlay {
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,0.85); align-items: center; justify-content: center;
+  }
+  .lightbox-overlay.active { display: flex; }
+  .lightbox-container {
+    position: relative; width: 90%; max-width: 900px;
+    aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  }
+  .lightbox-container iframe { width: 100%; height: 100%; border: none; }
+  .lightbox-close {
+    position: absolute; top: -44px; right: 0;
+    background: none; border: none; color: #fff; font-size: 32px;
+    cursor: pointer; line-height: 1; opacity: 0.8;
+  }
+  .lightbox-close:hover { opacity: 1; }
 
-/* FOOTER */
-footer {
-background: #000; color: #ccc; font-size: 15px; line-height: 1.7;
-}
-.footer-main {
-max-width: 1200px; margin: 0 auto;
-display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-padding: 56px 48px 48px;
-}
-.footer-contact h4 {
-display: flex; align-items: center; gap: 10px;
-font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px;
-font-family: ‘Trebuchet MS’, sans-serif;
-}
-.footer-contact table { border-collapse: collapse; margin-bottom: 12px; }
-.footer-contact td { padding: 2px 24px 2px 0; color: #ccc; font-size: 15px; }
-.footer-contact td:last-child { color: #fff; font-weight: 600; padding-right: 0; }
-.footer-contact a { color: #ccc; text-decoration: none; }
-.footer-contact a:hover { color: #FAAF42; }
-.footer-maple {
-display: flex; align-items: flex-start; gap: 10px;
-margin: 16px 0 20px;
-}
-.footer-maple p { font-size: 15px; color: #ccc; margin: 0; line-height: 1.5; }
-.footer-maple strong { color: #fff; }
-.footer-hours { font-size: 15px; }
-.footer-hours strong { color: #fff; display: block; margin-bottom: 2px; }
-.footer-nav { padding-top: 4px; }
-.footer-nav ul { list-style: none; }
-.footer-nav ul li { margin-bottom: 14px; text-align: right; }
-.footer-nav ul li a { color: #ccc; text-decoration: none; font-size: 16px; font-weight: 500; }
-.footer-nav ul li a:hover { color: #FAAF42; }
-.footer-bottom {
-border-top: 1px solid rgba(255,255,255,0.12);
-padding: 28px 48px 36px;
-max-width: 1200px; margin: 0 auto;
-}
-.footer-bottom p { font-size: 13px; color: #999; line-height: 1.7; margin-bottom: 8px; }
-.footer-bottom p:first-child { font-size: 14px; font-weight: 700; color: #ccc; margin-bottom: 12px; }
-@media (max-width: 900px) {
-.footer-main { grid-template-columns: 1fr; gap: 32px; padding: 40px 24px 32px; }
-.footer-nav ul li { text-align: left; }
-.footer-bottom { padding: 24px 24px 32px; }
-}
+  /* FOOTER */
+  footer {
+    background: #000; color: #ccc; font-size: 15px; line-height: 1.7;
+  }
+  .footer-main {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+    padding: 56px 48px 48px;
+  }
+  .footer-contact h4 {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+  .footer-contact table { border-collapse: collapse; margin-bottom: 12px; }
+  .footer-contact td { padding: 2px 24px 2px 0; color: #ccc; font-size: 15px; }
+  .footer-contact td:last-child { color: #fff; font-weight: 600; padding-right: 0; }
+  .footer-contact a { color: #ccc; text-decoration: none; }
+  .footer-contact a:hover { color: #FAAF42; }
+  .footer-maple {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin: 16px 0 20px;
+  }
+  .footer-maple p { font-size: 15px; color: #ccc; margin: 0; line-height: 1.5; }
+  .footer-maple strong { color: #fff; }
+  .footer-hours { font-size: 15px; }
+  .footer-hours strong { color: #fff; display: block; margin-bottom: 2px; }
+  .footer-nav { padding-top: 4px; }
+  .footer-nav ul { list-style: none; }
+  .footer-nav ul li { margin-bottom: 14px; text-align: right; }
+  .footer-nav ul li a { color: #ccc; text-decoration: none; font-size: 16px; font-weight: 500; }
+  .footer-nav ul li a:hover { color: #FAAF42; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding: 28px 48px 36px;
+    max-width: 1200px; margin: 0 auto;
+  }
+  .footer-bottom p { font-size: 13px; color: #999; line-height: 1.7; margin-bottom: 8px; }
+  .footer-bottom p:first-child { font-size: 14px; font-weight: 700; color: #ccc; margin-bottom: 12px; }
+  @media (max-width: 900px) {
+    .footer-main { grid-template-columns: 1fr; gap: 32px; padding: 40px 24px 32px; }
+    .footer-nav ul li { text-align: left; }
+    .footer-bottom { padding: 24px 24px 32px; }
+  }
 
-/* HAMBURGER */
-.hamburger {
-display: none; flex-direction: column; justify-content: center; gap: 5px;
-background: none; border: none; cursor: pointer; padding: 4px;
-}
-.hamburger span { display: block; width: 24px; height: 2px; background: #212529; border-radius: 2px; transition: all 0.25s; }
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  /* HAMBURGER */
+  .hamburger {
+    display: none; flex-direction: column; justify-content: center; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px;
+  }
+  .hamburger span { display: block; width: 24px; height: 2px; background: #212529; border-radius: 2px; transition: all 0.25s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-.mobile-menu {
-display: none; flex-direction: column; gap: 0;
-background: #fff; border-top: 1px solid #eee;
-position: absolute; top: 100%; left: 0; right: 0;
-box-shadow: 0 8px 24px rgba(0,0,0,0.08); z-index: 99;
-}
-.mobile-menu.open { display: flex; }
-.mobile-menu a { padding: 16px 24px; font-size: 16px; font-weight: 600; color: #4B3F34; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
-.mobile-menu a:hover { background: #fef8eb; color: #E8292F; }
-.mobile-menu .mob-cta { margin: 16px 24px 20px; padding: 12px 24px; text-align: center; background: #FAAF42; border-radius: 8px; font-weight: 700; color: #212529; border-bottom: none; }
-.mobile-menu .mob-cta:hover { background: #e89e2e; color: #212529; }
+  .mobile-menu {
+    display: none; flex-direction: column; gap: 0;
+    background: #fff; border-top: 1px solid #eee;
+    position: absolute; top: 100%; left: 0; right: 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08); z-index: 99;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { padding: 16px 24px; font-size: 16px; font-weight: 600; color: #4B3F34; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
+  .mobile-menu a:hover { background: #fef8eb; color: #E8292F; }
+  .mobile-menu .mob-cta { margin: 16px 24px 20px; padding: 12px 24px; text-align: center; background: #FAAF42; border-radius: 8px; font-weight: 700; color: #212529; border-bottom: none; }
+  .mobile-menu .mob-cta:hover { background: #e89e2e; color: #212529; }
 
-/* SCAN CAROUSEL DOTS */
-.carousel-dots {
-display: none;
-justify-content: center; gap: 8px; margin-top: 16px; margin-bottom: 40px;
-}
-.carousel-dots span { width: 8px; height: 8px; border-radius: 50%; background: #d0d0d0; display: block; }
-.carousel-dots span.active { background: #FAAF42; }
+  /* SCAN CAROUSEL DOTS */
+  .carousel-dots {
+    display: none;
+    justify-content: center; gap: 8px; margin-top: 16px; margin-bottom: 40px;
+  }
+  .carousel-dots span { width: 8px; height: 8px; border-radius: 50%; background: #d0d0d0; display: block; }
+  .carousel-dots span.active { background: #FAAF42; }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-nav { padding: 12px 20px; position: sticky; }
-.nav-links { display: none; }
-.hamburger { display: flex; }
-.hero { grid-template-columns: 1fr; padding: 48px 24px; text-align: center; }
-.hero h1 { font-size: 28px; line-height: 36px; }
-.hero-ctas { justify-content: center; flex-wrap: wrap; }
-.hero-visual { display: none; }
-.trust-bar { padding: 36px 24px; }
-.scan-section, .diff-section, .start-section { padding: 56px 24px; }
-.breach-section { padding: 56px 24px; }
-.scan-steps-grid {
-display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
--webkit-overflow-scrolling: touch; gap: 16px; padding-bottom: 16px; scrollbar-width: none;
-margin-bottom: 0;
-}
-.scan-steps-grid::-webkit-scrollbar { display: none; }
-.scan-step-card { flex: 0 0 80%; scroll-snap-align: center; }
-.carousel-dots { display: flex; }
-.autoscan-banner { flex-direction: column; text-align: center; }
-.diff-grid { grid-template-columns: 1fr; }
-.start-steps { grid-template-columns: 1fr; }
-.final-section, .proof-section { padding: 56px 24px; }
-.breach-card { flex: 0 0 85%; }
-.proof-top { flex-direction: column; gap: 0; }
-.proof-top-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.15); padding: 24px 0; width: 280px; flex: none; justify-content: flex-start; }
-.proof-label { text-align: left; }
-.proof-top-item:last-child { border-bottom: none; }
-.proof-scenario-grid { grid-template-columns: 1fr; }
-}
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 12px 20px; position: sticky; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero { grid-template-columns: 1fr; padding: 48px 24px; text-align: center; }
+    .hero h1 { font-size: 28px; line-height: 36px; }
+    .hero-ctas { justify-content: center; flex-wrap: wrap; }
+    .hero-visual { display: none; }
+    .trust-bar { padding: 36px 24px; }
+    .scan-section, .diff-section, .start-section { padding: 56px 24px; }
+    .breach-section { padding: 56px 24px; }
+    .scan-steps-grid {
+      display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; gap: 16px; padding-bottom: 16px; scrollbar-width: none;
+      margin-bottom: 0; /* FIX: remove gap between cards and dots */
+    }
+    .scan-steps-grid::-webkit-scrollbar { display: none; }
+    .scan-step-card { flex: 0 0 80%; scroll-snap-align: center; }
+    .carousel-dots { display: flex; }
+    .autoscan-banner { flex-direction: column; text-align: center; }
+    .diff-grid { grid-template-columns: 1fr; }
+    .start-steps { grid-template-columns: 1fr; }
+    .final-section, .proof-section { padding: 56px 24px; }
+    .breach-card { flex: 0 0 85%; }
+    .proof-top { flex-direction: column; gap: 0; }
+    .proof-top-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.15); padding: 24px 0; width: 280px; flex: none; justify-content: flex-start; }
+    .proof-label { text-align: left; }
+    .proof-top-item:last-child { border-bottom: none; }
+
+    .proof-scenario-grid { grid-template-columns: 1fr; }
+  }
 </style>
-
 </head>
 <body>
 
 <!-- NAV -->
-
 <nav>
   <div class="nav-logo"><a href="https://the-gmt.github.io/expert-octo-garbanzo/">    <img src="https://www.idassist.com/assets/images/id-assist-en.svg" alt="ID&nbsp;Assist" style="height: 50px;"></div>
   <div class="nav-links">
@@ -478,7 +472,6 @@ margin-bottom: 0;
 </nav>
 
 <!-- HERO -->
-
 <section class="hero">
   <div>
     <h1>Scammers are getting smarter.<br><span>Now you can be, too.</span></h1>
@@ -494,7 +487,6 @@ margin-bottom: 0;
 </section>
 
 <!-- TRUST BAR -->
-
 <div class="trust-bar">
   <div class="trust-item"><span class="num">500K+</span> Canadians protected</div>
   <div class="trust-item"><span class="num">10+</span> years with major banks</div>
@@ -503,7 +495,6 @@ margin-bottom: 0;
 </div>
 
 <!-- SCAN & SCORE -->
-
 <section class="scan-section">
   <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/ac5f8db692e42f5e72c163a94ef433be3e09c9d6/scanscore-logo.png" alt="Scan & Score" style="height:60px; width:auto; margin-bottom:16px; display:block;">
   <h2>Got a suspicious message? Get your answer in seconds.</h2>
@@ -541,82 +532,77 @@ margin-bottom: 0;
 </section>
 
 <!-- BREACH CHAIN -->
-
 <section class="breach-section">
   <div class="breach-inner">
     <h2>How a data breach becomes your problem</h2>
     <p>Every breach follows the same pattern. Here's how ID&nbsp;Assist fights back when your information is at risk.</p>
 
-```
-<div class="breach-carousel-wrap">
-  <button class="breach-arrow" id="breach-prev" aria-label="Previous" disabled>&#8592;</button>
-  <button class="breach-arrow" id="breach-next" aria-label="Next">&#8594;</button>
+    <div class="breach-carousel-wrap">
+      <button class="breach-arrow" id="breach-prev" aria-label="Previous" disabled>&#8592;</button>
+      <button class="breach-arrow" id="breach-next" aria-label="Next">&#8594;</button>
 
-  <div class="breach-carousel" id="breach-carousel">
-    <div class="breach-card">
-      <img class="card-image" src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/security-system-is-compromised-is-falling-apart-corporate-data-leakage.jpg" alt="A company gets breached">
-      <div class="breach-card-body">
-        <h3>A company gets breached</h3>
-        <p>Billions of records are exposed every year through breaches at retailers, telecoms, social media platforms, and government agencies.</p>
-      </div>
-    </div>
-    <div class="breach-card">
-      <img class="card-image" src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/hacker-typing-computer-concept-cybercrime-cyberattack-dark-web.jpg" alt="Your information hits the dark web">
-      <div class="breach-card-body">
-        <h3>Your information hits the dark web</h3>
-        <p>Stolen emails, passwords, credit card numbers, and SINs get traded on hidden criminal marketplaces – often within days.</p>
-        <div class="intercept-card">
-          <div class="tag">How ID&nbsp;Assist helps</div>
-          <p><strong>Dark web monitoring</strong> – We watch for up to 50 pieces of your personal information across criminal marketplaces and quickly alert you when something is found so you can change passwords or cancel compromised bank cards to protect your accounts.</p>
+      <div class="breach-carousel" id="breach-carousel">
+        <div class="breach-card">
+          <img class="card-image" src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/security-system-is-compromised-is-falling-apart-corporate-data-leakage.jpg" alt="A company gets breached">
+          <div class="breach-card-body">
+            <h3>A company gets breached</h3>
+            <p>Billions of records are exposed every year through breaches at retailers, telecoms, social media platforms, and government agencies.</p>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="breach-card">
-      <img class="card-image" src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/businessman-using-laptop-home-is-receiving-email-warning-alerts-about-spam-viruses-hackers-as-well-as-network-security-concept.jpg" alt="Scammers target you directly">
-      <div class="breach-card-body">
-        <h3>Scammers target you directly</h3>
-        <p>Using your personal details, criminals send convincing emails and texts designed to trick you into giving up even more.</p>
-        <div class="intercept-card">
-          <div class="tag">How ID&nbsp;Assist helps</div>
-          <p><strong>Scan & Score</strong> – AI-powered scam detection analyzes any suspicious message and tells you instantly whether it's a threat.</p>
+        <div class="breach-card">
+          <img class="card-image" src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/hacker-typing-computer-concept-cybercrime-cyberattack-dark-web.jpg" alt="Your information hits the dark web">
+          <div class="breach-card-body">
+            <h3>Your information hits the dark web</h3>
+            <p>Stolen emails, passwords, credit card numbers, and SINs get traded on hidden criminal marketplaces – often within days.</p>
+            <div class="intercept-card">
+              <div class="tag">How ID&nbsp;Assist helps</div>
+              <p><strong>Dark web monitoring</strong> – We watch for up to 50 pieces of your personal information across criminal marketplaces and quickly alert you when something is found so you can change passwords or cancel compromised bank cards to protect your accounts.</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="breach-card">
-      <img class="card-image" src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/credit-text-button-modern-computer-keyboard.jpg" alt="Someone applies for credit in your name">
-      <div class="breach-card-body">
-        <h3>Someone applies for credit in your name</h3>
-        <p>Identity thieves use stolen information to open accounts or take out loans – leaving you with the damage.</p>
-        <div class="intercept-card">
-          <div class="tag">How ID&nbsp;Assist helps</div>
-          <p><strong>Dual-bureau credit monitoring</strong> – We monitor both Equifax and TransUnion daily. Most services only watch one – meaning they can miss the early signs of fraud.</p>
+        <div class="breach-card">
+          <img class="card-image" src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/businessman-using-laptop-home-is-receiving-email-warning-alerts-about-spam-viruses-hackers-as-well-as-network-security-concept.jpg" alt="Scammers target you directly">
+          <div class="breach-card-body">
+            <h3>Scammers target you directly</h3>
+            <p>Using your personal details, criminals send convincing emails and texts designed to trick you into giving up even more.</p>
+            <div class="intercept-card">
+              <div class="tag">How ID&nbsp;Assist helps</div>
+              <p><strong>Scan & Score</strong> – AI-powered scam detection analyzes any suspicious message and tells you instantly whether it's a threat.</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="breach-card">
-      <img class="card-image" src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/247-support-services-customer-assistance-anytime-anywhere.jpg" alt="Recovering your identity">
-      <div class="breach-card-body">
-        <h3>Recovering your identity is complicated – but it doesn't have to be</h3>
-        <p>Restoring your identity after theft can mean dealing with banks, credit bureaus, government agencies, and creditors – often all at once.</p>
-        <div class="intercept-card">
-          <div class="tag">How ID&nbsp;Assist helps</div>
-          <p><strong>Full-service identity restoration</strong> – Our specialists guide you through every step of recovery, including Limited Power of Attorney support – so you can focus on your life, not the paperwork.</p>
+        <div class="breach-card">
+          <img class="card-image" src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/credit-text-button-modern-computer-keyboard.jpg" alt="Someone applies for credit in your name">
+          <div class="breach-card-body">
+            <h3>Someone applies for credit in your name</h3>
+            <p>Identity thieves use stolen information to open accounts or take out loans – leaving you with the damage.</p>
+            <div class="intercept-card">
+              <div class="tag">How ID&nbsp;Assist helps</div>
+              <p><strong>Dual-bureau credit monitoring</strong> – We monitor both Equifax and TransUnion daily. Most services only watch one – meaning they can miss the early signs of fraud.</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div><!-- /breach-carousel -->
+        <div class="breach-card">
+          <img class="card-image" src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/247-support-services-customer-assistance-anytime-anywhere.jpg" alt="Recovering your identity">
+          <div class="breach-card-body">
+            <h3>Recovering your identity is complicated – but it doesn't have to be</h3>
+            <p>Restoring your identity after theft can mean dealing with banks, credit bureaus, government agencies, and creditors – often all at once.</p>
+            <div class="intercept-card">
+              <div class="tag">How ID&nbsp;Assist helps</div>
+              <p><strong>Full-service identity restoration</strong> – Our specialists guide you through every step of recovery, including Limited Power of Attorney support – so you can focus on your life, not the paperwork.</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /breach-carousel -->
 
-  <div class="breach-dots" id="breach-dots">
-    <span class="active"></span><span></span><span></span><span></span><span></span>
-  </div>
-</div><!-- /breach-carousel-wrap -->
-```
-
+      <div class="breach-dots" id="breach-dots">
+        <span class="active"></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div><!-- /breach-carousel-wrap -->
   </div>
 </section>
 
 <!-- DIFFERENTIATORS -->
-
 <section class="diff-section">
   <h2>What makes ID&nbsp;Assist different</h2>
   <div class="diff-grid">
@@ -652,80 +638,75 @@ margin-bottom: 0;
 </section>
 
 <!-- SOCIAL PROOF -->
-
 <section class="proof-section">
   <div class="proof-inner">
     <h2>Protecting Canadians since 2015</h2>
 
-```
-<div class="proof-top">
-  <div class="proof-top-item">
-    <div class="proof-icon">
-      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/af84da373bee635ba6b8286368b70f0505558507/shield_icon.svg" alt="" width="70" height="70">
-    </div>
-    <div class="proof-label"><strong>500K+</strong> Canadians protected</div>
-  </div>
-  <div class="proof-top-item">
-    <div class="proof-icon">
-      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/af84da373bee635ba6b8286368b70f0505558507/handshake_icon.svg" alt="" width="70" height="70">
-    </div>
-    <div class="proof-label"><strong>10+ years</strong> with major banks</div>
-  </div>
-  <div class="proof-top-item">
-    <div class="proof-icon">
-      <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/SOC_2_Type_2_icon.svg" alt="" width="70" height="70">
-    </div>
-    <div class="proof-label"><strong>Bank-level</strong> data security</div>
-  </div>
-</div>
-
-<div class="proof-scenario-grid">
-  <div class="proof-scenario">
-    <div class="proof-scenario-head">
-      <div class="proof-scenario-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAAF42" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <line x1="2" y1="12" x2="22" y2="12"/>
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-          <rect x="9" y="13" width="6" height="5" rx="1" fill="none"/>
-          <path d="M10 13v-1.5a2 2 0 0 1 4 0V13"/>
-        </svg>
+    <div class="proof-top">
+      <div class="proof-top-item">
+        <div class="proof-icon">
+          <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/af84da373bee635ba6b8286368b70f0505558507/shield_icon.svg" alt="" width="70" height="70">
+        </div>
+        <div class="proof-label"><strong>500K+</strong> Canadians protected</div>
       </div>
-      <div class="proof-scenario-type">Dark Web Alert</div>
-    </div>
-    <p>A credit card number exposed in a retail breach was detected on a criminal marketplace – cancelled before any fraudulent charges were made.</p>
-  </div>
-
-  <div class="proof-scenario">
-    <div class="proof-scenario-head">
-      <div class="proof-scenario-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAAF42" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="18" height="18" rx="3"/>
-          <path d="M13 3L9 13h4l-2 8 8-10h-5l3-8z" fill="#FAAF42" stroke="none"/>
-        </svg>
+      <div class="proof-top-item">
+        <div class="proof-icon">
+          <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/af84da373bee635ba6b8286368b70f0505558507/handshake_icon.svg" alt="" width="70" height="70">
+        </div>
+        <div class="proof-label"><strong>10+ years</strong> with major banks</div>
       </div>
-      <div class="proof-scenario-type">Scan &amp; Score</div>
-    </div>
-    <p>A phishing email impersonating a major telecom provider was flagged as high risk – preventing a subscriber from clicking through to a fake login page.</p>
-  </div>
-
-  <div class="proof-scenario">
-    <div class="proof-scenario-head">
-      <div class="proof-scenario-icon">
-        <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/Credit_Monitoring_icon.svg" alt="" width="32" height="32">
+      <div class="proof-top-item">
+        <div class="proof-icon">
+          <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/SOC_2_Type_2_icon.svg" alt="" width="70" height="70">
+        </div>
+        <div class="proof-label"><strong>Bank-level</strong> data security</div>
       </div>
-      <div class="proof-scenario-type">Credit Monitoring</div>
     </div>
-    <p>An unauthorized credit inquiry was detected at TransUnion – a fraud alert was placed within hours, blocking a fraudulent account application.</p>
-  </div>
-</div>
-```
 
+    <div class="proof-scenario-grid">
+      <div class="proof-scenario">
+        <div class="proof-scenario-head">
+          <div class="proof-scenario-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAAF42" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              <rect x="9" y="13" width="6" height="5" rx="1" fill="none"/>
+              <path d="M10 13v-1.5a2 2 0 0 1 4 0V13"/>
+            </svg>
+          </div>
+          <div class="proof-scenario-type">Dark Web Alert</div>
+        </div>
+        <p>A credit card number exposed in a retail breach was detected on a criminal marketplace – cancelled before any fraudulent charges were made.</p>
+      </div>
+
+      <div class="proof-scenario">
+        <div class="proof-scenario-head">
+          <div class="proof-scenario-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAAF42" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="3"/>
+              <path d="M13 3L9 13h4l-2 8 8-10h-5l3-8z" fill="#FAAF42" stroke="none"/>
+            </svg>
+          </div>
+          <div class="proof-scenario-type">Scan &amp; Score</div>
+        </div>
+        <p>A phishing email impersonating a major telecom provider was flagged as high risk – preventing a subscriber from clicking through to a fake login page.</p>
+      </div>
+
+      <div class="proof-scenario">
+        <div class="proof-scenario-head">
+          <div class="proof-scenario-icon">
+            <img src="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/Credit_Monitoring_icon.svg" alt="" width="32" height="32">
+          </div>
+          <div class="proof-scenario-type">Credit Monitoring</div>
+        </div>
+        <p>An unauthorized credit inquiry was detected at TransUnion – a fraud alert was placed within hours, blocking a fraudulent account application.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- GET STARTED -->
-
 <section class="start-section">
   <h2>Getting started takes less than 5 minutes</h2>
   <div class="start-steps">
@@ -749,7 +730,6 @@ margin-bottom: 0;
 </section>
 
 <!-- FINAL CTA -->
-
 <section class="final-section">
   <div class="final-inner">
     <h2>Protection that goes where you go</h2>
@@ -763,25 +743,15 @@ margin-bottom: 0;
   </div>
 </section>
 
-<!-- LIGHTBOX
-     The iframe is pre-rendered with a blank src so the Vimeo player can
-     initialise once on page load rather than cold-starting on every click.
-     visibility:hidden keeps it invisible until the player signals it's ready. -->
-
+<!-- LIGHTBOX -->
 <div class="lightbox-overlay" id="video-lightbox">
   <div class="lightbox-container">
     <button class="lightbox-close" id="close-lightbox">&times;</button>
-    <iframe
-      id="vimeo-iframe"
-      src="https://player.vimeo.com/video/461189123?autopause=0&playsinline=1"
-      allow="autoplay; fullscreen; picture-in-picture"
-      allowfullscreen
-    ></iframe>
+    <iframe id="vimeo-iframe" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
 
 <!-- FOOTER -->
-
 <footer>
   <div class="footer-main">
     <div class="footer-contact">
@@ -823,118 +793,74 @@ margin-bottom: 0;
   </div>
 </footer>
 
-<!-- Vimeo Player SDK – loaded once, controls both lightbox videos -->
-
-<script src="https://player.vimeo.com/api/player.js"></script>
-
 <script>
-  // ─── Hamburger ────────────────────────────────────────────────────────────
+  // Hamburger
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-  });
-  document.addEventListener('click', e => {
-    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-    }
-  });
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  document.addEventListener('click', e => { if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); } });
 
-  // ─── Breach carousel ──────────────────────────────────────────────────────
+  // Breach carousel
   const breachCarousel = document.getElementById('breach-carousel');
-  const breachDots     = document.querySelectorAll('#breach-dots span');
-  const breachPrev     = document.getElementById('breach-prev');
-  const breachNext     = document.getElementById('breach-next');
-  const totalCards     = breachDots.length;
+  const breachDots = document.querySelectorAll('#breach-dots span');
+  const breachPrev = document.getElementById('breach-prev');
+  const breachNext = document.getElementById('breach-next');
+  const totalCards = breachDots.length;
 
   function getCardWidth() {
     const card = breachCarousel.querySelector('.breach-card');
     return card ? card.offsetWidth + 24 : 0;
   }
+
   function updateBreachState(idx) {
     breachDots.forEach((d, i) => d.classList.toggle('active', i === idx));
     breachPrev.disabled = idx === 0;
     breachNext.disabled = idx === totalCards - 1;
   }
+
   breachCarousel.addEventListener('scroll', () => {
     const w = getCardWidth();
     if (!w) return;
-    updateBreachState(Math.min(Math.round(breachCarousel.scrollLeft / w), totalCards - 1));
+    const idx = Math.min(Math.round(breachCarousel.scrollLeft / w), totalCards - 1);
+    updateBreachState(idx);
   });
+
   breachPrev.addEventListener('click', () => {
     const w = getCardWidth();
     const idx = Math.max(0, Math.round(breachCarousel.scrollLeft / w) - 1);
     breachCarousel.scrollTo({ left: idx * w, behavior: 'smooth' });
   });
+
   breachNext.addEventListener('click', () => {
     const w = getCardWidth();
     const idx = Math.min(totalCards - 1, Math.round(breachCarousel.scrollLeft / w) + 1);
     breachCarousel.scrollTo({ left: idx * w, behavior: 'smooth' });
   });
 
-  // ─── Scan & Score carousel dots ───────────────────────────────────────────
+  // Scan & Score carousel dots — FIX: measure actual card width + gap
   const scanCarousel = document.getElementById('scan-carousel');
-  const scanDots     = document.querySelectorAll('#carousel-dots span');
+  const scanDots = document.querySelectorAll('#carousel-dots span');
   if (scanCarousel && scanDots.length) {
     scanCarousel.addEventListener('scroll', () => {
-      const card      = scanCarousel.querySelector('.scan-step-card');
+      const card = scanCarousel.querySelector('.scan-step-card');
       const cardWidth = card ? card.offsetWidth + 16 : scanCarousel.offsetWidth;
-      const idx       = Math.min(Math.round(scanCarousel.scrollLeft / cardWidth), scanDots.length - 1);
+      const idx = Math.min(
+        Math.round(scanCarousel.scrollLeft / cardWidth),
+        scanDots.length - 1
+      );
       scanDots.forEach((d, i) => d.classList.toggle('active', i === idx));
     });
   }
 
-  // ─── Vimeo lightbox (Player API) ──────────────────────────────────────────
-  const VIDEO_IDS = {
-    main:     '461189123',
-    autoscan: '1114048941'
-  };
-
-  const overlay   = document.getElementById('video-lightbox');
-  const iframeEl  = document.getElementById('vimeo-iframe');
-
-  // Instantiate the player once against the already-rendered iframe.
-  // The SDK will manage the connection; we never touch iframe.src again.
-  const player = new Vimeo.Player(iframeEl);
-
-  // Reveal the iframe once the player has loaded its first video,
-  // preventing a black flash on slower connections.
-  player.on('loaded', () => {
-    iframeEl.style.visibility = 'visible';
-  });
-
-  function openLightbox(videoId) {
-    overlay.classList.add('active');
-    // loadVideo() swaps content inside the existing player – no cold start.
-    player.loadVideo(videoId).then(() => {
-      player.play().catch(() => {
-        // Autoplay may be blocked by the browser; the user can tap play.
-      });
-    });
-  }
-
-  function closeLightbox() {
-    player.pause();
-    overlay.classList.remove('active');
-    // Seek back to the start so re-opening feels fresh.
-    player.setCurrentTime(0).catch(() => {});
-  }
-
-  document.getElementById('open-video').addEventListener('click', e => {
-    e.preventDefault();
-    openLightbox(VIDEO_IDS.main);
-  });
-  document.getElementById('open-autoscan-video').addEventListener('click', e => {
-    e.preventDefault();
-    openLightbox(VIDEO_IDS.autoscan);
-  });
-
+  // Lightbox
+  const overlay = document.getElementById('video-lightbox');
+  const iframe = document.getElementById('vimeo-iframe');
+  document.getElementById('open-video').addEventListener('click', e => { e.preventDefault(); iframe.src = 'https://player.vimeo.com/video/461189123?autoplay=1'; overlay.classList.add('active'); });
+  document.getElementById('open-autoscan-video').addEventListener('click', e => { e.preventDefault(); iframe.src = 'https://player.vimeo.com/video/1114048941?h=11c65abbff&autoplay=1'; overlay.classList.add('active'); });
+  function closeLightbox() { overlay.classList.remove('active'); iframe.src = ''; }
   document.getElementById('close-lightbox').addEventListener('click', closeLightbox);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeLightbox(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
-
 </body>
 </html>
