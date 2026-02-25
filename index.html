@@ -855,8 +855,8 @@
   // Lightbox
   const overlay = document.getElementById('video-lightbox');
   const iframe = document.getElementById('vimeo-iframe');
-  document.getElementById('open-video').addEventListener('click', e => { e.preventDefault(); iframe.src = 'https://player.vimeo.com/video/461189123?autoplay=1'; overlay.classList.add('active'); });
-  document.getElementById('open-autoscan-video').addEventListener('click', e => { e.preventDefault(); iframe.src = 'https://player.vimeo.com/video/1114048941?h=11c65abbff&autoplay=1'; overlay.classList.add('active'); });
+  document.getElementById('open-video').addEventListener('click', e => { e.preventDefault(); iframe.src = 'https://player.vimeo.com/video/461189123?autoplay=1&autopause=0'; overlay.classList.add('active'); });
+  document.getElementById('open-autoscan-video').addEventListener('click', e => { e.preventDefault(); iframe.src = 'https://player.vimeo.com/video/1114048941?h=11c65abbff&autoplay=1&autopause=0'; overlay.classList.add('active'); });
   function closeLightbox() { overlay.classList.remove('active'); iframe.src = ''; }
   document.getElementById('close-lightbox').addEventListener('click', closeLightbox);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeLightbox(); });
