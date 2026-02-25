@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Que faire si votre identité a été volée – Assist Identité</title>
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/IDAssist_button.png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Source Sans Pro', 'Trebuchet MS', -apple-system, sans-serif;
+    color: #4B3F34; line-height: 1.6; background: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h6, p { font-family: 'Source Sans Pro', sans-serif; }
+  h3, h4, h5 { font-family: 'Trebuchet MS', sans-serif; }
+
+  /* ── NAV ── */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 48px; background: #fff; border-bottom: 1px solid #eee;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a { text-decoration: none; color: #4B3F34; font-size: 16px; font-weight: 600; }
+  .nav-links a:hover { color: #E8292F; }
+  .nav-cta { background: #FAAF42; color: #212529; padding: 10px 22px; border-radius: 6px; font-size: 16px; font-weight: 700; text-decoration: none; }
+  .nav-cta:hover { background: #e89e2e; }
+  .nav-login { background: none; border: 2px solid #FAAF42; color: #212529; padding: 8px 20px; border-radius: 6px; font-size: 16px; font-weight: 600; text-decoration: none; }
+  .nav-login:hover { background: #fef8eb; }
+
+  /* ── EMERGENCY BANNER ── */
+  .emergency-banner { display: none; }
+
+  @media (max-width: 900px) {
+    .emergency-banner {
+      display: flex;
+      position: sticky;
+      top: 74px;
+      z-index: 99;
+      background: #E8292F; color: #fff;
+      padding: 12px 20px;
+      align-items: center; justify-content: center; gap: 12px;
+      flex-wrap: wrap;
+    }
+    .emergency-banner p { font-size: 15px; font-weight: 600; }
+    .emergency-banner a {
+      color: #fff; font-weight: 800; font-size: 18px; text-decoration: none;
+      background: rgba(255,255,255,0.2); padding: 5px 14px; border-radius: 6px;
+      white-space: nowrap;
+    }
+    .emergency-banner a:hover { background: rgba(255,255,255,0.3); }
+  }
+
+  /* ── SHARED LAYOUT ── */
+  .page-layout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 48px 80px;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 60px;
+    align-items: start;
+  }
+  .page-main { min-width: 0; }
+  .page-sidebar { position: sticky; top: 88px; }
+
+  /* ── HERO INTRO ── */
+  .hero-intro { margin-bottom: 48px; }
+  .hero-label {
+    font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #E8292F; margin-bottom: 12px;
+  }
+  .hero-intro h1 {
+    font-size: 40px; font-weight: 800; line-height: 1.2; color: #212529; margin-bottom: 20px;
+  }
+  .hero-lead {
+    font-size: 20px; color: #4B3F34; line-height: 1.65; margin-bottom: 28px;
+  }
+  .calm-box {
+    background: #fffbeb; border: 1px solid #fde68a; border-radius: 12px;
+    padding: 20px 24px;
+  }
+  .calm-box p { font-size: 17px; color: #4B3F34; line-height: 1.7; }
+  .calm-box strong { color: #212529; }
+
+  /* ── SIDEBAR CARDS ── */
+  .sidebar-card {
+    background: #495057; border-radius: 16px; padding: 28px; color: #fff; margin-bottom: 20px;
+  }
+  .sidebar-card h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 12px; line-height: 1.3; }
+  .sidebar-card p { font-size: 16px; color: rgba(255,255,255,0.8); line-height: 1.65; margin-bottom: 16px; }
+  .sidebar-card a.btn-gold {
+    display: block; text-align: center;
+    background: #FAAF42; color: #212529; padding: 12px 20px; border-radius: 8px;
+    font-size: 16px; font-weight: 700; text-decoration: none; transition: background 0.2s;
+  }
+  .sidebar-card a.btn-gold:hover { background: #e89e2e; }
+  .sidebar-card .phone-big {
+    font-size: 22px; font-weight: 800; color: #FAAF42; display: block; margin-bottom: 6px;
+    text-decoration: none;
+  }
+  .sidebar-card .phone-big:hover { color: #e89e2e; }
+  .sidebar-card.light { background: #fef2f2; border: 1px solid #fca5a5; }
+  .sidebar-card.light h3 { color: #212529; }
+  .sidebar-card.light p { color: #4B3F34; }
+
+  .sidebar-toc {
+    background: #F2F2F2; border-radius: 14px; padding: 24px; margin-bottom: 20px;
+  }
+  .sidebar-toc h4 { font-size: 15px; font-weight: 700; color: #212529; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.8px; }
+  .toc-list { list-style: none; }
+  .toc-list li { margin-bottom: 10px; }
+  .toc-list a {
+    font-size: 15px; color: #4B3F34; text-decoration: none; font-weight: 600;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .toc-list a:hover { color: #E8292F; }
+  .toc-num {
+    width: 22px; height: 22px; border-radius: 50%; background: #FAAF42;
+    color: #212529; font-size: 12px; font-weight: 800;
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+
+  /* ── STEPS ── */
+  .step-block {
+    border: 1px solid #e5e5e5; border-radius: 16px; overflow: hidden;
+    margin-bottom: 24px; scroll-margin-top: 100px;
+  }
+  .step-header {
+    display: flex; align-items: center; gap: 16px;
+    padding: 24px 28px; background: #fff; cursor: pointer; user-select: none;
+  }
+  .step-header:hover { background: #fafafa; }
+  .step-badge {
+    width: 40px; height: 40px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 17px; font-weight: 800; color: #fff; flex-shrink: 0;
+    background: #E8292F;
+  }
+  .step-title-wrap { flex: 1; }
+  .step-urgency { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+  .step-urgency.now    { color: #E8292F; }
+  .step-urgency.soon   { color: #d97706; }
+  .step-urgency.ongoing{ color: #287292; }
+  .step-header h3 { font-size: 19px; font-weight: 700; color: #212529; line-height: 1.3; }
+  .step-chevron { font-size: 20px; color: #999; transition: transform 0.25s; flex-shrink: 0; }
+  .step-block.open .step-chevron { transform: rotate(180deg); }
+  .step-body { display: none; padding: 0 28px 28px; border-top: 1px solid #f0f0f0; }
+  .step-block.open .step-body { display: block; }
+  .step-body > p { font-size: 17px; color: #4B3F34; line-height: 1.7; margin-top: 20px; margin-bottom: 16px; }
+  .step-actions { margin-bottom: 16px; }
+  .step-action { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 12px; }
+  .action-check {
+    width: 22px; height: 22px; border: 2px solid #FAAF42; border-radius: 4px;
+    flex-shrink: 0; margin-top: 2px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; transition: background 0.15s;
+  }
+  .action-check.checked { background: #FAAF42; border-color: #FAAF42; }
+  .action-check.checked::after { content: '✓'; font-size: 13px; font-weight: 800; color: #212529; }
+  .step-action p { font-size: 16px; color: #4B3F34; line-height: 1.6; }
+  .step-action p strong { color: #212529; }
+  .ida-assist-box {
+    background: #f0f9ff; border: 1px solid #bae6fd; border-left: 4px solid #287292;
+    border-radius: 10px; padding: 16px 20px; margin-top: 16px;
+  }
+  .ida-assist-box .tag {
+    font-size: 13px; font-weight: 700; color: #287292; text-transform: uppercase;
+    letter-spacing: 0.8px; margin-bottom: 6px;
+  }
+  .ida-assist-box p { font-size: 15px; color: #4B3F34; line-height: 1.65; margin: 0; }
+  .ida-assist-box p strong { color: #212529; }
+  .step-contacts { margin-top: 16px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 14px; background: #F2F2F2; border-radius: 8px; margin-bottom: 8px;
+  }
+  .contact-item .c-label { font-size: 14px; color: #4B3F34; font-weight: 600; flex: 1; }
+  .contact-item a { font-size: 15px; color: #287292; font-weight: 700; text-decoration: none; }
+  .contact-item a:hover { color: #E8292F; }
+
+  /* ── KNOW THE SIGNS ── */
+  .signs-section { background: #F2F2F2; padding: 72px 48px; }
+  .signs-inner { max-width: 1200px; margin: 0 auto; }
+  .signs-inner .section-label { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #E8292F; margin-bottom: 12px; }
+  .signs-inner h2 { font-size: 32px; font-weight: 800; color: #212529; margin-bottom: 16px; line-height: 1.25; }
+  .signs-inner .sub { font-size: 20px; color: #4B3F34; margin-bottom: 40px; line-height: 1.65; max-width: 640px; }
+  .signs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .sign-card { background: #fff; border-radius: 14px; padding: 24px; border-left: 4px solid #E8292F; }
+  .sign-card h3 { font-size: 17px; font-weight: 700; color: #212529; margin-bottom: 6px; }
+  .sign-card p { font-size: 15px; color: #4B3F34; line-height: 1.65; }
+
+  /* ── SERVICES STRIP ── */
+  .services-strip { max-width: 1200px; margin: 0 auto; padding: 72px 48px; }
+  .services-strip .section-label { font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #E8292F; margin-bottom: 12px; }
+  .services-strip h2 { font-size: 32px; font-weight: 800; color: #212529; margin-bottom: 16px; line-height: 1.25; }
+  .services-strip .sub { font-size: 20px; color: #4B3F34; margin-bottom: 40px; line-height: 1.65; max-width: 640px; }
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px; }
+  .svc-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .svc-card { background: #F2F2F2; border-radius: 14px; padding: 28px; }
+  .svc-icon { font-size: 26px; margin-bottom: 12px; }
+  .svc-card h3 { font-size: 18px; font-weight: 700; color: #212529; margin-bottom: 6px; }
+  .svc-card p { font-size: 16px; color: #4B3F34; line-height: 1.65; }
+
+  /* ── CTA ── */
+  .cta-section { background: #495057; padding: 80px 48px; text-align: center; color: #fff; }
+  .cta-inner { max-width: 680px; margin: 0 auto; }
+  .cta-inner h2 { font-size: 32px; font-weight: 800; margin-bottom: 16px; line-height: 1.25; }
+  .cta-inner p { font-size: 20px; color: rgba(255,255,255,0.85); margin-bottom: 32px; line-height: 1.65; }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-gold { background: #FAAF42; color: #212529; padding: 14px 32px; border-radius: 8px; font-size: 18px; font-weight: 700; text-decoration: none; display: inline-block; transition: background 0.2s; }
+  .btn-gold:hover { background: #e89e2e; }
+  .btn-ghost { background: none; color: #fff; padding: 14px 32px; border-radius: 8px; font-size: 18px; font-weight: 700; text-decoration: none; border: 2px solid rgba(255,255,255,0.35); display: inline-block; transition: all 0.2s; }
+  .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+  .cancel-note { font-size: 16px; color: rgba(255,255,255,0.45); margin-top: 16px; }
+
+  /* ── HAMBURGER ── */
+  .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: #212529; border-radius: 2px; transition: all 0.25s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; flex-direction: column; background: #fff; border-top: 1px solid #eee; position: absolute; top: 100%; left: 0; right: 0; box-shadow: 0 8px 24px rgba(0,0,0,0.08); z-index: 99; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { padding: 16px 24px; font-size: 16px; font-weight: 600; color: #4B3F34; text-decoration: none; border-bottom: 1px solid #f0f0f0; }
+  .mobile-menu a:hover { background: #fef8eb; color: #E8292F; }
+  .mobile-menu .mob-cta { margin: 16px 24px 20px; padding: 12px 24px; text-align: center; background: #FAAF42; border-radius: 8px; font-weight: 700; color: #212529; border-bottom: none; }
+
+  /* ── MOBILE SUBSCRIBER CARD ── */
+  .mobile-subscriber-card { display: none; margin-bottom: 32px; }
+
+  /* ── FOOTER ── */
+  footer { background: #000; color: #ccc; font-size: 15px; line-height: 1.7; }
+  .footer-main { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 56px 48px 48px; }
+  .footer-contact h4 { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px; font-family: 'Trebuchet MS', sans-serif; }
+  .footer-contact table { border-collapse: collapse; margin-bottom: 12px; }
+  .footer-contact td { padding: 2px 24px 2px 0; color: #ccc; font-size: 15px; }
+  .footer-contact td:last-child { color: #fff; font-weight: 600; padding-right: 0; }
+  .footer-contact a { color: #ccc; text-decoration: none; }
+  .footer-contact a:hover { color: #FAAF42; }
+  .footer-maple { display: flex; align-items: flex-start; gap: 10px; margin: 16px 0 20px; }
+  .footer-maple p { font-size: 15px; color: #ccc; margin: 0; line-height: 1.5; }
+  .footer-maple strong { color: #fff; }
+  .footer-hours { font-size: 15px; }
+  .footer-hours strong { color: #fff; display: block; margin-bottom: 2px; }
+  .footer-nav { padding-top: 4px; }
+  .footer-nav ul { list-style: none; }
+  .footer-nav ul li { margin-bottom: 14px; text-align: right; }
+  .footer-nav ul li a { color: #ccc; text-decoration: none; font-size: 16px; font-weight: 500; }
+  .footer-nav ul li a:hover { color: #FAAF42; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding: 28px 48px 36px; max-width: 1200px; margin: 0 auto; }
+  .footer-bottom p { font-size: 13px; color: #999; line-height: 1.7; margin-bottom: 8px; }
+  .footer-bottom p:first-child { font-size: 14px; font-weight: 700; color: #ccc; margin-bottom: 12px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 12px 20px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .page-layout { grid-template-columns: 1fr; padding: 40px 24px 56px; gap: 0; }
+    .page-sidebar { display: none; }
+    .mobile-subscriber-card { display: block; }
+    .hero-intro h1 { font-size: 28px; }
+    .signs-section { padding: 56px 24px; }
+    .signs-grid { grid-template-columns: 1fr; }
+    .services-strip { padding: 56px 24px; }
+    .svc-grid { grid-template-columns: 1fr; }
+    .svc-grid-2 { grid-template-columns: 1fr; }
+    .cta-section { padding: 56px 24px; }
+    .footer-main { grid-template-columns: 1fr; gap: 32px; padding: 40px 24px 32px; }
+    .footer-nav ul li { text-align: left; }
+    .footer-bottom { padding: 24px 24px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/">
+      <img src="https://www.idassist.com/assets/images/id-assist-fr.svg" alt="Assist Identité" style="height:50px;">
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="#">Vol d'identité et rétablissement</a>
+    <a href="https://www.assistidentite.com/fr/plans">Forfaits et tarifs</a>
+    <a href="https://www.assistidentite.com/fr/help">Aide</a>
+    <a class="nav-login" href="https://identity.idassist.com/connect/login">Connexion</a>
+    <a class="nav-cta" href="https://www.assistidentite.com/fr/registration/account">Essai gratuit</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="#">Vol d'identité et rétablissement</a>
+    <a href="https://www.assistidentite.com/fr/plans">Forfaits et tarifs</a>
+    <a href="https://www.assistidentite.com/fr/help">Aide</a>
+    <a href="https://identity.idassist.com/connect/login">Connexion</a>
+    <a class="mob-cta" href="https://www.assistidentite.com/fr/registration/account">Essai gratuit</a>
+  </nav>
+</nav>
+
+<!-- EMERGENCY BANNER (mobile only) -->
+<div class="emergency-banner">
+  <p>Abonné d'Assist&nbsp;Identité ? Notre équipe est disponible 24&nbsp;h&nbsp;/&nbsp;7&nbsp;j.</p>
+  <a href="tel:18779001837">1&nbsp;877&nbsp;900-1837</a>
+</div>
+
+<!-- SHARED TWO-COLUMN LAYOUT -->
+<div class="page-layout">
+
+  <!-- LEFT: main content -->
+  <div class="page-main">
+
+    <!-- Hero intro -->
+    <div class="hero-intro">
+      <p class="hero-label">Vol d'identité et rétablissement</p>
+      <h1>Votre identité a peut-être été volée. Voici quoi faire.</h1>
+      <p class="hero-lead">Apprendre que votre identité a été compromise est stressant. Ce guide vous explique chaque étape à suivre – dans le bon ordre – pour limiter les dommages et commencer à rétablir votre situation.</p>
+      <div class="calm-box">
+        <p><strong>D'abord, respirez.</strong> Le vol d'identité est grave, mais on s'en remet. Des millions de Canadiens sont passés par là et s'en sont sortis. Agir rapidement et méthodiquement est bien plus important qu'agir dans la panique. Utilisez ce guide comme liste de vérification.</p>
+      </div>
+    </div>
+
+    <!-- Mobile-only subscriber card -->
+    <div class="mobile-subscriber-card">
+      <div class="sidebar-card">
+        <h3>Déjà abonné à Assist&nbsp;Identité ?</h3>
+        <p>Appelez-nous maintenant. Nos spécialistes en rétablissement prendront en charge le processus et le géreront en votre nom.</p>
+        <a href="tel:18779001837" class="phone-big">1&nbsp;877&nbsp;900-1837</a>
+        <p style="font-size:14px; color:rgba(255,255,255,0.6); margin:0;">Disponible 24 h / 7 j pour les urgences</p>
+      </div>
+    </div>
+
+    <!-- ÉTAPE 1 -->
+    <div class="step-block open" id="step1">
+      <div class="step-header">
+        <div class="step-badge">1</div>
+        <div class="step-title-wrap">
+          <p class="step-urgency now">À faire en premier</p>
+          <h3>Sécurisez vos comptes et changez vos mots de passe</h3>
+        </div>
+        <span class="step-chevron">▾</span>
+      </div>
+      <div class="step-body">
+        <p>Avant tout, stoppez l'hémorragie. Si un criminel a accès à votre courriel, il peut utiliser les liens de réinitialisation de mot de passe pour prendre le contrôle de tous vos autres comptes. Commencez ici.</p>
+        <div class="step-actions">
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Changez d'abord votre mot de passe de courriel.</strong> Utilisez un mot de passe fort et unique que vous n'avez utilisé nulle part ailleurs. Activez l'authentification à deux facteurs si ce n'est pas déjà fait.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Changez les mots de passe de vos comptes bancaires et financiers.</strong> Priorisez tout compte lié à de l'argent ou du crédit.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Vérifiez s'il existe des comptes que vous ne reconnaissez pas.</strong> Consultez le dossier des envois de votre courriel et examinez les connexions récentes dans les paramètres de sécurité de vos comptes.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Déconnectez toutes les sessions actives</strong> sur les comptes qui le permettent. La plupart des grands services offrent cette option dans les paramètres de sécurité.</p>
+          </div>
+        </div>
+        <div class="ida-assist-box">
+          <p class="tag">Comment Assist&nbsp;Identité vous aide</p>
+          <p><strong>Analyse &amp; Évaluation</strong> peut analyser tout courriel ou texto suspect que vous avez reçu afin d'identifier les tentatives d'hameçonnage qui auraient pu mener à la compromission – et vous aider à prévenir toute nouvelle exposition de votre identité ou de vos comptes.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÉTAPE 2 -->
+    <div class="step-block" id="step2">
+      <div class="step-header">
+        <div class="step-badge">2</div>
+        <div class="step-title-wrap">
+          <p class="step-urgency now">À faire aujourd'hui</p>
+          <h3>Communiquez avec votre banque et vos émetteurs de cartes de crédit</h3>
+        </div>
+        <span class="step-chevron">▾</span>
+      </div>
+      <div class="step-body">
+        <p>Appelez la ligne de fraude de chaque institution financière avec laquelle vous faites affaire – pas seulement celles que vous croyez touchées. Les criminels testent souvent les renseignements volés sur plusieurs comptes à la fois.</p>
+        <div class="step-actions">
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Signalez la fraude</strong> et demandez à parler spécifiquement au service des fraudes.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Demandez le gel ou le remplacement</strong> de toute carte ou tout compte compromis.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Examinez les transactions récentes</strong> et signalez tout élément que vous ne reconnaissez pas, même les plus petits. Les criminels commencent souvent par une petite transaction test.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Renseignez-vous sur les alertes</strong> pour toute transaction future ou modification de compte.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Obtenez un numéro de dossier</strong> de chaque institution avec laquelle vous communiquez et conservez-le.</p>
+          </div>
+        </div>
+        <div class="ida-assist-box">
+          <p class="tag">Comment Assist&nbsp;Identité vous aide</p>
+          <p>Nos spécialistes en rétablissement vous guideront à chaque étape de vos démarches auprès de vos institutions financières – en vous aidant à poser les bonnes questions, à documenter les réponses reçues et à assurer les suivis nécessaires jusqu'à la résolution complète.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÉTAPE 3 -->
+    <div class="step-block" id="step3">
+      <div class="step-header">
+        <div class="step-badge">3</div>
+        <div class="step-title-wrap">
+          <p class="step-urgency now">À faire aujourd'hui</p>
+          <h3>Placez des alertes à la fraude auprès des deux bureaux de crédit</h3>
+        </div>
+        <span class="step-chevron">▾</span>
+      </div>
+      <div class="step-body">
+        <p>Une alerte à la fraude demande aux prêteurs de prendre des mesures supplémentaires pour vérifier votre identité avant d'émettre tout crédit en votre nom. Vous devez contacter Equifax et TransUnion séparément – placer une alerte chez l'un ne notifie pas automatiquement l'autre.</p>
+        <div class="step-actions">
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Communiquez avec Equifax Canada</strong> pour placer une alerte à la fraude dans votre dossier. Vous devrez vérifier votre identité.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Communiquez séparément avec TransUnion Canada</strong> pour placer également une alerte à la fraude dans votre dossier.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Notez la date d'expiration</strong> de chaque alerte – vous devrez peut-être les renouveler si l'enquête se prolonge.</p>
+          </div>
+        </div>
+        <div class="step-contacts">
+          <div class="contact-item">
+            <span class="c-label">Equifax – Placer une alerte à la fraude</span>
+            <a href="https://www.equifax.ca/fr/personnel/contester-dossier-de-credit/options" target="_blank">equifax.ca</a>
+          </div>
+          <div class="contact-item">
+            <span class="c-label">TransUnion – Placer une alerte à la fraude</span>
+            <a href="https://secure-ocs.transunion.ca/secureocs/home.html?lang=fr" target="_blank">transunion.ca</a>
+          </div>
+        </div>
+        <div class="ida-assist-box">
+          <p class="tag">Comment Assist&nbsp;Identité vous aide</p>
+          <p>Assist&nbsp;Identité <strong>placera des alertes à la fraude auprès d'Equifax et de TransUnion en votre nom</strong> – et notre surveillance quotidienne des deux bureaux signalera immédiatement toute nouvelle activité non autorisée.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÉTAPE 4 -->
+    <div class="step-block" id="step4">
+      <div class="step-header">
+        <div class="step-badge">4</div>
+        <div class="step-title-wrap">
+          <p class="step-urgency now">À faire cette semaine</p>
+          <h3>Obtenez vos dossiers de crédit des deux bureaux</h3>
+        </div>
+        <span class="step-chevron">▾</span>
+      </div>
+      <div class="step-body">
+        <p>Vos dossiers de crédit dressent un portrait complet de ce qui a été fait en votre nom. Parcourez chaque ligne et repérez tout ce que vous ne reconnaissez pas – comptes, demandes de renseignements, adresses ou employeurs.</p>
+        <div class="step-actions">
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Demandez vos dossiers de crédit gratuits</strong> auprès d'Equifax et de TransUnion. Les Canadiens ont droit à un rapport gratuit de chaque bureau par courrier.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Vérifiez la section des comptes</strong> pour détecter toute carte de crédit, tout prêt ou toute marge de crédit que vous n'avez pas ouverts.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Vérifiez la section des demandes de renseignements</strong> pour repérer toute demande ferme de la part de prêteurs auprès desquels vous n'avez pas fait de demande.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Vérifiez les renseignements personnels</strong> pour détecter des adresses ou des employeurs que vous ne reconnaissez pas – les criminels les modifient parfois pour rediriger votre courrier.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Documentez tout ce qui vous semble suspect</strong> – vous aurez besoin de cette liste pour vos contestations à l'étape 7.</p>
+          </div>
+        </div>
+        <div class="ida-assist-box">
+          <p class="tag">Comment Assist&nbsp;Identité vous aide</p>
+          <p>Dès votre inscription, Assist&nbsp;Identité vous fournit votre <strong>dossier de crédit complet et votre cote de solvabilité chez Equifax</strong> – pour que vous ayez une référence immédiate. Par la suite, vous recevez des <strong>mises à jour trimestrielles de votre dossier et des mises à jour mensuelles de votre cote</strong>, en plus d'une surveillance quotidienne d'Equifax et de TransUnion pour détecter tout nouveau changement dès qu'il survient.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÉTAPE 5 -->
+    <div class="step-block" id="step5">
+      <div class="step-header">
+        <div class="step-badge">5</div>
+        <div class="step-title-wrap">
+          <p class="step-urgency soon">À faire cette semaine</p>
+          <h3>Signalez le cas au Centre antifraude du Canada et à la police</h3>
+        </div>
+        <span class="step-chevron">▾</span>
+      </div>
+      <div class="step-body">
+        <p>Un signalement officiel crée une trace documentaire qui soutient vos contestations auprès des créanciers et des bureaux de crédit. De nombreuses institutions exigent un numéro de rapport de police avant de retirer des comptes frauduleux de votre dossier.</p>
+        <div class="step-actions">
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Signalez le cas au Centre antifraude du Canada (CAFC)</strong> en ligne. Le CAFC répertorie les tendances nationales en matière de fraude et votre signalement pourrait aider d'autres personnes.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Déposez un rapport auprès de votre service de police local.</strong> Demandez une copie du rapport et votre numéro de dossier – conservez-les précieusement.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Signalez le cas au Commissariat à la protection de la vie privée</strong> si la compromission résulte d'une atteinte à la protection des données d'une entreprise.</p>
+          </div>
+        </div>
+        <div class="step-contacts">
+          <div class="contact-item">
+            <span class="c-label">Centre antifraude du Canada</span>
+            <a href="https://signalercyberetfraude.canada.ca/" target="_blank">Signaler en ligne</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÉTAPE 6 -->
+    <div class="step-block" id="step6">
+      <div class="step-header">
+        <div class="step-badge">6</div>
+        <div class="step-title-wrap">
+          <p class="step-urgency soon">Si votre NAS a été compromis</p>
+          <h3>Protégez votre numéro d'assurance sociale</h3>
+        </div>
+        <span class="step-chevron">▾</span>
+      </div>
+      <div class="step-body">
+        <p>Votre NAS est l'un des renseignements les plus précieux qu'un criminel puisse obtenir – il peut être utilisé pour produire de fausses déclarations de revenus, demander des prestations gouvernementales ou ouvrir des comptes financiers. Si vous croyez que votre NAS a été volé, communiquez sans tarder avec l'Agence du revenu du Canada.</p>
+        <div class="step-actions">
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Communiquez avec l'Agence du revenu du Canada</strong> pour signaler toute activité fiscale frauduleuse potentielle dans votre compte. Vous pouvez faire un signalement par téléphone ou en ligne.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Surveillez votre compte Mon dossier de l'ARC</strong> pour détecter tout changement aux renseignements de dépôt direct, à l'adresse ou toute déclaration produite à votre insu.</p>
+          </div>
+        </div>
+        <div class="step-contacts">
+          <div class="contact-item">
+            <span class="c-label">Agence du revenu du Canada</span>
+            <a href="tel:18002652577">1&nbsp;800&nbsp;265-2577</a>
+          </div>
+          <div class="contact-item">
+            <span class="c-label">ARC – Signaler en ligne</span>
+            <a href="https://apps.cra-arc.gc.ca/ebci/bscs/suspactivity/prot/language.action?currentPage=.clf.accountNumberPage&request_locale=fr_CA" target="_blank">arc.gc.ca</a>
+          </div>
+        </div>
+        <div class="ida-assist-box">
+          <p class="tag">Comment Assist&nbsp;Identité vous aide</p>
+          <p>Assist&nbsp;Identité surveille votre NAS enregistré sur le Web clandestin et vous alerte s'il apparaît sur des marchés criminels – offrant souvent le premier avertissement qu'il a été compromis.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÉTAPE 7 -->
+    <div class="step-block" id="step7">
+      <div class="step-header">
+        <div class="step-badge">7</div>
+        <div class="step-title-wrap">
+          <p class="step-urgency soon">Dans les semaines qui suivent</p>
+          <h3>Contestez chaque compte et élément frauduleux</h3>
+        </div>
+        <span class="step-chevron">▾</span>
+      </div>
+      <div class="step-body">
+        <p>C'est la partie la plus fastidieuse du rétablissement. Chaque élément frauduleux doit être contesté individuellement, par écrit, auprès de chaque créancier et bureau de crédit. Les bureaux disposent généralement de 30 jours pour faire enquête, mais les cas complexes peuvent prendre plus de temps.</p>
+        <div class="step-actions">
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Rédigez une lettre de contestation pour chaque compte frauduleux</strong> – incluez vos nom et coordonnées, une description de l'élément contesté et les raisons pour lesquelles il est frauduleux. Joignez votre numéro de rapport de police.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Envoyez vos contestations directement à chaque créancier</strong> ainsi qu'à Equifax et à TransUnion. Les deux doivent être avisés séparément.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Envoyez tout par courrier recommandé</strong> ou par courriel avec confirmation de livraison afin d'avoir une preuve de la date d'envoi.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Conservez des copies de tout</strong> – chaque lettre, chaque réponse, chaque numéro de dossier.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Faites un suivi par écrit</strong> si vous ne recevez pas de réponse dans les 30 jours.</p>
+          </div>
+        </div>
+        <div class="ida-assist-box">
+          <p class="tag">Comment Assist&nbsp;Identité vous aide</p>
+          <p>C'est là que le <strong>service de rétablissement intégral</strong> d'Assist&nbsp;Identité fait toute la différence. Nos spécialistes gèrent les contestations auprès des créanciers et des bureaux en votre nom – en rédigeant les lettres, en assurant le suivi des réponses et en relançant les parties concernées jusqu'à la résolution de chaque élément frauduleux.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ÉTAPE 8 -->
+    <div class="step-block" id="step8">
+      <div class="step-header">
+        <div class="step-badge">8</div>
+        <div class="step-title-wrap">
+          <p class="step-urgency ongoing">En continu</p>
+          <h3>Continuez à surveiller – le risque ne disparaît pas</h3>
+        </div>
+        <span class="step-chevron">▾</span>
+      </div>
+      <div class="step-body">
+        <p>Les criminels utilisent souvent les renseignements volés en plusieurs vagues, sur des mois, voire des années. Une fois vos renseignements exposés, ils peuvent être achetés et revendus à répétition sur le Web clandestin. La surveillance continue n'est pas optionnelle – c'est le seul moyen de détecter rapidement toute activité supplémentaire.</p>
+        <div class="step-actions">
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Consultez les dossiers des deux bureaux de crédit</strong> au moins une fois par trimestre pendant les 12 prochains mois.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Examinez attentivement vos relevés bancaires et de cartes de crédit</strong> chaque mois.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Restez aux aguets face aux nouvelles tentatives d'arnaque</strong> – une fois que les criminels connaissent vos renseignements, ils peuvent vous cibler avec des messages d'hameçonnage personnalisés.</p>
+          </div>
+          <div class="step-action">
+            <div class="action-check"></div>
+            <p><strong>Consultez votre compte Mon dossier de l'ARC</strong> à chaque période des impôts pour vous assurer qu'aucune déclaration frauduleuse n'a été produite en votre nom.</p>
+          </div>
+        </div>
+        <div class="ida-assist-box">
+          <p class="tag">Comment Assist&nbsp;Identité vous aide</p>
+          <p>Assist&nbsp;Identité surveille <strong>les deux bureaux de crédit quotidiennement, veille sur 50 éléments de vos renseignements personnels sur le Web clandestin et utilise l'IA d'Analyse &amp; Évaluation</strong> pour signaler les nouvelles tentatives d'arnaque vous ciblant – afin que la protection continue fonctionne en arrière-plan sans effort de votre part.</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /page-main -->
+
+  <!-- RIGHT: single sticky sidebar -->
+  <div class="page-sidebar">
+    <div class="sidebar-card">
+      <h3>Déjà abonné à Assist&nbsp;Identité ?</h3>
+      <p>Appelez-nous maintenant. Nos spécialistes en rétablissement prendront en charge le processus et le géreront en votre nom.</p>
+      <a href="tel:18779001837" class="phone-big">1&nbsp;877&nbsp;900-1837</a>
+      <p style="font-size:14px; color:rgba(255,255,255,0.6); margin:0;">Disponible 24 h / 7 j pour les urgences</p>
+    </div>
+
+    <div class="sidebar-toc">
+      <h4>Étapes de ce guide</h4>
+      <ul class="toc-list">
+        <li><a href="#step1"><span class="toc-num">1</span> Sécurisez vos comptes</a></li>
+        <li><a href="#step2"><span class="toc-num">2</span> Contactez votre banque</a></li>
+        <li><a href="#step3"><span class="toc-num">3</span> Placez des alertes à la fraude</a></li>
+        <li><a href="#step4"><span class="toc-num">4</span> Obtenez vos dossiers de crédit</a></li>
+        <li><a href="#step5"><span class="toc-num">5</span> Signalez aux autorités</a></li>
+        <li><a href="#step6"><span class="toc-num">6</span> Protégez votre NAS</a></li>
+        <li><a href="#step7"><span class="toc-num">7</span> Contestez les comptes frauduleux</a></li>
+        <li><a href="#step8"><span class="toc-num">8</span> Continuez à surveiller</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-card light">
+      <h3>Pas encore abonné ?</h3>
+      <p>Assist&nbsp;Identité offre la surveillance, la détection et l'expertise qui facilitent chaque étape de ce guide – ou qui s'en chargent entièrement pour vous.</p>
+      <a class="btn-gold" href="https://www.assistidentite.com/fr/registration/account">Essayez Assist&nbsp;Identité gratuitement pendant 30 jours</a>
+    </div>
+  </div>
+
+</div><!-- /page-layout -->
+
+<!-- SIGNES AVANT-COUREURS -->
+<div class="signs-section">
+  <div class="signs-inner">
+    <p class="section-label">Reconnaissez les signes avant-coureurs</p>
+    <h2>Comment savoir si votre identité a été volée</h2>
+    <p class="sub">Le vol d'identité passe souvent inaperçu pendant des mois. Voici les signes avant-coureurs les plus courants.</p>
+    <div class="signs-grid">
+      <div class="sign-card">
+        <h3>Éléments inattendus dans votre dossier de crédit</h3>
+        <p>Des comptes, des demandes de renseignements ou des adresses que vous ne reconnaissez pas indiquent fortement que quelqu'un utilise votre identité pour obtenir du crédit.</p>
+      </div>
+      <div class="sign-card">
+        <h3>Factures ou appels de recouvrement pour des comptes que vous n'avez pas ouverts</h3>
+        <p>Recevoir des appels de recouvrement ou des relevés pour des comptes que vous n'avez jamais ouverts signifie qu'un compte frauduleux a probablement déjà été créé en votre nom.</p>
+      </div>
+      <div class="sign-card">
+        <h3>Courrier ou relevés manquants</h3>
+        <p>Si vos relevés habituels cessent d'arriver, un criminel a peut-être modifié votre adresse postale pour intercepter votre courrier et dissimuler ses activités non autorisées.</p>
+      </div>
+      <div class="sign-card">
+        <h3>Refus de crédit inattendu</h3>
+        <p>Se voir refuser un crédit pour lequel vous seriez normalement admissible peut indiquer que des comptes frauduleux ou des impayés ont nui à votre profil de crédit.</p>
+      </div>
+      <div class="sign-card">
+        <h3>Activité inattendue dans votre compte de l'ARC</h3>
+        <p>Un remboursement imprévu, une déclaration déjà produite ou des coordonnées de dépôt direct modifiées sont des signes de fraude fiscale à l'aide de votre NAS.</p>
+      </div>
+      <div class="sign-card">
+        <h3>Alertes de surveillance du Web clandestin</h3>
+        <p>Si Assist&nbsp;Identité vous envoie une alerte de surveillance du Web clandestin, cela signifie que vos renseignements enregistrés sont apparus sur des marchés criminels – agissez immédiatement, même si vous n'avez pas remarqué d'autres signes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES ASSIST IDENTITÉ -->
+<div class="services-strip">
+  <p class="section-label">Services de rétablissement d'Assist Identité</p>
+  <h2>Ce qu'Assist&nbsp;Identité fait quand ça compte le plus</h2>
+  <p class="sub">Si votre identité est compromise, voici les services qu'Assist&nbsp;Identité vous offre pour vous aider à vous rétablir.</p>
+  <div class="svc-grid">
+    <div class="svc-card">
+      <div class="svc-icon">🔍</div>
+      <h3>Rétablissement intégral</h3>
+      <p>Nos spécialistes prennent en charge l'ensemble du processus – en communiquant avec les banques, les bureaux, les créanciers et les organismes gouvernementaux en votre nom et en gérant chaque étape jusqu'à la résolution.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">📋</div>
+      <h3>Procuration limitée</h3>
+      <p>Dans les cas complexes, nous agissons en votre nom auprès des créanciers et des institutions – en passant des appels, en envoyant des lettres et en déposant des contestations sans que vous ayez à intervenir à chaque étape.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">🚨</div>
+      <h3>Alertes à la fraude</h3>
+      <p>Nous placerons des alertes à la fraude dans vos dossiers chez Equifax et TransUnion, exigeant des prêteurs qu'ils effectuent des vérifications supplémentaires avant d'émettre tout nouveau crédit en votre nom.</p>
+    </div>
+  </div>
+  <div class="svc-grid-2">
+    <div class="svc-card">
+      <div class="svc-icon">💵</div>
+      <h3>Remboursement de chèques</h3>
+      <p>Si un chèque frauduleux est tiré sur votre compte, nous vous remboursons le coût du remplacement de votre carnet de chèques. Certaines conditions s'appliquent.</p>
+    </div>
+    <div class="svc-card">
+      <div class="svc-icon">✈️</div>
+      <h3>Avance de fonds d'urgence</h3>
+      <p>Si votre compte est compromis pendant un voyage, nous vous enverrons jusqu'à 2&nbsp;500&nbsp;$ pour rentrer chez vous et couvrir vos dépenses essentielles le temps de résoudre la situation. Certaines conditions s'appliquent.</p>
+    </div>
+  </div>
+</div>
+
+<!-- APPEL À L'ACTION FINAL -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Le meilleur moment pour mettre en place une protection, c'est avant d'en avoir besoin.</h2>
+    <p>Assist&nbsp;Identité surveille votre identité en permanence – pour que vous soyez informé des menaces immédiatement, plutôt que des mois plus tard quand les dégâts sont faits.</p>
+    <div class="cta-buttons">
+      <a class="btn-gold" href="https://www.assistidentite.com/fr/registration/account">Essayez Assist&nbsp;Identité gratuitement pendant 30 jours</a>
+      <a class="btn-ghost" href="https://www.assistidentite.com/fr/plans">Voir les forfaits et tarifs</a>
+    </div>
+    <p class="cancel-note">Annulez en tout temps – sans pénalité ni tracas.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-contact">
+      <h4>
+        <img src="https://www.assistidentite.com/assets/images/footer-headphones.svg" alt="" width="22" height="22">
+        Assistance d'urgence 24/7
+      </h4>
+      <table>
+        <tr><td>Amérique du Nord</td><td><a href="tel:18779001837">1 877 900-1837</a></td></tr>
+        <tr><td>Toronto et frais virés</td><td><a href="tel:16478375412">1 647 837-5412</a></td></tr>
+      </table>
+      <p><a href="mailto:servicealaclientele@assistidentite.com">servicealaclientele@assistidentite.com</a></p>
+      <div class="footer-maple">
+        <img src="https://www.assistidentite.com/assets/images/footer-canada.svg" alt="" width="20" height="20">
+        <p><strong>Représentants canadiens disponibles 24/7</strong><br>pour les services de restauration.</p>
+      </div>
+      <div class="footer-hours">
+        <strong>Nos heures régulières d'opération sont</strong>
+        9 h – 21 h HE, du lundi au vendredi
+      </div>
+    </div>
+    <div class="footer-nav">
+      <ul>
+        <li><a href="https://www.assistidentite.com/fr/identity">Vol d'identité et récupération</a></li>
+        <li><a href="https://www.assistidentite.com/fr/plans">Plans et tarifs</a></li>
+        <li><a href="https://www.assistidentite.com/fr/help">Aide</a></li>
+        <li><a href="https://www.assistidentite.com/fr/terms-conditions">Modalités et conditions</a></li>
+        <li><a href="https://www.assistidentite.com/fr/privacy-policy">Politique de confidentialité</a></li>
+        <li><a href="https://www.assistidentite.com/fr/cancellation-policy">Politique d'annulation</a></li>
+        <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/">EN</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Assist&nbsp;Identité est un système d'alerte précoce qui vous aide à protéger votre identité.</p>
+    <p>© 2026 Sigma Loyalty Group Inc. Tous droits réservés. Assist&nbsp;Identité®, Sigma Loyalty Group Inc. et toutes les marques et logos associés sont des marques de commerce appartenant à Sigma Loyalty Group Inc. ou utilisées sous licence. Assist&nbsp;Identité® est fourni par Sigma Loyalty Group Inc.</p>
+    <p>iPhone et App Store sont des marques de commerce d'Apple Inc., enregistrées aux États-Unis et dans d'autres pays. Android, Google Play et Play Store sont des marques de commerce de Google Inc., enregistrées aux États-Unis et dans d'autres pays.</p>
+    <p>Tous les noms de produits, logos et marques sont la propriété de leurs détenteurs respectifs. Tous les noms d'entreprises, de produits et de services utilisés sur ce site Web le sont à des fins d'identification uniquement. L'utilisation de ces noms, logos et marques n'implique aucun cautionnement.</p>
+  </div>
+</footer>
+
+<script>
+  // Hamburger
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  document.addEventListener('click', e => {
+    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+      hamburger.classList.remove('open'); mobileMenu.classList.remove('open');
+    }
+  });
+
+  // Step accordion
+  document.querySelectorAll('.step-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const block = header.closest('.step-block');
+      const isOpen = block.classList.contains('open');
+      document.querySelectorAll('.step-block').forEach(b => b.classList.remove('open'));
+      if (!isOpen) block.classList.add('open');
+    });
+  });
+
+  // Checkboxes
+  document.querySelectorAll('.action-check').forEach(box => {
+    box.addEventListener('click', () => box.classList.toggle('checked'));
+  });
+</script>
+</body>
+</html>
