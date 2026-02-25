@@ -330,11 +330,7 @@
     aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden;
     box-shadow: 0 40px 100px rgba(0,0,0,0.5);
   }
-  /* ↓ iframe fills container; hidden until player is ready avoids flash */
-  .lightbox-container iframe {
-    width: 100%; height: 100%; border: none;
-    visibility: hidden; /* revealed once player fires 'loaded' */
-  }
+  .lightbox-container iframe { width: 100%; height: 100%; border: none; }
   .lightbox-close {
     position: absolute; top: -44px; right: 0;
     background: none; border: none; color: #fff; font-size: 32px;
@@ -432,7 +428,7 @@
     .scan-steps-grid {
       display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch; gap: 16px; padding-bottom: 16px; scrollbar-width: none;
-      margin-bottom: 0;
+      margin-bottom: 0; /* FIX: remove gap between cards and dots */
     }
     .scan-steps-grid::-webkit-scrollbar { display: none; }
     .scan-step-card { flex: 0 0 80%; scroll-snap-align: center; }
@@ -446,6 +442,7 @@
     .proof-top-item { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.15); padding: 24px 0; width: 280px; flex: none; justify-content: flex-start; }
     .proof-label { text-align: left; }
     .proof-top-item:last-child { border-bottom: none; }
+
     .proof-scenario-grid { grid-template-columns: 1fr; }
   }
 </style>
@@ -746,19 +743,11 @@
   </div>
 </section>
 
-<!-- LIGHTBOX
-     The iframe is pre-rendered with a blank src so the Vimeo player can
-     initialise once on page load rather than cold-starting on every click.
-     visibility:hidden keeps it invisible until the player signals it's ready. -->
+<!-- LIGHTBOX -->
 <div class="lightbox-overlay" id="video-lightbox">
   <div class="lightbox-container">
     <button class="lightbox-close" id="close-lightbox">&times;</button>
-    <iframe
-      id="vimeo-iframe"
-      src="https://player.vimeo.com/video/461189123?autopause=0&playsinline=1"
-      allow="autoplay; fullscreen; picture-in-picture"
-      allowfullscreen
-    ></iframe>
+    <iframe id="vimeo-iframe" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
 
@@ -804,119 +793,71 @@
   </div>
 </footer>
 
-<!-- Vimeo Player SDK – loaded once, controls both lightbox videos -->
-<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
-  // ─── Hamburger ────────────────────────────────────────────────────────────
+  // Hamburger
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-  });
-  document.addEventListener('click', e => {
-    if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-      hamburger.classList.remove('open');
-      mobileMenu.classList.remove('open');
-    }
-  });
+  hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
+  document.addEventListener('click', e => { if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); } });
 
-  // ─── Breach carousel ──────────────────────────────────────────────────────
+  // Breach carousel
   const breachCarousel = document.getElementById('breach-carousel');
-  const breachDots     = document.querySelectorAll('#breach-dots span');
-  const breachPrev     = document.getElementById('breach-prev');
-  const breachNext     = document.getElementById('breach-next');
-  const totalCards     = breachDots.length;
+  const breachDots = document.querySelectorAll('#breach-dots span');
+  const breachPrev = document.getElementById('breach-prev');
+  const breachNext = document.getElementById('breach-next');
+  const totalCards = breachDots.length;
 
   function getCardWidth() {
     const card = breachCarousel.querySelector('.breach-card');
     return card ? card.offsetWidth + 24 : 0;
   }
+
   function updateBreachState(idx) {
     breachDots.forEach((d, i) => d.classList.toggle('active', i === idx));
     breachPrev.disabled = idx === 0;
     breachNext.disabled = idx === totalCards - 1;
   }
+
   breachCarousel.addEventListener('scroll', () => {
     const w = getCardWidth();
     if (!w) return;
-    updateBreachState(Math.min(Math.round(breachCarousel.scrollLeft / w), totalCards - 1));
+    const idx = Math.min(Math.round(breachCarousel.scrollLeft / w), totalCards - 1);
+    updateBreachState(idx);
   });
+
   breachPrev.addEventListener('click', () => {
     const w = getCardWidth();
     const idx = Math.max(0, Math.round(breachCarousel.scrollLeft / w) - 1);
     breachCarousel.scrollTo({ left: idx * w, behavior: 'smooth' });
   });
+
   breachNext.addEventListener('click', () => {
     const w = getCardWidth();
     const idx = Math.min(totalCards - 1, Math.round(breachCarousel.scrollLeft / w) + 1);
     breachCarousel.scrollTo({ left: idx * w, behavior: 'smooth' });
   });
 
-  // ─── Scan & Score carousel dots ───────────────────────────────────────────
+  // Scan & Score carousel dots — FIX: measure actual card width + gap
   const scanCarousel = document.getElementById('scan-carousel');
-  const scanDots     = document.querySelectorAll('#carousel-dots span');
+  const scanDots = document.querySelectorAll('#carousel-dots span');
   if (scanCarousel && scanDots.length) {
     scanCarousel.addEventListener('scroll', () => {
-      const card      = scanCarousel.querySelector('.scan-step-card');
+      const card = scanCarousel.querySelector('.scan-step-card');
       const cardWidth = card ? card.offsetWidth + 16 : scanCarousel.offsetWidth;
-      const idx       = Math.min(Math.round(scanCarousel.scrollLeft / cardWidth), scanDots.length - 1);
+      const idx = Math.min(
+        Math.round(scanCarousel.scrollLeft / cardWidth),
+        scanDots.length - 1
+      );
       scanDots.forEach((d, i) => d.classList.toggle('active', i === idx));
     });
   }
 
-  // ─── Vimeo lightbox (Player API) ──────────────────────────────────────────
-  // Video config. Unlisted videos need their hash passed as an object.
-  const VIDEOS = {
-    main:     { id: 461189123 },
-    autoscan: { id: 1114048941, h: '11c65abbff' }
-  };
-
-  const overlay  = document.getElementById('video-lightbox');
-  const iframeEl = document.getElementById('vimeo-iframe');
-
-  const player = new Vimeo.Player(iframeEl);
-
-  // Track which video is currently loaded so we don't reload unnecessarily.
-  let currentVideoId = VIDEOS.main.id;
-
-  player.on('loaded', () => {
-    iframeEl.style.visibility = 'visible';
-  });
-
-  function openLightbox(videoKey) {
-    const video = VIDEOS[videoKey];
-    overlay.classList.add('active');
-
-    if (video.id === currentVideoId) {
-      // Already loaded — just rewind and play, no loadVideo() needed.
-      player.setCurrentTime(0).then(() => {
-        player.play().catch(() => {});
-      });
-    } else {
-      // Different video — loadVideo() handles the swap cleanly.
-      player.loadVideo(video).then(() => {
-        currentVideoId = video.id;
-        player.play().catch(() => {});
-      });
-    }
-  }
-
-  function closeLightbox() {
-    player.pause();
-    overlay.classList.remove('active');
-    player.setCurrentTime(0).catch(() => {});
-  }
-
-  document.getElementById('open-video').addEventListener('click', e => {
-    e.preventDefault();
-    openLightbox('main');
-  });
-  document.getElementById('open-autoscan-video').addEventListener('click', e => {
-    e.preventDefault();
-    openLightbox('autoscan');
-  });
-
+  // Lightbox
+  const overlay = document.getElementById('video-lightbox');
+  const iframe = document.getElementById('vimeo-iframe');
+  document.getElementById('open-video').addEventListener('click', e => { e.preventDefault(); iframe.src = 'https://player.vimeo.com/video/461189123?autoplay=1'; overlay.classList.add('active'); });
+  document.getElementById('open-autoscan-video').addEventListener('click', e => { e.preventDefault(); iframe.src = 'https://player.vimeo.com/video/1114048941?h=11c65abbff&autoplay=1'; overlay.classList.add('active'); });
+  function closeLightbox() { overlay.classList.remove('active'); iframe.src = ''; }
   document.getElementById('close-lightbox').addEventListener('click', closeLightbox);
   overlay.addEventListener('click', e => { if (e.target === overlay) closeLightbox(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
