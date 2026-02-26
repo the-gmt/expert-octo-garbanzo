@@ -18,7 +18,6 @@
   h1, h2, h6, p { font-family: 'Source Sans Pro', sans-serif; }
   h3, h4, h5 { font-family: 'Trebuchet MS', sans-serif; }
 
-  /* NAV */
   nav {
     display: flex; align-items: center; justify-content: space-between;
     padding: 16px 48px; background: #fff; border-bottom: 1px solid #eee;
@@ -42,127 +41,115 @@
   .mobile-menu a:hover { background: #fef8eb; color: #E8292F; }
   .mobile-menu .mob-cta { margin: 16px 24px 20px; padding: 12px 24px; text-align: center; background: #FAAF42; border-radius: 8px; font-weight: 700; color: #212529; border-bottom: none; }
 
-  /* PAGE HEADER */
-  .page-header {
-    background: #F2F2F2; padding: 60px 48px 52px; text-align: center;
-  }
+  .page-header { background: #F2F2F2; padding: 60px 48px 52px; text-align: center; }
   .page-header h1 { font-size: 36px; font-weight: 800; color: #212529; margin-bottom: 12px; line-height: 1.3; }
   .page-header h1 span { color: #E8292F; }
   .page-header p { font-size: 20px; color: #4B3F34; max-width: 580px; margin: 0 auto; line-height: 1.6; }
 
-  /* CONTACT BAR */
   .contact-bar {
     background: #495057; padding: 20px 48px;
     display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;
   }
-  .contact-bar-item {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 16px; color: rgba(255,255,255,0.85); font-weight: 600;
-  }
+  .contact-bar-item { display: flex; align-items: center; gap: 10px; font-size: 18px; color: rgba(255,255,255,0.85); font-weight: 600; }
   .contact-bar-item a { color: #FAAF42; text-decoration: none; font-weight: 700; font-size: 18px; }
   .contact-bar-item a:hover { color: #e89e2e; }
   .contact-bar-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.2); }
 
-  /* MAIN LAYOUT */
   .help-layout {
     max-width: 1200px; margin: 0 auto;
     padding: 64px 48px 80px;
-    display: grid; grid-template-columns: 240px 1fr; gap: 60px; align-items: start;
+    display: grid; grid-template-columns: 260px 1fr; gap: 60px; align-items: start;
   }
 
-  /* CATEGORY NAV (sidebar) */
   .cat-nav { position: sticky; top: 88px; }
-  .cat-nav h4 {
-    font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
-    color: #888; margin-bottom: 16px;
-  }
+  .cat-nav h4 { font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 16px; }
   .cat-nav ul { list-style: none; }
   .cat-nav ul li { margin-bottom: 4px; }
   .cat-nav ul li a {
     display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px;
-    font-size: 15px; font-weight: 600; color: #4B3F34; text-decoration: none;
+    font-size: 18px; font-weight: 600; color: #4B3F34; text-decoration: none;
     transition: background 0.15s, color 0.15s;
   }
   .cat-nav ul li a:hover { background: #fef8eb; color: #E8292F; }
   .cat-nav ul li a.active { background: #fef8eb; color: #E8292F; }
-  .cat-nav ul li a .cat-icon { flex-shrink: 0; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; }
-  .cat-nav ul li a .cat-icon img { width: 20px; height: 20px; object-fit: contain; }
+  .cat-nav ul li a .cat-icon { flex-shrink: 0; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; }
+  .cat-nav ul li a .cat-icon img { width: 30px; height: 30px; object-fit: contain; }
 
-  .cat-nav-support {
-    margin-top: 28px; padding: 20px; background: #F2F2F2; border-radius: 12px;
-  }
-  .cat-nav-support p { font-size: 14px; color: #4B3F34; margin-bottom: 10px; line-height: 1.5; }
+  .cat-nav-support { margin-top: 28px; padding: 20px; background: #F2F2F2; border-radius: 12px; }
+  .cat-nav-support p { font-size: 18px; color: #4B3F34; margin-bottom: 10px; line-height: 1.5; }
   .cat-nav-support a {
     display: block; text-align: center; background: #FAAF42; color: #212529;
-    padding: 10px 16px; border-radius: 8px; font-size: 14px; font-weight: 700;
+    padding: 10px 16px; border-radius: 8px; font-size: 18px; font-weight: 700;
     text-decoration: none; margin-bottom: 8px;
   }
   .cat-nav-support a:hover { background: #e89e2e; }
-  .cat-nav-support a.ghost {
-    background: none; border: 2px solid #FAAF42; color: #212529;
-  }
+  .cat-nav-support a.ghost { background: none; border: 2px solid #FAAF42; color: #212529; }
   .cat-nav-support a.ghost:hover { background: #fef8eb; }
 
-  /* MOBILE CATEGORY SELECT */
   .cat-select-wrap { display: none; margin-bottom: 28px; }
+  .cat-select-wrap.sticky {
+    position: fixed; top: var(--nav-height, 57px); left: 0; right: 0; z-index: 90;
+    background: #fff; padding: 10px 24px; margin-bottom: 0;
+    border-bottom: 1px solid #eee; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .cat-select-wrap.sticky + .faq-section { margin-top: var(--select-height, 64px); }
   .cat-select {
-    width: 100%; padding: 12px 16px; font-size: 16px; border: 2px solid #e0e0e0;
+    width: 100%; padding: 12px 16px; font-size: 18px; border: 2px solid #e0e0e0;
     border-radius: 8px; background: #fff; font-family: 'Source Sans Pro', sans-serif;
     color: #212529; font-weight: 600; appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23888' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
     background-repeat: no-repeat; background-position: right 14px center;
   }
 
-  /* FAQ SECTIONS */
   .faq-main { min-width: 0; }
   .faq-section { margin-bottom: 56px; scroll-margin-top: 120px; }
   .faq-section-head {
     display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
     padding-bottom: 16px; border-bottom: 2px solid #F2F2F2;
   }
-  .faq-section-icon {
-    width: 40px; height: 40px; border-radius: 10px; background: #fef8eb;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .faq-section-icon img { width: 24px; height: 24px; object-fit: contain; }
+  .faq-section-icon { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .faq-section-icon img { width: 30px; height: 30px; object-fit: contain; }
   .faq-section-head h2 { font-size: 22px; font-weight: 800; color: #212529; line-height: 1.3; font-family: 'Source Sans Pro', sans-serif; }
 
   .faq-item { border-bottom: 1px solid #ebebeb; }
   .faq-q {
     width: 100%; text-align: left; background: none; border: none; cursor: pointer;
     display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    padding: 18px 0; font-size: 17px; font-weight: 700; color: #212529;
+    padding: 18px 0; font-size: 18px; font-weight: 700; color: #212529;
     font-family: 'Trebuchet MS', sans-serif; transition: color 0.15s;
   }
   .faq-q:hover { color: #E8292F; }
   .faq-chevron { font-size: 20px; flex-shrink: 0; color: #FAAF42; transition: transform 0.2s; }
   .faq-q.open .faq-chevron { transform: rotate(180deg); }
-  .faq-a {
-    display: none; font-size: 17px; color: #4B3F34; line-height: 1.75;
-    padding-bottom: 20px;
-  }
+  .faq-a { display: none; font-size: 18px; color: #4B3F34; line-height: 1.75; padding-bottom: 20px; }
   .faq-a.open { display: block; }
   .faq-a p { margin-bottom: 12px; }
   .faq-a p:last-child { margin-bottom: 0; }
   .faq-a ul { padding-left: 20px; margin: 8px 0 12px; }
-  .faq-a ul li { margin-bottom: 6px; font-size: 17px; }
+  .faq-a ul li { margin-bottom: 6px; font-size: 18px; }
   .faq-a strong { color: #212529; }
 
   .ida-box {
     background: #f0f9ff; border: 1px solid #bae6fd; border-left: 4px solid #287292;
     border-radius: 10px; padding: 14px 18px; margin-top: 12px;
   }
-  .ida-box .tag { font-size: 12px; font-weight: 700; color: #287292; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
-  .ida-box p { font-size: 15px; color: #4B3F34; margin: 0 !important; line-height: 1.65; }
+  .ida-box .tag { font-size: 18px; font-weight: 700; color: #287292; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 4px; }
+  .ida-box p { font-size: 18px; color: #4B3F34; margin: 0 !important; line-height: 1.65; }
 
-  .contact-steps {
-    background: #F2F2F2; border-radius: 10px; padding: 16px 20px; margin-top: 12px;
-  }
-  .contact-steps p { font-size: 15px; color: #4B3F34; margin-bottom: 4px !important; }
+  .contact-steps { background: #F2F2F2; border-radius: 10px; padding: 16px 20px; margin-top: 12px; }
+  .contact-steps p { font-size: 18px; color: #4B3F34; margin-bottom: 4px !important; }
   .contact-steps a { color: #287292; font-weight: 700; text-decoration: none; }
   .contact-steps a:hover { color: #E8292F; }
 
-  /* TOOLKITS */
+  .browser-steps { margin-top: 16px; }
+  .browser-steps h5 { font-size: 17px; font-weight: 700; color: #212529; margin: 14px 0 6px; font-family: 'Trebuchet MS', sans-serif; }
+  .browser-steps h5:first-child { margin-top: 0; }
+  .browser-steps ol { padding-left: 20px; margin: 0; }
+  .browser-steps ol li { font-size: 17px; color: #4B3F34; margin-bottom: 4px; line-height: 1.6; }
+
+  .footnote { font-size: 14px; color: #777; line-height: 1.6; margin-top: 6px !important; }
+  .footnote sup { font-size: 11px; }
+
   .toolkit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 8px; }
   .toolkit-card {
     background: #F2F2F2; border-radius: 12px; padding: 20px; text-align: center;
@@ -171,25 +158,23 @@
   }
   .toolkit-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
   .toolkit-card .tk-icon { font-size: 28px; }
-  .toolkit-card h3 { font-size: 15px; font-weight: 700; color: #212529; line-height: 1.3; }
-  .toolkit-card p { font-size: 14px; color: #4B3F34; line-height: 1.5; }
-  .toolkit-card .tk-cta { font-size: 14px; font-weight: 700; color: #287292; margin-top: 4px; }
+  .toolkit-card h3 { font-size: 18px; font-weight: 700; color: #212529; line-height: 1.3; }
+  .toolkit-card p { font-size: 18px; color: #4B3F34; line-height: 1.5; }
+  .toolkit-card .tk-cta { font-size: 18px; font-weight: 700; color: #287292; margin-top: 4px; }
 
-  /* STILL NEED HELP BANNER */
   .help-banner {
     background: #495057; border-radius: 16px; padding: 36px 40px;
     display: flex; align-items: center; justify-content: space-between; gap: 32px;
     color: #fff; margin-top: 8px;
   }
   .help-banner h3 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 8px; font-family: 'Source Sans Pro', sans-serif; }
-  .help-banner p { font-size: 17px; color: rgba(255,255,255,0.8); line-height: 1.6; }
+  .help-banner p { font-size: 18px; color: rgba(255,255,255,0.8); line-height: 1.6; }
   .help-banner-actions { display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; align-items: center; }
-  .btn-gold { background: #FAAF42; color: #212529; padding: 12px 24px; border-radius: 8px; font-size: 16px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+  .btn-gold { background: #FAAF42; color: #212529; padding: 12px 24px; border-radius: 8px; font-size: 18px; font-weight: 700; text-decoration: none; white-space: nowrap; }
   .btn-gold:hover { background: #e89e2e; }
-  .btn-ghost-light { background: none; border: 2px solid rgba(255,255,255,0.35); color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 16px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+  .btn-ghost-light { background: none; border: 2px solid rgba(255,255,255,0.35); color: #fff; padding: 12px 24px; border-radius: 8px; font-size: 18px; font-weight: 700; text-decoration: none; white-space: nowrap; }
   .btn-ghost-light:hover { background: rgba(255,255,255,0.08); }
 
-  /* FOOTER */
   footer { background: #000; color: #ccc; font-size: 15px; line-height: 1.7; }
   .footer-main { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; padding: 56px 48px 48px; }
   .footer-contact h4 { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 20px; font-family: 'Trebuchet MS', sans-serif; }
@@ -212,15 +197,15 @@
   .footer-bottom p { font-size: 13px; color: #999; line-height: 1.7; margin-bottom: 8px; }
   .footer-bottom p:first-child { font-size: 14px; font-weight: 700; color: #ccc; margin-bottom: 12px; }
 
-  /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 12px 20px; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
     .page-header { padding: 48px 24px 40px; }
     .page-header h1 { font-size: 28px; }
-    .contact-bar { padding: 16px 24px; gap: 16px; }
+    .contact-bar { padding: 16px 24px; gap: 12px; flex-direction: column; align-items: center; text-align: center; }
     .contact-bar-divider { display: none; }
+    .contact-bar-item { justify-content: center; }
     .help-layout { grid-template-columns: 1fr; padding: 40px 24px 60px; gap: 0; }
     .cat-nav { display: none; }
     .cat-select-wrap { display: block; }
@@ -244,7 +229,7 @@
   <div class="nav-links">
     <a href="https://the-gmt.github.io/expert-octo-garbanzo/identity">Identity Theft & Recovery</a>
     <a href="https://the-gmt.github.io/expert-octo-garbanzo/plans">Plans & Pricing</a>
-    <a href="#">Help</a>
+    <a href="https://the-gmt.github.io/expert-octo-garbanzo/help">Help</a>
     <a class="nav-login" href="https://identity.idassist.com/connect/login">Log In</a>
     <a class="nav-cta" href="https://www.idassist.com/en/registration/account">Try it free</a>
   </div>
@@ -254,7 +239,7 @@
   <nav class="mobile-menu" id="mobile-menu">
     <a href="https://the-gmt.github.io/expert-octo-garbanzo/identity">Identity Theft & Recovery</a>
     <a href="https://the-gmt.github.io/expert-octo-garbanzo/plans">Plans & Pricing</a>
-    <a href="#">Help</a>
+    <a href="https://the-gmt.github.io/expert-octo-garbanzo/help">Help</a>
     <a href="https://identity.idassist.com/connect/login">Log In</a>
     <a class="mob-cta" href="https://www.idassist.com/en/registration/account">Try it free</a>
   </nav>
@@ -277,7 +262,11 @@
   </div>
   <div class="contact-bar-divider"></div>
   <div class="contact-bar-item">
-    Mon – Fri, 9 a.m. – 9 p.m. ET &nbsp;|&nbsp; <strong style="color:#FAAF42;">24/7 emergency restoration support</strong>
+    Mon – Fri, 9 a.m. – 9 p.m. ET
+  </div>
+  <div class="contact-bar-divider"></div>
+  <div class="contact-bar-item">
+    <strong style="color:#FAAF42;">24/7 emergency restoration support</strong>
   </div>
 </div>
 
@@ -425,8 +414,8 @@
         <div class="faq-a" id="faq-s8">
           <p>Don't panic – you're not alone, and help is available. Review the recommended next steps provided with your scan result and follow them closely. If you've shared personal or financial information, contact the ID Assist Contact Centre right away.</p>
           <div class="contact-steps">
-            <p>📞 <a href="tel:18779001837">1-877-900-1837</a></p>
-            <p>✉️ <a href="mailto:customerservice@idassist.com">customerservice@idassist.com</a></p>
+            <p><a href="tel:18779001837">1-877-900-1837</a></p>
+            <p><a href="mailto:customerservice@idassist.com">customerservice@idassist.com</a></p>
             <p>Mon – Fri, 9 a.m. – 9 p.m. ET &nbsp;|&nbsp; 24/7 for emergencies</p>
           </div>
         </div>
@@ -457,7 +446,7 @@
         <button class="faq-q" data-faq="c1">What credit monitoring does ID Assist provide? <span class="faq-chevron">&#8964;</span></button>
         <div class="faq-a" id="faq-c1">
           <p>Depending on your plan, ID Assist monitors your credit files at both Equifax and TransUnion on a daily basis. You'll be alerted if changes appear that could be a sign of identity theft – such as a new credit inquiry or account – so you can take action before any damage is done.</p>
-          <p>You also receive a <strong>monthly credit score update</strong> and a <strong>quarterly credit report</strong> from Equifax to help you stay on top of your credit profile.</p>
+          <p>You can also request an updated <strong>credit score</strong> from Equifax at any time, with a fresh score available <strong>every 30 days</strong>. An updated <strong>credit report</strong> is available to request <strong>every three months</strong>, giving you a detailed snapshot of your credit history and any recent changes.</p>
         </div>
       </div>
 
@@ -478,9 +467,14 @@
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" data-faq="c4">How do I view my credit report? <span class="faq-chevron">&#8964;</span></button>
+        <button class="faq-q" data-faq="c4">How do I view my credit report and credit score? <span class="faq-chevron">&#8964;</span></button>
         <div class="faq-a" id="faq-c4">
-          <p>Log in to your ID Assist account and go to <strong>Credit Scores & Reports</strong> on your dashboard. Click <strong>View Equifax Report</strong> to access your report. Note that you'll need to complete your credit bureau authentication questions before your report can be displayed.</p>
+          <p>Log in to your ID Assist account and go to <strong>Credit Scores & Reports</strong> on your dashboard.</p>
+          <ul>
+            <li>To view your <strong>credit score</strong>, click <strong>Request Credit Score</strong>. A new score is available to request every 30 days.</li>
+            <li>To view your <strong>credit report</strong>, click <strong>View Equifax Report</strong>. An updated report is available to request every three months.</li>
+          </ul>
+          <p>Note that you'll need to complete your credit bureau authentication questions before your report or score can be displayed.</p>
         </div>
       </div>
 
@@ -489,8 +483,8 @@
         <div class="faq-a" id="faq-c5">
           <p>Contact the credit bureaus directly to dispute any inaccuracies:</p>
           <div class="contact-steps">
-            <p>📞 <strong>Equifax Canada</strong> – <a href="tel:18668285961">1-866-828-5961</a></p>
-            <p>🌐 <strong>TransUnion Canada</strong> – <a href="https://secure-ocs.transunion.ca/secureocs/home.html?lang=en" target="_blank">ocs.transunion.ca</a></p>
+            <p><strong>Equifax Canada</strong> – <a href="https://www.equifax.ca/personal/dispute-credit-report/options/" target="_blank">Submit a dispute online</a></p>
+            <p><strong>TransUnion Canada</strong> – <a href="https://secure-ocs.transunion.ca/secureocs/home.html?lang=en" target="_blank">Submit a dispute online</a></p>
           </div>
           <p>Equifax will investigate and can take up to 20 business days to respond. TransUnion's self-service site allows you to view your credit file and submit disputes directly.</p>
         </div>
@@ -551,7 +545,7 @@
         <div class="faq-a" id="faq-d4">
           <p>Log in to your account to review the full alert details. Depending on what was found, recommended steps may include changing passwords, contacting your bank or card issuer, or placing a fraud alert on your credit files. If you need help interpreting an alert or aren't sure what to do, call our Contact Centre – our team can guide you through the right response.</p>
           <div class="contact-steps">
-            <p>📞 <a href="tel:18779001837">1-877-900-1837</a> &nbsp;|&nbsp; Mon – Fri, 9 a.m. – 9 p.m. ET &nbsp;|&nbsp; 24/7 for emergencies</p>
+            <p><a href="tel:18779001837">1-877-900-1837</a> &nbsp;|&nbsp; Mon – Fri, 9 a.m. – 9 p.m. ET &nbsp;|&nbsp; 24/7 for emergencies</p>
           </div>
         </div>
       </div>
@@ -569,7 +563,7 @@
         <div class="faq-a" id="faq-i1">
           <p>Contact us immediately. Our restoration specialists are available 24/7 for emergencies and will take over the process on your behalf – contacting your financial institutions, placing fraud alerts at both credit bureaus, disputing fraudulent accounts, and managing communications with creditors and government agencies.</p>
           <div class="contact-steps">
-            <p>📞 <a href="tel:18779001837">1-877-900-1837</a> &nbsp;|&nbsp; Available 24/7 for emergencies</p>
+            <p><a href="tel:18779001837">1-877-900-1837</a> &nbsp;|&nbsp; Available 24/7 for emergencies</p>
           </div>
           <p style="margin-top:12px;">For a step-by-step guide to the recovery process, visit our <a href="https://the-gmt.github.io/expert-octo-garbanzo/identity" style="color:#287292; font-weight:700;">Identity Theft & Recovery page</a>.</p>
         </div>
@@ -594,16 +588,17 @@
       <div class="faq-item">
         <button class="faq-q" data-faq="i3">What restoration support does ID Assist provide? <span class="faq-chevron">&#8964;</span></button>
         <div class="faq-a" id="faq-i3">
-          <p>ID Assist Platinum and Ultimate include <strong>Full-Service Restoration</strong>, which means our specialists handle the recovery process on your behalf. This includes:</p>
+          <p>ID Assist Platinum and Ultimate include <strong>Full-Service Restoration</strong>, which means our specialists are with you every step of the way through the recovery process. This includes:</p>
           <ul>
             <li>Placing fraud alerts at both Equifax and TransUnion</li>
             <li>Contacting banks, creditors, and credit bureaus</li>
             <li>Drafting and sending dispute letters</li>
             <li>Following up until each fraudulent item is resolved</li>
-            <li><strong>Limited Power of Attorney</strong> – allowing us to act on your behalf in communications with creditors and institutions</li>
-            <li>Cheque reimbursement if a fraudulent cheque is drawn on your account (conditions apply)</li>
-            <li>Emergency cash advance of up to $2,500 if your account is compromised while you're travelling (conditions apply)</li>
+            <li>Cheque reimbursement if a fraudulent cheque is drawn on your account<sup>1</sup></li>
+            <li>Emergency cash advance if your account is compromised while you're travelling<sup>2</sup></li>
           </ul>
+          <p class="footnote"><sup>1</sup> If you need to close your account due to theft, ID Assist will reimburse you for the cost of your cheque order. Reimbursement amount is up to $50.00. Receipt must be submitted within 30 days of new account opening.</p>
+          <p class="footnote"><sup>2</sup> If you experience theft or loss while travelling, ID Assist will make arrangements to have emergency cash available to you, including directions to the nearest money transfer service for pick up. Funds will be charged to your credit card to a maximum of $2,500 and are dependent on existing credit card limits and cash advance privileges. You must be located more than 160 km from your residence. See full terms and conditions for more details.</p>
         </div>
       </div>
 
@@ -641,7 +636,39 @@
         <button class="faq-q" data-faq="a0b">How does ID Assist use cookies, and how do I manage them? <span class="faq-chevron">&#8964;</span></button>
         <div class="faq-a" id="faq-a0b">
           <p>ID Assist uses cookies to keep you securely logged in, remember your preferences, and understand how our website is being used so we can improve it.</p>
-          <p>To manage your cookie preferences, look for the cookie settings link in the footer of our website. You can also adjust cookie permissions at any time through your browser settings. Note that disabling certain cookies may affect how the site functions, including keeping you logged in to your account.</p>
+          <p>If you don't want to accept third-party cookies, you can block them through your browser settings. Note that doing so may affect how the site functions, including keeping you logged in to your account. Here's how to block third-party cookies in the most common browsers:</p>
+          <div class="browser-steps">
+            <h5>Chrome</h5>
+            <ol>
+              <li>Click the menu button (⋮) in the upper-right corner of the Chrome window.</li>
+              <li>Click <strong>Settings</strong>.</li>
+              <li>Click <strong>Privacy and Security</strong>.</li>
+              <li>Click <strong>Cookies and other site data</strong>.</li>
+              <li>Click <strong>Block third-party cookies</strong>.</li>
+            </ol>
+            <h5>Safari (Mac)</h5>
+            <ol>
+              <li>Click the <strong>Safari</strong> menu in the menu bar.</li>
+              <li>Click <strong>Preferences</strong>.</li>
+              <li>Click the <strong>Privacy</strong> tab.</li>
+              <li>Under "Cookies and website data", select <strong>Allow from current website only</strong>.</li>
+            </ol>
+            <h5>Safari (iPhone / iPad)</h5>
+            <ol>
+              <li>Open <strong>Settings</strong>.</li>
+              <li>Tap <strong>Safari</strong>.</li>
+              <li>Scroll to <strong>Privacy & Security</strong>.</li>
+              <li>Tap <strong>Block All Cookies</strong>.</li>
+            </ol>
+            <h5>Microsoft Edge</h5>
+            <ol>
+              <li>Click the menu button (⋯) in the upper-right corner.</li>
+              <li>Click <strong>Settings</strong>.</li>
+              <li>Click <strong>Cookies and site permissions</strong>.</li>
+              <li>Click <strong>Manage and delete cookies and site data</strong>.</li>
+              <li>Toggle on <strong>Block third-party cookies</strong>.</li>
+            </ol>
+          </div>
         </div>
       </div>
 
@@ -672,7 +699,7 @@
         <div class="faq-a" id="faq-a4">
           <p>Yes. You can cancel at any time with no penalties or fees. When you cancel, all future charges stop and you can continue using your subscription until 30 days from your last billing date. To cancel, contact us by phone or email.</p>
           <div class="contact-steps">
-            <p>📞 <a href="tel:18779001837">1-877-900-1837</a> &nbsp;|&nbsp; ✉️ <a href="mailto:customerservice@idassist.com">customerservice@idassist.com</a></p>
+            <p><a href="tel:18779001837">1-877-900-1837</a> &nbsp;|&nbsp; <a href="mailto:customerservice@idassist.com">customerservice@idassist.com</a></p>
             <p>Mon – Fri, 9 a.m. – 9 p.m. ET</p>
           </div>
         </div>
@@ -716,22 +743,22 @@
         <h2>Resources & Toolkits</h2>
       </div>
 
-      <p style="font-size:17px; color:#4B3F34; margin-bottom:20px; line-height:1.65;">Download our free guides to help you understand and protect your identity.</p>
+      <p style="font-size:18px; color:#4B3F34; margin-bottom:20px; line-height:1.65;">Download our free guides to help you understand and protect your identity.</p>
 
       <div class="toolkit-grid">
-        <a class="toolkit-card" href="https://the-gmt.github.io/expert-octo-garbanzo/guides/ID_Assist_Victim_Toolkit.pdf" target="_blank">
+        <a class="toolkit-card" href="https://www.idassist.com/en/identity" target="_blank">
           <span class="tk-icon">🛡️</span>
           <h3>Identity Theft Toolkit</h3>
           <p>What to do if your identity has been compromised, step by step.</p>
           <span class="tk-cta">View guide →</span>
         </a>
-        <a class="toolkit-card" href="https://the-gmt.github.io/expert-octo-garbanzo/guides/ID_Assist_Credit_Report_Guide.pdf" target="_blank">
+        <a class="toolkit-card" href="https://www.idassist.com/en/help" target="_blank">
           <span class="tk-icon">📋</span>
           <h3>Credit Report: A User Guide</h3>
           <p>What a credit report includes and why your credit history matters.</p>
           <span class="tk-cta">Download →</span>
         </a>
-        <a class="toolkit-card" href="https://the-gmt.github.io/expert-octo-garbanzo/guides/ID_Assist_Credit_Score_Guide.pdf" target="_blank">
+        <a class="toolkit-card" href="https://www.idassist.com/en/help" target="_blank">
           <span class="tk-icon">📈</span>
           <h3>Credit Score: A User Guide</h3>
           <p>How your credit score is calculated and how to protect it.</p>
@@ -752,8 +779,8 @@
       </div>
     </div>
 
-  </div><!-- /faq-main -->
-</div><!-- /help-layout -->
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -781,11 +808,11 @@
       <ul>
         <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/identity">Identity Theft &amp; Recovery</a></li>
         <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/plans">Plans &amp; Pricing</a></li>
-        <li><a href="#">Help</a></li>
+        <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/help">Help</a></li>
         <li><a href="https://www.idassist.com/en/terms-conditions">Terms &amp; Conditions</a></li>
         <li><a href="https://www.idassist.com/en/privacy-policy">Privacy Policy</a></li>
         <li><a href="https://www.idassist.com/en/cancellation-policy">Cancellation Policy</a></li>
-        <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/">FR</a></li>
+        <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/help">FR</a></li>
       </ul>
     </div>
   </div>
@@ -798,7 +825,6 @@
 </footer>
 
 <script>
-  // Hamburger
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
   hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
@@ -808,7 +834,6 @@
     }
   });
 
-  // FAQ accordions
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.dataset.faq;
@@ -819,7 +844,6 @@
     });
   });
 
-  // Sidebar nav: scroll to section with offset for sticky nav
   document.querySelectorAll('.cat-nav a[href^="#"]').forEach(link => {
     link.addEventListener('click', e => {
       e.preventDefault();
@@ -832,7 +856,28 @@
     });
   });
 
-  // Active sidebar link on scroll
+  const selectWrap = document.querySelector('.cat-select-wrap');
+  if (selectWrap) {
+    const navEl = document.querySelector('nav');
+    let selectOffset = null;
+    function updateSelectOffset() {
+      selectWrap.classList.remove('sticky');
+      selectOffset = selectWrap.getBoundingClientRect().top + window.scrollY;
+    }
+    updateSelectOffset();
+    window.addEventListener('resize', updateSelectOffset);
+    window.addEventListener('scroll', () => {
+      const navH = navEl.offsetHeight;
+      document.documentElement.style.setProperty('--nav-height', navH + 'px');
+      if (window.scrollY + navH >= selectOffset) {
+        selectWrap.classList.add('sticky');
+        document.documentElement.style.setProperty('--select-height', selectWrap.offsetHeight + 'px');
+      } else {
+        selectWrap.classList.remove('sticky');
+      }
+    }, { passive: true });
+  }
+
   const sections = document.querySelectorAll('.faq-section');
   const navLinks = document.querySelectorAll('.cat-nav ul li a');
   const observer = new IntersectionObserver(entries => {
