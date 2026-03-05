@@ -462,7 +462,7 @@ function renderCards(posts) {
         <span class="card-topic ${topicClass(p.topic)}">${p.topic}</span>
         <h3 class="card-title">${p.title}</h3>
         <p class="card-date">${formatDate(p.posted)}</p>
-        <p class="card-summary">${p.summary}</p>
+        <div class="card-summary-wrap"><p class="card-summary">${p.summary}</p></div>
         ${p.tags.length ? `<div class="card-tags">${p.tags.map(t => `<span class="card-tag">${t}</span>`).join('')}</div>` : ''}
         <span class="card-readmore">Read more &rarr;</span>
       </div>
