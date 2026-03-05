@@ -361,31 +361,20 @@
 </footer>
 
 <script>
-/* ═══════════════════════════════════════════════════
-   CONFIGURATION
-   Note: The Cloudflare Worker must expose /fr/posts and
-   /fr/post/:id routes pointing to the French Notion DB.
-   ═══════════════════════════════════════════════════ */
 const CONFIG = {
   workerUrl: 'https://id-assist-blog.the-gmt.workers.dev',
   lang: 'fr',
 };
 
-/* ═══════════════════════════════════════════════════
-   DEMO DATA (French)
-   ═══════════════════════════════════════════════════ */
 const DEMO_POSTS = [
-  { id: 'demo-fr-1', title: 'Que faire si vos renseignements personnels se retrouvent sur le Web clandestin', summary: 'Recevoir une alerte du Web clandestin peut être alarmant, mais agir rapidement et de la bonne façon peut prévenir de graves dommages.', topic: "Vol d'identité", posted: '2026-02-18', cover: 'https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/hacker-typing-computer-concept-cybercrime-cyberattack-dark-web.jpg' },
-  { id: 'demo-fr-2', title: 'Anatomie d'un courriel d'hameçonnage : 7 signaux d'alarme à surveiller', summary: 'Les courriels d'hameçonnage modernes sont plus convaincants que jamais. Voici les indices révélateurs qui trahissent les fraudeurs.', topic: 'Fraude', posted: '2026-02-10', cover: 'https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/businessman-using-laptop-home-is-receiving-email-warning-alerts-about-spam-viruses-hackers-as-well-as-network-security-concept.jpg' },
-  { id: 'demo-fr-3', title: 'Pourquoi vous avez besoin d'un mot de passe différent pour chaque compte', summary: 'Réutiliser vos mots de passe, c'est comme utiliser la même clé pour votre maison, votre voiture et votre bureau. Une seule atteinte peut tout déverrouiller.', topic: 'Sécurité en ligne', posted: '2026-01-28', cover: 'https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/security-system-is-compromised-is-falling-apart-corporate-data-leakage.jpg' },
-  { id: 'demo-fr-4', title: 'Arnaques liées à la saison des impôts : comment les fraudeurs exploitent votre NAS', summary: 'Chaque année, à l'approche de la période des déclarations de revenus, les tentatives de fraude ciblant votre numéro d'assurance sociale augmentent fortement.', topic: 'Fraude', posted: '2026-01-15', cover: 'https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/credit-text-button-modern-computer-keyboard.jpg' },
-  { id: 'demo-fr-5', title: 'Comment la surveillance auprès des deux bureaux de crédit a détecté une fraude qu'un seul bureau avait manquée', summary: 'Un scénario concret qui illustre pourquoi surveiller un seul bureau de crédit peut vous laisser exposé.', topic: "Vol d'identité", posted: '2026-01-06', cover: 'https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/247-support-services-customer-assistance-anytime-anywhere.jpg' },
-  { id: 'demo-fr-6', title: 'Vous voyagez cet hiver ? Protégez votre identité à l'étranger', summary: 'Le Wi-Fi public, les lecteurs de cartes frauduleux et les documents perdus ne sont que quelques-uns des risques d'usurpation d'identité auxquels les voyageurs font face.', topic: 'Sécurité en ligne', posted: '2025-12-19', cover: 'https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/security-system-is-compromised-is-falling-apart-corporate-data-leakage.jpg' },
+  { id: 'demo-fr-1', title: "Que faire si vos renseignements personnels se retrouvent sur le Web clandestin", summary: "Recevoir une alerte du Web clandestin peut être alarmant, mais agir rapidement et de la bonne façon peut prévenir de graves dommages.", topic: "Vol d'identité", posted: '2026-02-18', cover: 'https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/hacker-typing-computer-concept-cybercrime-cyberattack-dark-web.jpg' },
+  { id: 'demo-fr-2', title: "Anatomie d'un courriel d'hameçonnage : 7 signaux d'alarme à surveiller", summary: "Les courriels d'hameçonnage modernes sont plus convaincants que jamais. Voici les indices révélateurs qui trahissent les fraudeurs.", topic: 'Fraude', posted: '2026-02-10', cover: 'https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/businessman-using-laptop-home-is-receiving-email-warning-alerts-about-spam-viruses-hackers-as-well-as-network-security-concept.jpg' },
+  { id: 'demo-fr-3', title: "Pourquoi vous avez besoin d'un mot de passe différent pour chaque compte", summary: "Réutiliser vos mots de passe, c'est comme utiliser la même clé pour votre maison, votre voiture et votre bureau. Une seule atteinte peut tout déverrouiller.", topic: 'Sécurité en ligne', posted: '2026-01-28', cover: 'https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/security-system-is-compromised-is-falling-apart-corporate-data-leakage.jpg' },
+  { id: 'demo-fr-4', title: "Arnaques liées à la saison des impôts : comment les fraudeurs exploitent votre NAS", summary: "Chaque année, à l'approche de la période des déclarations de revenus, les tentatives de fraude ciblant votre numéro d'assurance sociale augmentent fortement.", topic: 'Fraude', posted: '2026-01-15', cover: 'https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/credit-text-button-modern-computer-keyboard.jpg' },
+  { id: 'demo-fr-5', title: "Comment la surveillance auprès des deux bureaux de crédit a détecté une fraude qu'un seul bureau avait manquée", summary: "Un scénario concret qui illustre pourquoi surveiller un seul bureau de crédit peut vous laisser exposé.", topic: "Vol d'identité", posted: '2026-01-06', cover: 'https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/247-support-services-customer-assistance-anytime-anywhere.jpg' },
+  { id: 'demo-fr-6', title: "Vous voyagez cet hiver ? Protégez votre identité à l'étranger", summary: "Le Wi-Fi public, les lecteurs de cartes frauduleux et les documents perdus ne sont que quelques-uns des risques d'usurpation d'identité auxquels les voyageurs font face.", topic: 'Sécurité en ligne', posted: '2025-12-19', cover: 'https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/refs/heads/main/security-system-is-compromised-is-falling-apart-corporate-data-leakage.jpg' },
 ];
 
-/* ═══════════════════════════════════════════════════
-   HELPERS
-   ═══════════════════════════════════════════════════ */
 const topicClass = t => t ? t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/['']/g,'').replace(/\s+/g,'-') : '';
 
 function formatDate(iso) {
@@ -394,9 +383,6 @@ function formatDate(iso) {
   return d.toLocaleDateString('fr-CA', { year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-/* ═══════════════════════════════════════════════════
-   RENDERING – LIST VIEW (no tags)
-   ═══════════════════════════════════════════════════ */
 function renderCards(posts) {
   const grid = document.getElementById('post-grid');
   const empty = document.getElementById('blog-empty');
@@ -426,9 +412,6 @@ function renderCards(posts) {
   });
 }
 
-/* ═══════════════════════════════════════════════════
-   ARTICLE VIEW (no tags)
-   ═══════════════════════════════════════════════════ */
 async function openArticle(postId) {
   const listView = document.getElementById('list-view');
   const articleView = document.getElementById('article-view');
@@ -450,7 +433,7 @@ async function openArticle(postId) {
     document.getElementById('article-topic').textContent = cached.topic;
     document.getElementById('article-title').textContent = cached.title;
     document.getElementById('article-meta').textContent = formatDate(cached.posted);
-    document.title = cached.title + ' – Le Filtre Antipourriel – Assist Identité';
+    document.title = cached.title + ' \u2013 Le Filtre Antipourriel \u2013 Assist Identit\u00e9';
   }
 
   try {
@@ -464,7 +447,6 @@ async function openArticle(postId) {
     document.getElementById('article-meta').textContent = formatDate(post.posted);
     content.innerHTML = post.content;
 
-    // Remove "Table des matières" block and surrounding dividers
     content.querySelectorAll('h2, h3, h4, p, strong').forEach(el => {
       if (/table des mati[èe]res/i.test(el.textContent.trim())) {
         let prev = el.previousElementSibling;
@@ -479,7 +461,7 @@ async function openArticle(postId) {
       }
     });
 
-    document.title = post.title + ' – Le Filtre Antipourriel – Assist Identité';
+    document.title = post.title + ' \u2013 Le Filtre Antipourriel \u2013 Assist Identit\u00e9';
   } catch (e) {
     console.error(e);
     content.innerHTML = '<p style="color:#999;">Impossible de charger cet article. Veuillez réessayer plus tard.</p>';
@@ -492,7 +474,7 @@ function closeArticle() {
   document.getElementById('list-view').classList.remove('hidden');
   document.getElementById('article-view').classList.remove('active');
   document.getElementById('page-header').style.display = '';
-  document.title = 'Le Filtre Antipourriel – Blogue Assist Identité';
+  document.title = 'Le Filtre Antipourriel \u2013 Blogue Assist Identit\u00e9';
   history.pushState(null, '', window.location.pathname);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -504,9 +486,6 @@ window.addEventListener('popstate', (e) => {
   else closeArticle();
 });
 
-/* ═══════════════════════════════════════════════════
-   DATA FETCHING – uses /fr/posts endpoint
-   ═══════════════════════════════════════════════════ */
 let allPosts = [];
 
 async function fetchPosts() {
@@ -538,9 +517,6 @@ async function fetchPosts() {
   }
 }
 
-/* ═══════════════════════════════════════════════════
-   TOPIC FILTERING
-   ═══════════════════════════════════════════════════ */
 document.querySelectorAll('.topic-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
@@ -550,9 +526,6 @@ document.querySelectorAll('.topic-btn').forEach(btn => {
   });
 });
 
-/* ═══════════════════════════════════════════════════
-   INIT
-   ═══════════════════════════════════════════════════ */
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobile-menu');
 hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
