@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ID Assist - The Spam Filter</title>
+<title>The Spam Filter – ID Assist Blog</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/IDAssist_button.png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap');
@@ -107,8 +107,6 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   }
-  .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
-  .card-tag { font-size: 12px; font-weight: 600; color: #888; background: #f5f5f5; padding: 2px 8px; border-radius: 4px; }
   .card-readmore { font-size: 15px; font-weight: 700; color: #287292; display: inline-flex; align-items: center; gap: 4px; }
   .post-card:hover .card-readmore { color: #E8292F; }
 
@@ -156,7 +154,6 @@
   }
   .article-meta { font-size: 16px; color: #999; font-weight: 600; margin-bottom: 8px; }
   .article-tags-row { display: flex; gap: 6px; flex-wrap: wrap; }
-  .article-tags-row .card-tag { font-size: 13px; padding: 3px 10px; }
 
   .article-content {
     font-size: 18px; color: #4B3F34; line-height: 1.8;
@@ -463,7 +460,6 @@ function renderCards(posts) {
         <h3 class="card-title">${p.title}</h3>
         <p class="card-date">${formatDate(p.posted)}</p>
         <div class="card-summary-wrap"><p class="card-summary">${p.summary}</p></div>
-        ${p.tags.length ? `<div class="card-tags">${p.tags.map(t => `<span class="card-tag">${t}</span>`).join('')}</div>` : ''}
         <span class="card-readmore">Read more &rarr;</span>
       </div>
     </div>
@@ -508,7 +504,6 @@ async function openArticle(postId) {
     document.getElementById('article-topic').textContent = cached.topic;
     document.getElementById('article-title').textContent = cached.title;
     document.getElementById('article-meta').textContent = formatDate(cached.posted);
-    document.getElementById('article-tags').innerHTML = cached.tags.map(t => `<span class="card-tag">${t}</span>`).join('');
     document.title = cached.title + ' – The Spam Filter – ID Assist';
   }
 
@@ -521,7 +516,6 @@ async function openArticle(postId) {
     document.getElementById('article-topic').textContent = post.topic;
     document.getElementById('article-title').textContent = post.title;
     document.getElementById('article-meta').textContent = formatDate(post.posted);
-    document.getElementById('article-tags').innerHTML = post.tags.map(t => `<span class="card-tag">${t}</span>`).join('');
     content.innerHTML = post.content;
     // Remove any "Table of Contents" block and surrounding dividers
     content.querySelectorAll('h2, h3, h4, p, strong').forEach(el => {
