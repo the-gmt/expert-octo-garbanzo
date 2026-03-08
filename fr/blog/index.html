@@ -452,7 +452,16 @@ const CONFIG = {
   workerUrl: 'https://id-assist-blog.the-gmt.workers.dev',
   lang: 'fr',
   notionSiteBase: 'https://dynamic-stay-080.notion.site',
+  brandName: 'Assist Identité',
 };
+
+/* ═══════════════════════════════════════════════════
+   BRAND TOKEN REPLACEMENT
+   ═══════════════════════════════════════════════════ */
+function applyBrandTokens(str) {
+  if (!str) return str;
+  return str.replace(/{{brand_name}}/gi, CONFIG.brandName);
+}
 
 /* ═══════════════════════════════════════════════════
    DEMO DATA
