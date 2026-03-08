@@ -53,32 +53,23 @@
   /* BLOG LAYOUT */
   .blog-section { max-width: 1200px; margin: 0 auto; padding: 48px 48px 80px; }
 
+
   /* SEARCH BAR */
-  .search-wrap {
-    position: relative; margin-bottom: 20px;
-  }
-  .search-wrap svg {
-    position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
-    pointer-events: none; color: #999;
-  }
+  .search-wrap { position: relative; margin-bottom: 20px; }
+  .search-wrap svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; color: #999; }
   .search-input {
     width: 100%; padding: 13px 44px 13px 46px;
     border: 2px solid #e0e0e0; border-radius: 10px;
     font-size: 16px; font-family: 'Source Sans Pro', sans-serif;
     color: #212529; background: #fff;
-    transition: border-color 0.15s, box-shadow 0.15s;
-    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s; outline: none;
   }
   .search-input::placeholder { color: #aaa; }
-  .search-input:focus {
-    border-color: #FAAF42;
-    box-shadow: 0 0 0 3px rgba(250, 175, 66, 0.15);
-  }
+  .search-input:focus { border-color: #FAAF42; box-shadow: 0 0 0 3px rgba(250,175,66,0.15); }
   .search-clear {
     position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
     background: none; border: none; cursor: pointer; color: #aaa;
-    display: none; padding: 4px; line-height: 1;
-    font-size: 20px; font-weight: 400;
+    display: none; padding: 4px; line-height: 1; font-size: 20px; font-weight: 400;
   }
   .search-clear:hover { color: #E8292F; }
   .search-clear.visible { display: block; }
@@ -124,10 +115,19 @@
     margin-bottom: 8px; font-family: 'Trebuchet MS', sans-serif;
   }
   .card-date { font-size: 14px; color: #999; font-weight: 600; margin-bottom: 12px; }
-  .card-summary-wrap { flex: 1; overflow: hidden; margin-bottom: 16px; }
+  .card-summary-wrap {
+  flex: 1;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
   .card-summary {
-    font-size: 16px; color: #4B3F34; line-height: 1.6;
-    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    font-size: 16px;
+  color: #4B3F34;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   }
   .card-readmore { font-size: 15px; font-weight: 700; color: #287292; display: inline-flex; align-items: center; gap: 4px; }
   .post-card:hover .card-readmore { color: #E8292F; }
@@ -147,9 +147,9 @@
   }
   .demo-banner strong { color: #78350f; }
 
-  /* ═══════════════════════════════════
+  /* ═══════════════════════════════════════════════════
      ARTICLE VIEW
-     ═══════════════════════════════════ */
+     ═══════════════════════════════════════════════════ */
   .article-view { display: none; }
   .article-view.active { display: block; }
   .list-view.hidden { display: none; }
@@ -171,38 +171,70 @@
   .article-topic-tag.fraud { background: #fef8eb; color: #b8860b; }
   .article-topic-tag.online-security { background: #fef2f2; color: #E8292F; }
 
-  .article-title { font-size: 36px; font-weight: 800; color: #212529; line-height: 1.25; margin-bottom: 12px; }
+  .article-title {
+    font-size: 36px; font-weight: 800; color: #212529; line-height: 1.25;
+    margin-bottom: 12px;
+  }
   .article-meta { font-size: 16px; color: #999; font-weight: 600; margin-bottom: 8px; }
   .article-tags-row { display: flex; gap: 6px; flex-wrap: wrap; }
 
-  .article-content { font-size: 18px; color: #4B3F34; line-height: 1.8; }
-  .article-content h2 { font-size: 28px; font-weight: 800; color: #212529; margin: 40px 0 16px; line-height: 1.3; font-family: 'Source Sans Pro', sans-serif; }
-  .article-content h3 { font-size: 22px; font-weight: 700; color: #212529; margin: 32px 0 12px; line-height: 1.35; }
-  .article-content h4 { font-size: 19px; font-weight: 700; color: #212529; margin: 24px 0 10px; line-height: 1.4; }
+  .article-content {
+    font-size: 18px; color: #4B3F34; line-height: 1.8;
+  }
+  .article-content h2 {
+    font-size: 28px; font-weight: 800; color: #212529; margin: 40px 0 16px;
+    line-height: 1.3; font-family: 'Source Sans Pro', sans-serif;
+  }
+  .article-content h3 {
+    font-size: 22px; font-weight: 700; color: #212529; margin: 32px 0 12px; line-height: 1.35;
+  }
+  .article-content h4 {
+    font-size: 19px; font-weight: 700; color: #212529; margin: 24px 0 10px; line-height: 1.4;
+  }
   .article-content p { margin-bottom: 18px; }
   .article-content a { color: #287292; font-weight: 600; text-decoration: underline; }
   .article-content a:hover { color: #E8292F; }
   .article-content ul, .article-content ol { padding-left: 24px; margin-bottom: 18px; }
   .article-content li { margin-bottom: 8px; line-height: 1.7; }
-  .article-content blockquote { border-left: 4px solid #FAAF42; padding: 16px 20px; margin: 24px 0; background: #fef8eb; border-radius: 0 10px 10px 0; font-style: italic; color: #4B3F34; }
-  .article-content .callout { background: #f0f9ff; border: 1px solid #bae6fd; border-left: 4px solid #287292; border-radius: 10px; padding: 16px 20px; margin: 24px 0; }
+  .article-content blockquote {
+    border-left: 4px solid #FAAF42; padding: 16px 20px; margin: 24px 0;
+    background: #fef8eb; border-radius: 0 10px 10px 0; font-style: italic; color: #4B3F34;
+  }
+  .article-content .callout {
+    background: #f0f9ff; border: 1px solid #bae6fd; border-left: 4px solid #287292;
+    border-radius: 10px; padding: 16px 20px; margin: 24px 0;
+  }
   .article-content .callout-icon { margin-right: 8px; }
-  .article-content hr { border: none; border-top: 1px solid #e5e5e5; margin: 32px 0; }
+  .article-content hr {
+    border: none; border-top: 1px solid #e5e5e5; margin: 32px 0;
+  }
   .article-content figure { margin: 24px 0; }
   .article-content figure img { max-width: 100%; height: auto; border-radius: 10px; }
   .article-content figcaption { font-size: 14px; color: #999; margin-top: 8px; text-align: center; }
-  .article-content pre { background: #f5f5f5; border-radius: 8px; padding: 16px 20px; overflow-x: auto; margin: 24px 0; font-size: 15px; }
+  .article-content pre {
+    background: #f5f5f5; border-radius: 8px; padding: 16px 20px; overflow-x: auto;
+    margin: 24px 0; font-size: 15px;
+  }
   .article-content code { font-family: 'SF Mono', 'Consolas', monospace; font-size: 0.9em; }
   .article-content details { margin: 18px 0; }
   .article-content summary { cursor: pointer; font-weight: 700; color: #212529; }
 
-  .article-bottom-cta { background: #F2F2F2; border-radius: 14px; padding: 32px; margin-top: 48px; }
-  .article-bottom-cta h3 { font-size: 20px; font-weight: 700; color: #212529; margin-bottom: 8px; font-family: 'Source Sans Pro', sans-serif; }
+  .article-bottom-cta {
+    background: #F2F2F2; border-radius: 14px; padding: 32px; margin-top: 48px;
+  }
+  .article-bottom-cta h3 {
+    font-size: 20px; font-weight: 700; color: #212529; margin-bottom: 8px;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
   .article-bottom-cta p { font-size: 18px; color: #4B3F34; margin-bottom: 16px; line-height: 1.6; }
   .article-bottom-cta .btn-gold { display: inline-block; }
 
   /* CTA */
-  .blog-cta { background: #495057; border-radius: 16px; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; color: #fff; margin-top: 64px; }
+  .blog-cta {
+    background: #495057; border-radius: 16px; padding: 40px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 32px; color: #fff; margin-top: 64px;
+  }
   .blog-cta h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; font-family: 'Source Sans Pro', sans-serif; }
   .blog-cta p { font-size: 18px; color: rgba(255,255,255,0.8); line-height: 1.6; }
   .blog-cta-actions { display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; }
@@ -301,20 +333,12 @@
 
   <!-- ═══ LIST VIEW ═══ -->
   <div class="list-view" id="list-view">
-
     <!-- SEARCH -->
     <div class="search-wrap">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
       </svg>
-      <input
-        class="search-input"
-        id="search-input"
-        type="search"
-        placeholder="Search posts…"
-        aria-label="Search blog posts"
-        autocomplete="off"
-      >
+      <input class="search-input" id="search-input" type="search" placeholder="Search posts…" aria-label="Search blog posts" autocomplete="off">
       <button class="search-clear" id="search-clear" aria-label="Clear search">&times;</button>
     </div>
 
@@ -388,7 +412,7 @@
         <tr><td>North America</td><td><a href="tel:18779001837">1-877-900-1837</a></td></tr>
         <tr><td>Toronto and collect</td><td><a href="tel:16478375412">1-647-837-5412</a></td></tr>
       </table>
-      <p><a href="/cdn-cgi/l/email-protection#35564046415a585047465047435c5650755c515446465c46411b565a58"><span class="__cf_email__" data-cfemail="8deef8fef9e2e0e8fffee8fffbe4eee8cde4e9ecfefee4fef9a3eee2e0">[email&#160;protected]</span></a></p>
+      <p><a href="/cdn-cgi/l/email-protection#c1a2b4b2b5aeaca4b3b2a4b3b7a8a2a481a8a5a0b2b2a8b2b5efa2aeac"><span class="__cf_email__" data-cfemail="6704121413080a0215140215110e0402270e030614140e14134904080a">[email&#160;protected]</span></a></p>
       <div class="footer-maple">
         <img src="https://www.idassist.com/assets/images/footer-canada.svg" alt="" width="20" height="20">
         <p><strong>Canadian representatives available 24/7</strong><br>for restoration services.</p>
@@ -407,7 +431,7 @@
         <li><a href="https://www.idassist.com/en/terms-conditions">Terms &amp; Conditions</a></li>
         <li><a href="https://www.idassist.com/en/privacy-policy">Privacy Policy</a></li>
         <li><a href="https://www.idassist.com/en/cancellation-policy">Cancellation Policy</a></li>
-        <li><a href="#">FR</a></li>
+        <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/blog">FR</a></li>
       </ul>
     </div>
   </div>
@@ -430,6 +454,14 @@ const CONFIG = {
 };
 
 /* ═══════════════════════════════════════════════════
+   BRAND TOKEN REPLACEMENT
+   ═══════════════════════════════════════════════════ */
+function applyBrandTokens(str) {
+  if (!str) return str;
+  return str.replace(/{{brand_name}}/gi, CONFIG.brandName);
+}
+
+/* ═══════════════════════════════════════════════════
    DEMO DATA
    ═══════════════════════════════════════════════════ */
 const DEMO_POSTS = [
@@ -446,8 +478,6 @@ const DEMO_POSTS = [
    ═══════════════════════════════════════════════════ */
 const topicClass = t => t ? t.toLowerCase().replace(/\s+/g, '-') : '';
 
-const applyBrand = str => str ? str.replace(/\{\{brand_name\}\}/g, CONFIG.brandName) : str;
-
 function formatDate(iso) {
   if (!iso) return '';
   const d = new Date(iso + 'T12:00:00');
@@ -455,43 +485,34 @@ function formatDate(iso) {
 }
 
 /* ═══════════════════════════════════════════════════
-   STATE
+   RENDERING – LIST VIEW
    ═══════════════════════════════════════════════════ */
-let allPosts = [];
-let activeSearch = '';
-let activeTopic = 'all';
 
-/* ═══════════════════════════════════════════════════
-   FILTER & RENDER
-   ═══════════════════════════════════════════════════ */
 function applyFilters() {
   const query = activeSearch.trim().toLowerCase();
   let filtered = allPosts;
-
   if (activeTopic !== 'all') {
     filtered = filtered.filter(p => p.topic === activeTopic);
   }
-
   if (query) {
     filtered = filtered.filter(p =>
       p.title.toLowerCase().includes(query) ||
       (p.summary && p.summary.toLowerCase().includes(query))
     );
   }
-
   renderCards(filtered, query);
 }
 
 function renderCards(posts, query = '') {
   const grid = document.getElementById('post-grid');
   const empty = document.getElementById('blog-empty');
+
   const emptyHeading = document.getElementById('blog-empty-heading');
   const emptyMsg = document.getElementById('blog-empty-msg');
-
   if (!posts.length) {
     grid.innerHTML = '';
     if (query) {
-      emptyHeading.textContent = `No results for "${query}"`;
+      emptyHeading.textContent = 'No results for "' + query + '"';
       emptyMsg.textContent = 'Try a different search term, or browse all posts.';
     } else {
       emptyHeading.textContent = 'No posts found';
@@ -507,62 +528,23 @@ function renderCards(posts, query = '') {
       ${p.cover ? `<img class="card-cover" src="${p.cover}" alt="" loading="lazy">` : `<div class="card-accent ${topicClass(p.topic)}"></div>`}
       <div class="card-body">
         <span class="card-topic ${topicClass(p.topic)}">${p.topic}</span>
-        <h3 class="card-title">${applyBrand(p.title)}</h3>
+        <h3 class="card-title">${applyBrandTokens(p.title)}</h3>
         <p class="card-date">${formatDate(p.posted)}</p>
-        <div class="card-summary-wrap"><p class="card-summary">${applyBrand(p.summary)}</p></div>
+        <div class="card-summary-wrap"><p class="card-summary">${applyBrandTokens(p.summary)}</p></div>
         <span class="card-readmore">Read more &rarr;</span>
       </div>
     </div>
   `).join('');
 
+  // Attach click handlers
   grid.querySelectorAll('.post-card').forEach(card => {
     card.addEventListener('click', () => {
       const id = card.dataset.postId;
-      if (id.startsWith('demo-')) return;
+      if (id.startsWith('demo-')) return; // demo posts don't have content
       openArticle(id);
     });
   });
 }
-
-/* ═══════════════════════════════════════════════════
-   SEARCH
-   ═══════════════════════════════════════════════════ */
-const searchInput = document.getElementById('search-input');
-const searchClear = document.getElementById('search-clear');
-
-searchInput.addEventListener('input', () => {
-  activeSearch = searchInput.value;
-
-  // Reset topic filter to All Posts when searching
-  if (activeSearch.trim()) {
-    activeTopic = 'all';
-    document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector('.topic-btn[data-topic="all"]').classList.add('active');
-  }
-
-  searchClear.classList.toggle('visible', activeSearch.length > 0);
-  applyFilters();
-});
-
-searchClear.addEventListener('click', () => {
-  searchInput.value = '';
-  activeSearch = '';
-  searchClear.classList.remove('visible');
-  searchInput.focus();
-  applyFilters();
-});
-
-/* ═══════════════════════════════════════════════════
-   TOPIC FILTERING
-   ═══════════════════════════════════════════════════ */
-document.querySelectorAll('.topic-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeTopic = btn.dataset.topic;
-    applyFilters();
-  });
-});
 
 /* ═══════════════════════════════════════════════════
    ARTICLE VIEW
@@ -572,7 +554,10 @@ async function openArticle(postId) {
   const articleView = document.getElementById('article-view');
   const loading = document.getElementById('article-loading');
   const content = document.getElementById('article-content');
+  const headerTitle = document.getElementById('header-title');
+  const headerSub = document.getElementById('header-subtitle');
 
+  // Switch views
   listView.classList.add('hidden');
   articleView.classList.add('active');
   document.getElementById('page-header').style.display = 'none';
@@ -580,13 +565,15 @@ async function openArticle(postId) {
   loading.style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
+  // Update URL without reload
   history.pushState({ postId }, '', `?post=${postId}`);
 
+  // Show metadata from cached list if available
   const cached = allPosts.find(p => p.id === postId);
   if (cached) {
     document.getElementById('article-topic').className = 'article-topic-tag ' + topicClass(cached.topic);
     document.getElementById('article-topic').textContent = cached.topic;
-    document.getElementById('article-title').textContent = cached.title;
+    document.getElementById('article-title').textContent = applyBrandTokens(cached.title);
     document.getElementById('article-meta').textContent = formatDate(cached.posted);
     document.title = cached.title + ' – The Spam Filter – ID Assist';
   }
@@ -598,19 +585,24 @@ async function openArticle(postId) {
 
     document.getElementById('article-topic').className = 'article-topic-tag ' + topicClass(post.topic);
     document.getElementById('article-topic').textContent = post.topic;
-    document.getElementById('article-title').textContent = post.title;
+    document.getElementById('article-title').textContent = applyBrandTokens(post.title);
     document.getElementById('article-meta').textContent = formatDate(post.posted);
-    content.innerHTML = applyBrand(post.content);
-
+    content.innerHTML = applyBrandTokens(post.content);
+    // Remove any "Table of Contents" block and surrounding dividers
     content.querySelectorAll('h2, h3, h4, p, strong').forEach(el => {
       if (el.textContent.trim() === 'Table of Contents') {
+        // Remove adjacent hr/br elements before and after
         let prev = el.previousElementSibling;
         while (prev && (prev.tagName === 'HR' || prev.tagName === 'BR')) {
-          const toRemove = prev; prev = prev.previousElementSibling; toRemove.remove();
+          const toRemove = prev;
+          prev = prev.previousElementSibling;
+          toRemove.remove();
         }
         let next = el.nextElementSibling;
         while (next && (next.tagName === 'HR' || next.tagName === 'BR')) {
-          const toRemove = next; next = next.nextElementSibling; toRemove.remove();
+          const toRemove = next;
+          next = next.nextElementSibling;
+          toRemove.remove();
         }
         el.remove();
       }
@@ -637,13 +629,22 @@ function closeArticle() {
 
 document.getElementById('article-back').addEventListener('click', closeArticle);
 
+// Handle browser back/forward
 window.addEventListener('popstate', (e) => {
-  if (e.state?.postId) { openArticle(e.state.postId); } else { closeArticle(); }
+  if (e.state?.postId) {
+    openArticle(e.state.postId);
+  } else {
+    closeArticle();
+  }
 });
 
 /* ═══════════════════════════════════════════════════
    DATA FETCHING
    ═══════════════════════════════════════════════════ */
+let allPosts = [];
+let activeSearch = '';
+let activeTopic = 'all';
+
 async function fetchPosts() {
   const loading = document.getElementById('blog-loading');
   const grid = document.getElementById('post-grid');
@@ -659,9 +660,14 @@ async function fetchPosts() {
   grid.innerHTML = '';
 
   try {
-    const res = await fetch(`${CONFIG.workerUrl}/posts`);
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    const res = await fetch(`${CONFIG.workerUrl}/posts`, { signal: controller.signal });
+    clearTimeout(timeout);
     if (!res.ok) throw new Error('Fetch failed');
-    allPosts = await res.json();
+    const fetched = await res.json();
+    if (!Array.isArray(fetched) || fetched.length === 0) throw new Error('No posts returned');
+    allPosts = fetched;
     applyFilters();
   } catch (e) {
     console.error('Failed to load posts:', e);
@@ -674,6 +680,43 @@ async function fetchPosts() {
 }
 
 /* ═══════════════════════════════════════════════════
+   SEARCH
+   ═══════════════════════════════════════════════════ */
+const searchInput = document.getElementById('search-input');
+const searchClear = document.getElementById('search-clear');
+
+searchInput.addEventListener('input', () => {
+  activeSearch = searchInput.value;
+  if (activeSearch.trim()) {
+    activeTopic = 'all';
+    document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.topic-btn[data-topic="all"]').classList.add('active');
+  }
+  searchClear.classList.toggle('visible', activeSearch.length > 0);
+  applyFilters();
+});
+
+searchClear.addEventListener('click', () => {
+  searchInput.value = '';
+  activeSearch = '';
+  searchClear.classList.remove('visible');
+  searchInput.focus();
+  applyFilters();
+});
+
+/* ═══════════════════════════════════════════════════
+   TOPIC FILTERING
+   ═══════════════════════════════════════════════════ */
+document.querySelectorAll('.topic-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeTopic = btn.dataset.topic;
+    applyFilters();
+  });
+});
+
+/* ═══════════════════════════════════════════════════
    INIT
    ═══════════════════════════════════════════════════ */
 const hamburger = document.getElementById('hamburger');
@@ -681,4 +724,10 @@ const mobileMenu = document.getElementById('mobile-menu');
 hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
 document.addEventListener('click', e => {
   if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-    hamburger.classList.remove('open'); mobileMenu
+    hamburger.classList.remove('open'); mobileMenu.classList.remove('open');
+  }
+});
+
+// Boot
+fetchPosts().then(() => {
+  //
