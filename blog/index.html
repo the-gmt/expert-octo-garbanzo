@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ID Assist - The Spam Filter</title>
+<title>The Spam Filter – ID Assist Blog</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/IDAssist_button.png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap');
@@ -277,6 +277,7 @@
     .topic-btn { padding: 7px 14px; font-size: 14px; }
     .post-grid { grid-template-columns: 1fr; }
     .blog-cta { flex-direction: column; text-align: center; padding: 32px 24px; }
+    .blog-cta-actions { justify-content: center; }
     .article-title { font-size: 28px; }
     .article-content h2 { font-size: 24px; }
     .footer-main { grid-template-columns: 1fr; gap: 32px; padding: 40px 24px 32px; }
@@ -730,6 +731,9 @@ document.addEventListener('click', e => {
 
 // Boot
 fetchPosts().then(() => {
+  //
+// Boot
+fetchPosts().then(() => {
   // If URL has ?post=ID, open that article directly
   const params = new URLSearchParams(window.location.search);
   const postId = params.get('post');
@@ -740,5 +744,3 @@ fetchPosts().then(() => {
 </script>
 </body>
 </html>
-
-                  
