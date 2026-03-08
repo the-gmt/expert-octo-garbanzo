@@ -412,7 +412,7 @@
         <tr><td>Amérique du Nord</td><td><a href="tel:18779001837">1-877-900-1837</a></td></tr>
         <tr><td>Toronto et à frais virés</td><td><a href="tel:16478375412">1-647-837-5412</a></td></tr>
       </table>
-      <p><a href="mailto:servicealaclientele@assistidentite.com">servicealaclientele@assistidentite.com</a></p>
+      <p><a href="/cdn-cgi/l/email-protection#4e3d2b3c38272d2b2f222f2d22272b203a2b222b0e2f3d3d273d3a272a2b203a273a2b602d2123"><span class="__cf_email__" data-cfemail="cfbcaabdb9a6acaaaea3aeaca3a6aaa1bbaaa3aa8faebcbca6bcbba6abaaa1bba6bbaae1aca0a2">[email&#160;protected]</span></a></p>
       <div class="footer-maple">
         <img src="https://www.idassist.com/assets/images/footer-canada.svg" alt="" width="20" height="20">
         <p><strong>Des représentants canadiens disponibles 24 h/7 j</strong><br>pour les services de rétablissement.</p>
@@ -451,7 +451,16 @@ const CONFIG = {
   workerUrl: 'https://id-assist-blog.the-gmt.workers.dev',
   lang: 'fr',
   notionSiteBase: 'https://dynamic-stay-080.notion.site',
+  brandName: 'Assist Identité',
 };
+
+/* ═══════════════════════════════════════════════════
+   BRAND TOKEN REPLACEMENT
+   ═══════════════════════════════════════════════════ */
+function applyBrandTokens(str) {
+  if (!str) return str;
+  return str.replace(/{{brand_name}}/gi, CONFIG.brandName);
+}
 
 /* ═══════════════════════════════════════════════════
    DEMO DATA
@@ -520,9 +529,9 @@ function renderCards(posts, query = '') {
       ${p.cover ? `<img class="card-cover" src="${p.cover}" alt="" loading="lazy">` : `<div class="card-accent ${topicClass(p.topic)}"></div>`}
       <div class="card-body">
         <span class="card-topic ${topicClass(p.topic)}">${p.topic}</span>
-        <h3 class="card-title">${p.title}</h3>
+        <h3 class="card-title">${applyBrandTokens(p.title)}</h3>
         <p class="card-date">${formatDate(p.posted)}</p>
-        <div class="card-summary-wrap"><p class="card-summary">${p.summary}</p></div>
+        <div class="card-summary-wrap"><p class="card-summary">${applyBrandTokens(p.summary)}</p></div>
         <span class="card-readmore">Read more &rarr;</span>
       </div>
     </div>
@@ -565,7 +574,7 @@ async function openArticle(postId) {
   if (cached) {
     document.getElementById('article-topic').className = 'article-topic-tag ' + topicClass(cached.topic);
     document.getElementById('article-topic').textContent = cached.topic;
-    document.getElementById('article-title').textContent = cached.title;
+    document.getElementById('article-title').textContent = applyBrandTokens(cached.title);
     document.getElementById('article-meta').textContent = formatDate(cached.posted);
     document.title = cached.title + ' – Le Filtre anti-spam – Assist Identité';
   }
@@ -577,9 +586,9 @@ async function openArticle(postId) {
 
     document.getElementById('article-topic').className = 'article-topic-tag ' + topicClass(post.topic);
     document.getElementById('article-topic').textContent = post.topic;
-    document.getElementById('article-title').textContent = post.title;
+    document.getElementById('article-title').textContent = applyBrandTokens(post.title);
     document.getElementById('article-meta').textContent = formatDate(post.posted);
-    content.innerHTML = post.content;
+    content.innerHTML = applyBrandTokens(post.content);
     // Remove any "Table of Contents" block and surrounding dividers
     content.querySelectorAll('h2, h3, h4, p, strong').forEach(el => {
       if (el.textContent.trim() === 'Table of Contents') {
@@ -718,6 +727,7 @@ document.addEventListener('click', e => {
   }
 });
 
+// Boot
 // Boot
 fetchPosts().then(() => {
   // If URL has ?post=ID, open that article directly
