@@ -539,9 +539,9 @@ function renderCards(posts, query = '') {
       ${p.cover ? `<img class="card-cover" src="${p.cover}" alt="" loading="lazy">` : `<div class="card-accent ${topicClass(p.topic)}"></div>`}
       <div class="card-body">
         <span class="card-topic ${topicClass(p.topic)}">${p.topic}</span>
-        <h3 class="card-title">${p.title}</h3>
+        <h3 class="card-title">${applyBrandTokens(p.title)}</h3>
         <p class="card-date">${formatDate(p.posted)}</p>
-        <div class="card-summary-wrap"><p class="card-summary">${p.summary}</p></div>
+        <div class="card-summary-wrap"><p class="card-summary">${applyBrandTokens(p.summary)}</p></div>
         <span class="card-readmore">Read more &rarr;</span>
       </div>
     </div>
@@ -584,21 +584,21 @@ async function openArticle(postId) {
   if (cached) {
     document.getElementById('article-topic').className = 'article-topic-tag ' + topicClass(cached.topic);
     document.getElementById('article-topic').textContent = cached.topic;
-    document.getElementById('article-title').textContent = cached.title;
+    document.getElementById('article-title').textContent = applyBrandTokens(cached.title);
     document.getElementById('article-meta').textContent = formatDate(cached.posted);
-    document.title = cached.title + ' – Le Filtre Antipourriel – Assist Identité';
+    document.title = cached.title + ' – The Spam Filter – ID Assist';
   }
 
   try {
-    const res = await fetch(`${CONFIG.workerUrl}/fr/post/${postId}`);
+    const res = await fetch(`${CONFIG.workerUrl}/post/${postId}`);
     if (!res.ok) throw new Error('Failed to load article');
     const post = await res.json();
 
     document.getElementById('article-topic').className = 'article-topic-tag ' + topicClass(post.topic);
     document.getElementById('article-topic').textContent = post.topic;
-    document.getElementById('article-title').textContent = post.title;
+    document.getElementById('article-title').textContent = applyBrandTokens(post.title);
     document.getElementById('article-meta').textContent = formatDate(post.posted);
-    content.innerHTML = post.content;
+    content.innerHTML = applyBrandTokens(post.content);
     // Remove any "Table of Contents" block and surrounding dividers
     content.querySelectorAll('h2, h3, h4, p, strong').forEach(el => {
       if (el.textContent.trim() === 'Table of Contents') {
