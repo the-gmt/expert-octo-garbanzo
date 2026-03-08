@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Spam Filter – ID Assist Blog</title>
+<title>ID Assist - The Spam Filter</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/IDAssist_button.png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap');
@@ -53,6 +53,37 @@
   /* BLOG LAYOUT */
   .blog-section { max-width: 1200px; margin: 0 auto; padding: 48px 48px 80px; }
 
+  /* SEARCH BAR */
+  .search-wrap {
+    position: relative; margin-bottom: 20px;
+  }
+  .search-wrap svg {
+    position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+    pointer-events: none; color: #999;
+  }
+  .search-input {
+    width: 100%; padding: 13px 44px 13px 46px;
+    border: 2px solid #e0e0e0; border-radius: 10px;
+    font-size: 16px; font-family: 'Source Sans Pro', sans-serif;
+    color: #212529; background: #fff;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    outline: none;
+  }
+  .search-input::placeholder { color: #aaa; }
+  .search-input:focus {
+    border-color: #FAAF42;
+    box-shadow: 0 0 0 3px rgba(250, 175, 66, 0.15);
+  }
+  .search-clear {
+    position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+    background: none; border: none; cursor: pointer; color: #aaa;
+    display: none; padding: 4px; line-height: 1;
+    font-size: 20px; font-weight: 400;
+  }
+  .search-clear:hover { color: #E8292F; }
+  .search-clear.visible { display: block; }
+  .search-input::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+
   /* TOPIC FILTERS */
   .topic-filters { display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap; }
   .topic-btn {
@@ -93,19 +124,10 @@
     margin-bottom: 8px; font-family: 'Trebuchet MS', sans-serif;
   }
   .card-date { font-size: 14px; color: #999; font-weight: 600; margin-bottom: 12px; }
-  .card-summary-wrap {
-  flex: 1;
-  overflow: hidden;
-  margin-bottom: 16px;
-}
+  .card-summary-wrap { flex: 1; overflow: hidden; margin-bottom: 16px; }
   .card-summary {
-    font-size: 16px;
-  color: #4B3F34;
-  line-height: 1.6;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+    font-size: 16px; color: #4B3F34; line-height: 1.6;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
   }
   .card-readmore { font-size: 15px; font-weight: 700; color: #287292; display: inline-flex; align-items: center; gap: 4px; }
   .post-card:hover .card-readmore { color: #E8292F; }
@@ -118,6 +140,7 @@
   }
   @keyframes spin { to { transform: rotate(360deg); } }
   .blog-empty { text-align: center; padding: 60px 20px; color: #999; font-size: 18px; }
+  .blog-empty strong { display: block; font-size: 20px; color: #4B3F34; margin-bottom: 8px; }
   .demo-banner {
     background: #fef8eb; border: 1px solid #fde68a; border-radius: 10px;
     padding: 14px 20px; margin-bottom: 24px; font-size: 15px; color: #92400e; display: none;
@@ -148,70 +171,38 @@
   .article-topic-tag.fraud { background: #fef8eb; color: #b8860b; }
   .article-topic-tag.online-security { background: #fef2f2; color: #E8292F; }
 
-  .article-title {
-    font-size: 36px; font-weight: 800; color: #212529; line-height: 1.25;
-    margin-bottom: 12px;
-  }
+  .article-title { font-size: 36px; font-weight: 800; color: #212529; line-height: 1.25; margin-bottom: 12px; }
   .article-meta { font-size: 16px; color: #999; font-weight: 600; margin-bottom: 8px; }
   .article-tags-row { display: flex; gap: 6px; flex-wrap: wrap; }
 
-  .article-content {
-    font-size: 18px; color: #4B3F34; line-height: 1.8;
-  }
-  .article-content h2 {
-    font-size: 28px; font-weight: 800; color: #212529; margin: 40px 0 16px;
-    line-height: 1.3; font-family: 'Source Sans Pro', sans-serif;
-  }
-  .article-content h3 {
-    font-size: 22px; font-weight: 700; color: #212529; margin: 32px 0 12px; line-height: 1.35;
-  }
-  .article-content h4 {
-    font-size: 19px; font-weight: 700; color: #212529; margin: 24px 0 10px; line-height: 1.4;
-  }
+  .article-content { font-size: 18px; color: #4B3F34; line-height: 1.8; }
+  .article-content h2 { font-size: 28px; font-weight: 800; color: #212529; margin: 40px 0 16px; line-height: 1.3; font-family: 'Source Sans Pro', sans-serif; }
+  .article-content h3 { font-size: 22px; font-weight: 700; color: #212529; margin: 32px 0 12px; line-height: 1.35; }
+  .article-content h4 { font-size: 19px; font-weight: 700; color: #212529; margin: 24px 0 10px; line-height: 1.4; }
   .article-content p { margin-bottom: 18px; }
   .article-content a { color: #287292; font-weight: 600; text-decoration: underline; }
   .article-content a:hover { color: #E8292F; }
   .article-content ul, .article-content ol { padding-left: 24px; margin-bottom: 18px; }
   .article-content li { margin-bottom: 8px; line-height: 1.7; }
-  .article-content blockquote {
-    border-left: 4px solid #FAAF42; padding: 16px 20px; margin: 24px 0;
-    background: #fef8eb; border-radius: 0 10px 10px 0; font-style: italic; color: #4B3F34;
-  }
-  .article-content .callout {
-    background: #f0f9ff; border: 1px solid #bae6fd; border-left: 4px solid #287292;
-    border-radius: 10px; padding: 16px 20px; margin: 24px 0;
-  }
+  .article-content blockquote { border-left: 4px solid #FAAF42; padding: 16px 20px; margin: 24px 0; background: #fef8eb; border-radius: 0 10px 10px 0; font-style: italic; color: #4B3F34; }
+  .article-content .callout { background: #f0f9ff; border: 1px solid #bae6fd; border-left: 4px solid #287292; border-radius: 10px; padding: 16px 20px; margin: 24px 0; }
   .article-content .callout-icon { margin-right: 8px; }
-  .article-content hr {
-    border: none; border-top: 1px solid #e5e5e5; margin: 32px 0;
-  }
+  .article-content hr { border: none; border-top: 1px solid #e5e5e5; margin: 32px 0; }
   .article-content figure { margin: 24px 0; }
   .article-content figure img { max-width: 100%; height: auto; border-radius: 10px; }
   .article-content figcaption { font-size: 14px; color: #999; margin-top: 8px; text-align: center; }
-  .article-content pre {
-    background: #f5f5f5; border-radius: 8px; padding: 16px 20px; overflow-x: auto;
-    margin: 24px 0; font-size: 15px;
-  }
+  .article-content pre { background: #f5f5f5; border-radius: 8px; padding: 16px 20px; overflow-x: auto; margin: 24px 0; font-size: 15px; }
   .article-content code { font-family: 'SF Mono', 'Consolas', monospace; font-size: 0.9em; }
   .article-content details { margin: 18px 0; }
   .article-content summary { cursor: pointer; font-weight: 700; color: #212529; }
 
-  .article-bottom-cta {
-    background: #F2F2F2; border-radius: 14px; padding: 32px; margin-top: 48px;
-  }
-  .article-bottom-cta h3 {
-    font-size: 20px; font-weight: 700; color: #212529; margin-bottom: 8px;
-    font-family: 'Source Sans Pro', sans-serif;
-  }
+  .article-bottom-cta { background: #F2F2F2; border-radius: 14px; padding: 32px; margin-top: 48px; }
+  .article-bottom-cta h3 { font-size: 20px; font-weight: 700; color: #212529; margin-bottom: 8px; font-family: 'Source Sans Pro', sans-serif; }
   .article-bottom-cta p { font-size: 18px; color: #4B3F34; margin-bottom: 16px; line-height: 1.6; }
   .article-bottom-cta .btn-gold { display: inline-block; }
 
   /* CTA */
-  .blog-cta {
-    background: #495057; border-radius: 16px; padding: 40px;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 32px; color: #fff; margin-top: 64px;
-  }
+  .blog-cta { background: #495057; border-radius: 16px; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; color: #fff; margin-top: 64px; }
   .blog-cta h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; font-family: 'Source Sans Pro', sans-serif; }
   .blog-cta p { font-size: 18px; color: rgba(255,255,255,0.8); line-height: 1.6; }
   .blog-cta-actions { display: flex; gap: 12px; flex-shrink: 0; flex-wrap: wrap; }
@@ -310,6 +301,23 @@
 
   <!-- ═══ LIST VIEW ═══ -->
   <div class="list-view" id="list-view">
+
+    <!-- SEARCH -->
+    <div class="search-wrap">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input
+        class="search-input"
+        id="search-input"
+        type="search"
+        placeholder="Search posts…"
+        aria-label="Search blog posts"
+        autocomplete="off"
+      >
+      <button class="search-clear" id="search-clear" aria-label="Clear search">&times;</button>
+    </div>
+
     <div class="topic-filters">
       <button class="topic-btn active" data-topic="all">All Posts</button>
       <button class="topic-btn" data-topic="Identity Theft">Identity Theft</button>
@@ -323,7 +331,8 @@
     </div>
 
     <div class="blog-empty" id="blog-empty" style="display:none;">
-      No posts found for this topic. Check back soon!
+      <strong id="blog-empty-heading">No posts found</strong>
+      <span id="blog-empty-msg">Check back soon!</span>
     </div>
 
     <div class="post-grid" id="post-grid"></div>
@@ -398,7 +407,7 @@
         <li><a href="https://www.idassist.com/en/terms-conditions">Terms &amp; Conditions</a></li>
         <li><a href="https://www.idassist.com/en/privacy-policy">Privacy Policy</a></li>
         <li><a href="https://www.idassist.com/en/cancellation-policy">Cancellation Policy</a></li>
-        <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/blog">FR</a></li>
+        <li><a href="#">FR</a></li>
       </ul>
     </div>
   </div>
@@ -443,13 +452,51 @@ function formatDate(iso) {
 }
 
 /* ═══════════════════════════════════════════════════
-   RENDERING – LIST VIEW
+   STATE
    ═══════════════════════════════════════════════════ */
-function renderCards(posts) {
+let allPosts = [];
+let activeSearch = '';
+let activeTopic = 'all';
+
+/* ═══════════════════════════════════════════════════
+   FILTER & RENDER
+   ═══════════════════════════════════════════════════ */
+function applyFilters() {
+  const query = activeSearch.trim().toLowerCase();
+  let filtered = allPosts;
+
+  if (activeTopic !== 'all') {
+    filtered = filtered.filter(p => p.topic === activeTopic);
+  }
+
+  if (query) {
+    filtered = filtered.filter(p =>
+      p.title.toLowerCase().includes(query) ||
+      (p.summary && p.summary.toLowerCase().includes(query))
+    );
+  }
+
+  renderCards(filtered, query);
+}
+
+function renderCards(posts, query = '') {
   const grid = document.getElementById('post-grid');
   const empty = document.getElementById('blog-empty');
+  const emptyHeading = document.getElementById('blog-empty-heading');
+  const emptyMsg = document.getElementById('blog-empty-msg');
 
-  if (!posts.length) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
+  if (!posts.length) {
+    grid.innerHTML = '';
+    if (query) {
+      emptyHeading.textContent = `No results for "${query}"`;
+      emptyMsg.textContent = 'Try a different search term, or browse all posts.';
+    } else {
+      emptyHeading.textContent = 'No posts found';
+      emptyMsg.textContent = 'Check back soon!';
+    }
+    empty.style.display = 'block';
+    return;
+  }
   empty.style.display = 'none';
 
   grid.innerHTML = posts.map(p => `
@@ -465,15 +512,54 @@ function renderCards(posts) {
     </div>
   `).join('');
 
-  // Attach click handlers
   grid.querySelectorAll('.post-card').forEach(card => {
     card.addEventListener('click', () => {
       const id = card.dataset.postId;
-      if (id.startsWith('demo-')) return; // demo posts don't have content
+      if (id.startsWith('demo-')) return;
       openArticle(id);
     });
   });
 }
+
+/* ═══════════════════════════════════════════════════
+   SEARCH
+   ═══════════════════════════════════════════════════ */
+const searchInput = document.getElementById('search-input');
+const searchClear = document.getElementById('search-clear');
+
+searchInput.addEventListener('input', () => {
+  activeSearch = searchInput.value;
+
+  // Reset topic filter to All Posts when searching
+  if (activeSearch.trim()) {
+    activeTopic = 'all';
+    document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.topic-btn[data-topic="all"]').classList.add('active');
+  }
+
+  searchClear.classList.toggle('visible', activeSearch.length > 0);
+  applyFilters();
+});
+
+searchClear.addEventListener('click', () => {
+  searchInput.value = '';
+  activeSearch = '';
+  searchClear.classList.remove('visible');
+  searchInput.focus();
+  applyFilters();
+});
+
+/* ═══════════════════════════════════════════════════
+   TOPIC FILTERING
+   ═══════════════════════════════════════════════════ */
+document.querySelectorAll('.topic-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeTopic = btn.dataset.topic;
+    applyFilters();
+  });
+});
 
 /* ═══════════════════════════════════════════════════
    ARTICLE VIEW
@@ -483,10 +569,7 @@ async function openArticle(postId) {
   const articleView = document.getElementById('article-view');
   const loading = document.getElementById('article-loading');
   const content = document.getElementById('article-content');
-  const headerTitle = document.getElementById('header-title');
-  const headerSub = document.getElementById('header-subtitle');
 
-  // Switch views
   listView.classList.add('hidden');
   articleView.classList.add('active');
   document.getElementById('page-header').style.display = 'none';
@@ -494,10 +577,8 @@ async function openArticle(postId) {
   loading.style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  // Update URL without reload
   history.pushState({ postId }, '', `?post=${postId}`);
 
-  // Show metadata from cached list if available
   const cached = allPosts.find(p => p.id === postId);
   if (cached) {
     document.getElementById('article-topic').className = 'article-topic-tag ' + topicClass(cached.topic);
@@ -517,21 +598,16 @@ async function openArticle(postId) {
     document.getElementById('article-title').textContent = post.title;
     document.getElementById('article-meta').textContent = formatDate(post.posted);
     content.innerHTML = post.content;
-    // Remove any "Table of Contents" block and surrounding dividers
+
     content.querySelectorAll('h2, h3, h4, p, strong').forEach(el => {
       if (el.textContent.trim() === 'Table of Contents') {
-        // Remove adjacent hr/br elements before and after
         let prev = el.previousElementSibling;
         while (prev && (prev.tagName === 'HR' || prev.tagName === 'BR')) {
-          const toRemove = prev;
-          prev = prev.previousElementSibling;
-          toRemove.remove();
+          const toRemove = prev; prev = prev.previousElementSibling; toRemove.remove();
         }
         let next = el.nextElementSibling;
         while (next && (next.tagName === 'HR' || next.tagName === 'BR')) {
-          const toRemove = next;
-          next = next.nextElementSibling;
-          toRemove.remove();
+          const toRemove = next; next = next.nextElementSibling; toRemove.remove();
         }
         el.remove();
       }
@@ -558,20 +634,13 @@ function closeArticle() {
 
 document.getElementById('article-back').addEventListener('click', closeArticle);
 
-// Handle browser back/forward
 window.addEventListener('popstate', (e) => {
-  if (e.state?.postId) {
-    openArticle(e.state.postId);
-  } else {
-    closeArticle();
-  }
+  if (e.state?.postId) { openArticle(e.state.postId); } else { closeArticle(); }
 });
 
 /* ═══════════════════════════════════════════════════
    DATA FETCHING
    ═══════════════════════════════════════════════════ */
-let allPosts = [];
-
 async function fetchPosts() {
   const loading = document.getElementById('blog-loading');
   const grid = document.getElementById('post-grid');
@@ -579,7 +648,7 @@ async function fetchPosts() {
   if (!CONFIG.workerUrl) {
     allPosts = DEMO_POSTS;
     document.getElementById('demo-banner').style.display = 'block';
-    renderCards(allPosts);
+    applyFilters();
     return;
   }
 
@@ -590,28 +659,16 @@ async function fetchPosts() {
     const res = await fetch(`${CONFIG.workerUrl}/posts`);
     if (!res.ok) throw new Error('Fetch failed');
     allPosts = await res.json();
-    renderCards(allPosts);
+    applyFilters();
   } catch (e) {
     console.error('Failed to load posts:', e);
     allPosts = DEMO_POSTS;
     document.getElementById('demo-banner').style.display = 'block';
-    renderCards(allPosts);
+    applyFilters();
   } finally {
     loading.style.display = 'none';
   }
 }
-
-/* ═══════════════════════════════════════════════════
-   TOPIC FILTERING
-   ═══════════════════════════════════════════════════ */
-document.querySelectorAll('.topic-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.topic-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const topic = btn.dataset.topic;
-    renderCards(topic === 'all' ? allPosts : allPosts.filter(p => p.topic === topic));
-  });
-});
 
 /* ═══════════════════════════════════════════════════
    INIT
@@ -625,14 +682,10 @@ document.addEventListener('click', e => {
   }
 });
 
-// Boot
 fetchPosts().then(() => {
-  // If URL has ?post=ID, open that article directly
   const params = new URLSearchParams(window.location.search);
   const postId = params.get('post');
-  if (postId && !postId.startsWith('demo-')) {
-    openArticle(postId);
-  }
+  if (postId && !postId.startsWith('demo-')) { openArticle(postId); }
 });
 </script>
 </body>
