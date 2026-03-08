@@ -125,7 +125,7 @@
   color: #4B3F34;
   line-height: 1.6;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   }
@@ -526,7 +526,8 @@ function applyFilters(resetPage = true) {
   if (query) {
     filtered = filtered.filter(p =>
       p.title.toLowerCase().includes(query) ||
-      (p.summary && p.summary.toLowerCase().includes(query))
+      (p.summary && p.summary.toLowerCase().includes(query)) ||
+      (p.keywords && p.keywords.toLowerCase().includes(query))
     );
   }
   renderCards(filtered, query);
@@ -567,7 +568,7 @@ function renderCards(posts, query = '') {
         <span class="card-topic ${topicClass(p.topic)}">${p.topic}</span>
         <h3 class="card-title">${applyBrandTokens(p.title)}</h3>
         <p class="card-date">${formatDate(p.posted)}</p>
-        <div class="card-summary-wrap"><p class="card-summary">${applyBrandTokens(p.summary)}</p></div>
+        <div class="card-summary-wrap"><p class="card-summary">${applyBrandTokens(p.summary ? (p.summary.length > 160 ? p.summary.slice(0, 160).trimEnd() + '…' : p.summary) : '')}</p></div>
         <span class="card-readmore">Lire la suite &rarr;</span>
       </div>
     </div>
