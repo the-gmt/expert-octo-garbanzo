@@ -731,9 +731,6 @@ document.addEventListener('click', e => {
 
 // Boot
 fetchPosts().then(() => {
-  //
-// Boot
-fetchPosts().then(() => {
   // If URL has ?post=ID, open that article directly
   const params = new URLSearchParams(window.location.search);
   const postId = params.get('post');
