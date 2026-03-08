@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assist Identité - Le Filtre Antipourriel</title>
+<title>Le Filtre Antipourriel – Blogue Assist Identité</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/IDAssist_button.png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap');
@@ -257,7 +257,7 @@
   </div>
   <div class="nav-links">
     <a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/identity">Vol d'identité et rétablissement</a>
-    <a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/plans">Plans et prix</a>
+    <a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/plans">Forfaits et tarifs</a>
     <a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/blog">Blogue</a>
     <a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/help">Aide</a>
     <a class="nav-login" href="https://identity.idassist.com/connect/login">Connexion</a>
@@ -268,7 +268,7 @@
   </button>
   <nav class="mobile-menu" id="mobile-menu">
     <a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/identity">Vol d'identité et rétablissement</a>
-    <a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/plans">Plans et prix</a>
+    <a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/plans">Forfaits et tarifs</a>
     <a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/blog">Blogue</a>
     <a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/help">Aide</a>
     <a href="https://identity.idassist.com/connect/login">Connexion</a>
@@ -377,7 +377,7 @@
         <tr><td>Amérique du Nord</td><td><a href="tel:18779001837">1&nbsp;877&nbsp;900-1837</a></td></tr>
         <tr><td>Toronto et appels à frais virés</td><td><a href="tel:16478375412">1&nbsp;647&nbsp;837-5412</a></td></tr>
       </table>
-      <p><a href="mailto:servicealaclientele@assistidentite.com">servicealaclientele@assistidentite.com</a></p>
+      <p><a href="/cdn-cgi/l/email-protection#f083958286999395919c91939c99959e84959c95b09183839983849994959e84998495de939f9d"><span class="__cf_email__" data-cfemail="0f7c6a7d79666c6a6e636e6c63666a617b6a636a4f6e7c7c667c7b666b6a617b667b6a216c6062">[email&#160;protected]</span></a></p>
       <div class="footer-maple">
         <img src="https://www.idassist.com/assets/images/footer-canada.svg" alt="" width="20" height="20">
         <p><strong>Des représentants canadiens sont disponibles 24/7</strong><br>pour les services de rétablissement.</p>
@@ -390,13 +390,13 @@
     <div class="footer-nav">
       <ul>
         <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/identity">Vol d'identité et rétablissement</a></li>
-        <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/plans">Plans et prix</a></li>
+        <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/plans">Forfaits et tarifs</a></li>
         <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/blog">Blogue</a></li>
         <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/help">Aide</a></li>
         <li><a href="https://www.assistidentite.com/fr/terms-conditions">Modalités et conditions</a></li>
         <li><a href="https://www.assistidentite.com/fr/privacy-policy">Politique de confidentialité</a></li>
         <li><a href="https://www.assistidentite.com/fr/cancellation-policy">Politique d'annulation</a></li>
-        <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/blog">EN</a></li>
+        <li><a href="#">EN</a></li>
       </ul>
     </div>
   </div>
@@ -408,13 +408,14 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ═══════════════════════════════════════════════════
    CONFIGURATION
    ═══════════════════════════════════════════════════ */
 const CONFIG = {
   workerUrl: 'https://id-assist-blog.the-gmt.workers.dev',
   lang: 'fr',
+  brandName: 'Assist&nbsp;Identité',
 };
 
 /* ═══════════════════════════════════════════════════
@@ -433,6 +434,8 @@ const DEMO_POSTS = [
    HELPERS
    ═══════════════════════════════════════════════════ */
 const topicClass = t => t ? t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/['']/g,'').replace(/\s+/g,'-') : '';
+
+const applyBrand = str => str ? str.replace(/\{\{brand_name\}\}/g, CONFIG.brandName) : str;
 
 function formatDate(iso) {
   if (!iso) return '';
@@ -493,9 +496,9 @@ function renderCards(posts, query = '') {
       ${p.cover ? `<img class="card-cover" src="${p.cover}" alt="" loading="lazy">` : `<div class="card-accent ${topicClass(p.topic)}"></div>`}
       <div class="card-body">
         <span class="card-topic ${topicClass(p.topic)}">${p.topic}</span>
-        <h3 class="card-title">${p.title}</h3>
+        <h3 class="card-title">${applyBrand(p.title)}</h3>
         <p class="card-date">${formatDate(p.posted)}</p>
-        <div class="card-summary-wrap"><p class="card-summary">${p.summary}</p></div>
+        <div class="card-summary-wrap"><p class="card-summary">${applyBrand(p.summary)}</p></div>
         <span class="card-readmore">Lire la suite &rarr;</span>
       </div>
     </div>
@@ -585,7 +588,7 @@ async function openArticle(postId) {
     document.getElementById('article-topic').textContent = post.topic;
     document.getElementById('article-title').textContent = post.title;
     document.getElementById('article-meta').textContent = formatDate(post.posted);
-    content.innerHTML = post.content;
+    content.innerHTML = applyBrand(post.content);
 
     content.querySelectorAll('h2, h3, h4, p, strong').forEach(el => {
       if (/table des mati[èe]res/i.test(el.textContent.trim())) {
@@ -666,15 +669,4 @@ const mobileMenu = document.getElementById('mobile-menu');
 hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
 document.addEventListener('click', e => {
   if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-    hamburger.classList.remove('open'); mobileMenu.classList.remove('open');
-  }
-});
-
-fetchPosts().then(() => {
-  const params = new URLSearchParams(window.location.search);
-  const postId = params.get('article');
-  if (postId && !postId.startsWith('demo-')) openArticle(postId);
-});
-</script>
-</body>
-</html>
+    hamburger.classList.remov
