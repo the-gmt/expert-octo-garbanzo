@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ID Assist - The Spam Filter</title>
+<title>The Spam Filter – ID Assist Blog</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/the-gmt/expert-octo-garbanzo/faf8b0f57a69db3d551bf99fccea3d31dcf12b82/IDAssist_button.png">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap');
@@ -388,7 +388,7 @@
         <tr><td>North America</td><td><a href="tel:18779001837">1-877-900-1837</a></td></tr>
         <tr><td>Toronto and collect</td><td><a href="tel:16478375412">1-647-837-5412</a></td></tr>
       </table>
-      <p><a href="mailto:customerservice@idassist.com">customerservice@idassist.com</a></p>
+      <p><a href="/cdn-cgi/l/email-protection#35564046415a585047465047435c5650755c515446465c46411b565a58"><span class="__cf_email__" data-cfemail="8deef8fef9e2e0e8fffee8fffbe4eee8cde4e9ecfefee4fef9a3eee2e0">[email&#160;protected]</span></a></p>
       <div class="footer-maple">
         <img src="https://www.idassist.com/assets/images/footer-canada.svg" alt="" width="20" height="20">
         <p><strong>Canadian representatives available 24/7</strong><br>for restoration services.</p>
@@ -407,7 +407,7 @@
         <li><a href="https://www.idassist.com/en/terms-conditions">Terms &amp; Conditions</a></li>
         <li><a href="https://www.idassist.com/en/privacy-policy">Privacy Policy</a></li>
         <li><a href="https://www.idassist.com/en/cancellation-policy">Cancellation Policy</a></li>
-        <li><a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/blog">FR</a></li>
+        <li><a href="#">FR</a></li>
       </ul>
     </div>
   </div>
@@ -419,13 +419,14 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ═══════════════════════════════════════════════════
    CONFIGURATION
    ═══════════════════════════════════════════════════ */
 const CONFIG = {
   workerUrl: 'https://id-assist-blog.the-gmt.workers.dev',
   notionSiteBase: 'https://dynamic-stay-080.notion.site',
+  brandName: 'ID&nbsp;Assist',
 };
 
 /* ═══════════════════════════════════════════════════
@@ -444,6 +445,8 @@ const DEMO_POSTS = [
    HELPERS
    ═══════════════════════════════════════════════════ */
 const topicClass = t => t ? t.toLowerCase().replace(/\s+/g, '-') : '';
+
+const applyBrand = str => str ? str.replace(/\{\{brand_name\}\}/g, CONFIG.brandName) : str;
 
 function formatDate(iso) {
   if (!iso) return '';
@@ -504,9 +507,9 @@ function renderCards(posts, query = '') {
       ${p.cover ? `<img class="card-cover" src="${p.cover}" alt="" loading="lazy">` : `<div class="card-accent ${topicClass(p.topic)}"></div>`}
       <div class="card-body">
         <span class="card-topic ${topicClass(p.topic)}">${p.topic}</span>
-        <h3 class="card-title">${p.title}</h3>
+        <h3 class="card-title">${applyBrand(p.title)}</h3>
         <p class="card-date">${formatDate(p.posted)}</p>
-        <div class="card-summary-wrap"><p class="card-summary">${p.summary}</p></div>
+        <div class="card-summary-wrap"><p class="card-summary">${applyBrand(p.summary)}</p></div>
         <span class="card-readmore">Read more &rarr;</span>
       </div>
     </div>
@@ -597,7 +600,7 @@ async function openArticle(postId) {
     document.getElementById('article-topic').textContent = post.topic;
     document.getElementById('article-title').textContent = post.title;
     document.getElementById('article-meta').textContent = formatDate(post.posted);
-    content.innerHTML = post.content;
+    content.innerHTML = applyBrand(post.content);
 
     content.querySelectorAll('h2, h3, h4, p, strong').forEach(el => {
       if (el.textContent.trim() === 'Table of Contents') {
@@ -678,15 +681,4 @@ const mobileMenu = document.getElementById('mobile-menu');
 hamburger.addEventListener('click', () => { hamburger.classList.toggle('open'); mobileMenu.classList.toggle('open'); });
 document.addEventListener('click', e => {
   if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
-    hamburger.classList.remove('open'); mobileMenu.classList.remove('open');
-  }
-});
-
-fetchPosts().then(() => {
-  const params = new URLSearchParams(window.location.search);
-  const postId = params.get('post');
-  if (postId && !postId.startsWith('demo-')) { openArticle(postId); }
-});
-</script>
-</body>
-</html>
+    hamburger.classList.remove('open'); mobileMenu
