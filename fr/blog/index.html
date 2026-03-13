@@ -125,7 +125,7 @@
   color: #4B3F34;
   line-height: 1.6;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   }
@@ -296,14 +296,12 @@
   }
 </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script src="/js/analytics.js"></script>    
 <body>
 
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <a href="https://the-gmt.github.io/expert-octo-garbanzo/fr">
+    <a href="https://the-gmt.github.io/expert-octo-garbanzo/fr/blog">
       <img src="https://www.assistidentite.com/assets/images/id-assist-fr.svg" alt="Assist Identité" style="height:50px;">
     </a>
   </div>
@@ -432,7 +430,7 @@
         <tr><td>Amérique du Nord</td><td><a href="tel:18779001837">1-877-900-1837</a></td></tr>
         <tr><td>Toronto et à frais virés</td><td><a href="tel:16478375412">1-647-837-5412</a></td></tr>
       </table>
-      <p><a href="mailto:servicealaclientele@assistidentite.com">servicealaclientele@assistidentite.com</a></p>
+      <p><a href="/cdn-cgi/l/email-protection#1d6e786f6b747e787c717c7e71747873697871785d7c6e6e746e697479787369746978337e7270"><span class="__cf_email__" data-cfemail="45362037332c262024292426292c202b31202920052436362c36312c21202b312c31206b262a28">[email&#160;protected]</span></a></p>
       <div class="footer-maple">
         <img src="https://www.idassist.com/assets/images/footer-canada.svg" alt="" width="20" height="20">
         <p><strong>Des représentants canadiens disponibles 24 h/7 j</strong><br>pour les services de rétablissement.</p>
@@ -528,8 +526,7 @@ function applyFilters(resetPage = true) {
   if (query) {
     filtered = filtered.filter(p =>
       p.title.toLowerCase().includes(query) ||
-      (p.summary && p.summary.toLowerCase().includes(query)) ||
-      (p.keywords && p.keywords.toLowerCase().includes(query))
+      (p.summary && p.summary.toLowerCase().includes(query))
     );
   }
   renderCards(filtered, query);
@@ -570,7 +567,7 @@ function renderCards(posts, query = '') {
         <span class="card-topic ${topicClass(p.topic)}">${p.topic}</span>
         <h3 class="card-title">${applyBrandTokens(p.title)}</h3>
         <p class="card-date">${formatDate(p.posted)}</p>
-        <div class="card-summary-wrap"><p class="card-summary">${applyBrandTokens(p.summary ? (p.summary.length > 160 ? p.summary.slice(0, 160).trimEnd() + '…' : p.summary) : '')}</p></div>
+        <div class="card-summary-wrap"><p class="card-summary">${applyBrandTokens(p.summary)}</p></div>
         <span class="card-readmore">Lire la suite &rarr;</span>
       </div>
     </div>
@@ -699,7 +696,23 @@ let allPosts = [];
 let activeSearch = '';
 let activeTopic = 'all';
 let currentPage = 1;
-const POSTS_PER_PAGE = 9;
+const POSTS_PER_PAGE = 6;
+
+async function fetchWithRetry(url, retries = 2, delayMs = 2000) {
+  for (let i = 0; i <= retries; i++) {
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 5000);
+      const res = await fetch(url, { signal: controller.signal });
+      clearTimeout(timeout);
+      if (!res.ok) throw new Error('Fetch failed');
+      return res;
+    } catch (e) {
+      if (i < retries) await new Promise(r => setTimeout(r, delayMs));
+      else throw e;
+    }
+  }
+}
 
 async function fetchPosts() {
   const loading = document.getElementById('blog-loading');
@@ -716,18 +729,14 @@ async function fetchPosts() {
   grid.innerHTML = '';
 
   try {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 5000);
-    const res = await fetch(`${CONFIG.workerUrl}/fr/posts`, { signal: controller.signal });
-    clearTimeout(timeout);
-    if (!res.ok) throw new Error('Fetch failed');
+    const res = await fetchWithRetry(`${CONFIG.workerUrl}/fr/posts`);
     allPosts = await res.json();
     applyFilters();
   } catch (e) {
     console.error('Failed to load posts:', e);
-    allPosts = DEMO_POSTS;
-    document.getElementById('demo-banner').style.display = 'block';
-    applyFilters();
+    const banner = document.getElementById('demo-banner');
+    banner.innerHTML = 'Impossible de charger les articles pour le moment. Veuillez actualiser la page pour réessayer.';
+    banner.style.display = 'block';
   } finally {
     loading.style.display = 'none';
   }
