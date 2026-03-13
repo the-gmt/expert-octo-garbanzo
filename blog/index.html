@@ -432,7 +432,7 @@
         <tr><td>North America</td><td><a href="tel:18779001837">1-877-900-1837</a></td></tr>
         <tr><td>Toronto and collect</td><td><a href="tel:16478375412">1-647-837-5412</a></td></tr>
       </table>
-      <p><a href="mailto:customerservice@idassist.com">customerservice@idassist.com</a></p>
+      <p><a href="/cdn-cgi/l/email-protection#5a392f292e35373f28293f282c33393f1a333e3b292933292e74393537"><span class="__cf_email__" data-cfemail="20435553544f4d4552534552564943456049444153534953540e434f4d">[email&#160;protected]</span></a></p>
       <div class="footer-maple">
         <img src="https://www.idassist.com/assets/images/footer-canada.svg" alt="" width="20" height="20">
         <p><strong>Canadian representatives available 24/7</strong><br>for restoration services.</p>
@@ -463,7 +463,7 @@
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ═══════════════════════════════════════════════════
    CONFIGURATION
    ═══════════════════════════════════════════════════ */
@@ -717,9 +717,9 @@ async function fetchPosts() {
     applyFilters();
   } catch (e) {
     console.error('Failed to load posts:', e);
-    allPosts = DEMO_POSTS;
-    document.getElementById('demo-banner').style.display = 'block';
-    applyFilters();
+    const banner = document.getElementById('demo-banner');
+    banner.innerHTML = 'Unable to load posts right now. Please refresh the page to try again.';
+    banner.style.display = 'block';
   } finally {
     loading.style.display = 'none';
   }
